@@ -1,0 +1,26 @@
+@let modalText = textModal();
+<div class="contentModal">
+  <div class="contentModal-title">{{modalText.title | translate}}</div>
+  
+  <div class="contentActions">
+      <div class="contentActions-info">{{modalText.messages| translate}}</div>
+      <div
+        class="contentActions-link"
+        (click)="actionConfirm(false, modalText.origin)"
+      >
+        <u>
+          {{modalText.textLink| translate}}
+        </u>
+      </div>
+      @if (modalText.textButton) {
+        <div>
+          <button
+            (click)="actionConfirm(true, modalText.origin)"
+            class="mediumButton"
+          >
+            {{modalText.textButton| translate}}
+          </button>
+        </div>
+      }
+  </div>
+</div>

@@ -1,0 +1,2607 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sim documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sim documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  GuidelinesModalComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>guidelines-modal</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../miscellaneous/variables.html#GUIDElINES_MODAL_MODULES" target="_self" >GUIDElINES_MODAL_MODULES</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./guidelines-modal.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./guidelines-modal.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_unSubscribe" >_unSubscribe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#actionButton" >actionButton</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmModalAction" >confirmModalAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmModalMessageSucces" >confirmModalMessageSucces</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#GuideLinesForm" >GuideLinesForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ICONS_CONST" >ICONS_CONST</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isConfirm" >isConfirm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isConfirmAction" >isConfirmAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isEdit" >isEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#maxName" >maxName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#policiansList" >policiansList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#title" >title</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#titleHeader" >titleHeader</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addForm" >addForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#cancelForm" >cancelForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changeActive" >changeActive</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmAction" >confirmAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createFormGroup" >createFormGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteForm" >deleteForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteGuideline" >deleteGuideline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#formatDate" >formatDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initForm" >initForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadPolicians" >loadPolicians</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onSelectedOption" >onSelectedOption</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#processData" >processData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeForm" >removeForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#saveForm" >saveForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setMessage" >setMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setMessageConfirmModal" >setMessageConfirmModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isEdit" >isEdit</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionButton" >actionButton</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#getGuidelinesForm" >getGuidelinesForm</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, planningService: <a href="../injectables/PlanningService.html" target="_self">PlanningService</a>, secureStorage: <a href="../injectables/SecureStorageService.html" target="_self">SecureStorageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>planningService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PlanningService.html" target="_self" >PlanningService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>secureStorage</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SecureStorageService.html" target="_self" >SecureStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isEdit"></a>
+                        <b>isEdit</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:43</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:42</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="actionButton"></a>
+                        <b>actionButton</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:44</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addForm</b></span>
+                        <a href="#addForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>cancelForm</b></span>
+                        <a href="#cancelForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>cancelForm(action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>action</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeActive"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changeActive</b></span>
+                        <a href="#changeActive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeActive()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:210</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmAction"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmAction</b></span>
+                        <a href="#confirmAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>confirmAction(isConfirm: <a href="../interfaces/IEmmitrAction.html" target="_self">IEmmitrAction</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="166"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isConfirm</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IEmmitrAction.html" target="_self" >IEmmitrAction</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createFormGroup"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createFormGroup</b></span>
+                        <a href="#createFormGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createFormGroup(data?: <a href="../interfaces/IGetGuidelinesResponse.html" target="_self">IGetGuidelinesResponse</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IGetGuidelinesResponse.html" target="_self" >IGetGuidelinesResponse</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>FormGroup</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>deleteForm</b></span>
+                        <a href="#deleteForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteForm(action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>action</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteGuideline"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>deleteGuideline</b></span>
+                        <a href="#deleteGuideline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteGuideline(guideline: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="180"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:180</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>guideline</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatDate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>formatDate</b></span>
+                        <a href="#formatDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>formatDate(dateString: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="261"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:261</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dateString</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initForm</b></span>
+                        <a href="#initForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initForm(isEdit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isEdit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadPolicians"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadPolicians</b></span>
+                        <a href="#loadPolicians"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadPolicians()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="279"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:279</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSelectedOption"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>onSelectedOption</b></span>
+                        <a href="#onSelectedOption"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onSelectedOption(optionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, index?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>optionId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processData"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>processData</b></span>
+                        <a href="#processData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="224"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:224</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>removeForm</b></span>
+                        <a href="#removeForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeForm(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>saveForm</b></span>
+                        <a href="#saveForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveForm(form: <a href="../interfaces/ISaveGuideLines.html" target="_self">ISaveGuideLines</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="236"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>form</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ISaveGuideLines.html" target="_self" >ISaveGuideLines</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMessage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setMessage</b></span>
+                        <a href="#setMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setMessage(title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>title</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>null</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMessageConfirmModal"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setMessageConfirmModal</b></span>
+                        <a href="#setMessageConfirmModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setMessageConfirmModal(origin: <a href="../undefineds/actionOrigin.html" target="_self">actionOrigin</a>, message?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>origin</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#actionOrigin" target="_self" >actionOrigin</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_unSubscribe"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>_unSubscribe</b></span>
+                        <a href="#_unSubscribe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionButton"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>actionButton</b></span>
+                        <a href="#actionButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmModalAction"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmModalAction</b></span>
+                        <a href="#confirmModalAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IConfirmActionModal.html" target="_self" >IConfirmActionModal</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmModalMessageSucces"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmModalMessageSucces</b></span>
+                        <a href="#confirmModalMessageSucces"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;PLANNING.lineamientos.modal.success&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GuideLinesForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>GuideLinesForm</b></span>
+                        <a href="#GuideLinesForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ICONS_CONST"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ICONS_CONST</b></span>
+                        <a href="#ICONS_CONST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ICON_IMAGES</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isConfirm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isConfirm</b></span>
+                        <a href="#isConfirm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isConfirmAction"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isConfirmAction</b></span>
+                        <a href="#isConfirmAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isEdit</b></span>
+                        <a href="#isEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxName"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>maxName</b></span>
+                        <a href="#maxName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LIMIT.input</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="policiansList"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>policiansList</b></span>
+                        <a href="#policiansList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;IPoliticasResponse[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="title"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="titleHeader"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>titleHeader</b></span>
+                        <a href="#titleHeader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getGuidelinesForm"></a>
+                        <span class="name"><b>getGuidelinesForm</b><a href="#getGuidelinesForm"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>getGuidelinesForm()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="272" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/modals/guidelines-modal/guidelines-modal.component.ts:272</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  OnDestroy,
+  OnInit,
+  output,
+  signal,
+} from &#x27;@angular/core&#x27;;
+import { FormGroup, FormBuilder, Validators, FormArray } from &#x27;@angular/forms&#x27;;
+import { APP_CONST } from &#x27;@DomainConstants/shared/app.constants&#x27;;
+import { ICON_IMAGES } from &#x27;@DomainConstants/shared/icons-images.constants&#x27;;
+import { actionOrigin } from &#x27;@DomainConstants/types/actions.types&#x27;;
+import {
+  IConfirmActionModal,
+  IEmmitrAction,
+  IGetGuidelinesResponse,
+  IModalEdit,
+  IPoliticasResponse,
+  ISaveGuideLines,
+} from &#x27;@DomainInterfaces/planning.interface&#x27;;
+import { PlanningService } from &#x27;@services/planningService.service&#x27;;
+import { GUIDElINES_MODAL_MODULES } from &#x27;./guideLines.modules&#x27;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+import {
+  LIMIT,
+  PLANNING_SERVICE_CONST,
+} from &#x27;@DomainConstants/components/planing.constants&#x27;;
+import { STORAGE_CONST } from &#x27;@DomainConstants/shared/storage.constants&#x27;;
+import { SecureStorageService } from &#x27;@shared/security/storage/secure-storage.service&#x27;;
+
+@Component({
+  selector: &#x27;guidelines-modal&#x27;,
+  standalone: true,
+  imports: [...GUIDElINES_MODAL_MODULES],
+  templateUrl: &#x27;./guidelines-modal.component.html&#x27;,
+  styleUrl: &#x27;./guidelines-modal.component.scss&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class GuidelinesModalComponent implements OnInit, OnDestroy {
+  public ICONS_CONST &#x3D; ICON_IMAGES;
+  public title &#x3D; input.required&lt;string&gt;();
+  public isEdit &#x3D; input&lt;IModalEdit&gt;();
+  public actionButton &#x3D; output&lt;boolean&gt;();
+
+  public isConfirmAction &#x3D; signal&lt;boolean&gt;(false);
+  public isConfirm &#x3D; signal&lt;boolean&gt;(false);
+  public policiansList &#x3D; signal&lt;IPoliticasResponse[]&gt;([]);
+  
+  public GuideLinesForm: FormGroup;
+  public titleHeader: string;
+  public confirmModalAction: IConfirmActionModal;
+  public _unSubscribe &#x3D; new Subject&lt;void&gt;();
+  public confirmModalMessageSucces: string &#x3D;
+    &#x27;PLANNING.lineamientos.modal.success&#x27;;
+  public maxName: number &#x3D; LIMIT.input;
+
+  constructor(
+    private fb: FormBuilder,
+    private planningService: PlanningService,
+    private secureStorage: SecureStorageService,
+  ) {
+    this.loadPolicians();
+  }
+
+  ngOnInit(): void {
+    this.initForm(this.isEdit().idEdit);
+    this.setMessage(this.isEdit().elementSelected?.nombre);
+    if (this.isEdit().idEdit) {
+      this.confirmModalMessageSucces &#x3D;
+        &#x27;PLANNING.lineamientos.modal.updateGuidelineMessage&#x27;;
+    }
+  }
+
+  private loadPolicians(): void {
+    this.planningService
+      .getPolicies()
+      .pipe(takeUntil(this._unSubscribe))
+      .subscribe((response: IPoliticasResponse[]) &#x3D;&gt; {
+        this.policiansList.update(() &#x3D;&gt; response);
+        this.onSelectedOption(this.isEdit().elementSelected?.politica.id);
+      });
+  }
+
+  private initForm(isEdit: boolean): void {
+    this.GuideLinesForm &#x3D; this.fb.group({
+      forms: this.fb.array([
+        this.createFormGroup(isEdit ? this.isEdit().elementSelected : null),
+      ]),
+    });
+  }
+
+  private createFormGroup(data?: IGetGuidelinesResponse): FormGroup {
+    return this.fb.group({
+      id: [&#x27;&#x27;],
+      nombre: [data?.nombre ?? &#x27;&#x27;, Validators.required],
+      idPolitica: [data?.politica?.id ?? null, Validators.required],
+      activo: [data?.activo ?? true],
+      fechaInicio: [this.formatDate(String(data?.politica?.fechaInicio ?? &#x27;&#x27;))],
+      fechaFin: [this.formatDate(String(data?.politica?.fechaFin ?? &#x27;&#x27;))],
+      entidad: [data?.politica?.entidad.id ?? null],
+      nameEntidad: [data?.politica?.entidad.nombre ?? null],
+      tipoEntidad: [data?.politica?.cobertura ?? null],
+      idMuseo: [this.secureStorage.getItem(STORAGE_CONST.idMuseum)],
+    });
+  }
+
+  public addForm() {
+    this.getGuidelinesForm.push(this.createFormGroup());
+  }
+
+  public removeForm(index: number) {
+    this.getGuidelinesForm.removeAt(index);
+  }
+
+  public cancelForm(action: boolean) {
+    if (action) {
+      this.actionButton.emit(false);
+    } else {
+      this.isConfirmAction.update(() &#x3D;&gt; false);
+    }
+  }
+
+  public deleteForm(action: boolean): void {
+    if (action) {
+      this.deleteGuideline(this.isEdit().elementSelected.id);
+    } else {
+      this.isConfirmAction.update(() &#x3D;&gt; false);
+    }
+    console.log(&#x27;idGuideline&#x27;, this.isEdit().elementSelected.id);
+  }
+
+  public setMessageConfirmModal(origin: actionOrigin, message?: string): void {
+    switch (origin) {
+      case &#x27;cancel&#x27;:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;SHARED_MESSAGES.confirmCancel&#x27;,
+          messages: &#x27;SHARED_MESSAGES.nessageCancel&#x27;,
+          textLink: &#x27;BUTTONS.stayHere&#x27;,
+          textButton: &#x27;BUTTONS.confirmCancel&#x27;,
+        };
+        break;
+      case &#x27;error&#x27;:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;PLANNING.lineamientos.modal.errorTitle&#x27;,
+          messages: message,
+          textLink: null,
+          textButton: &#x27;BUTTONS.agree&#x27;,
+        };
+        break;
+      default:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;PLANNING.lineamientos.modal.confirmDelete&#x27;,
+          messages: &#x27;PLANNING.lineamientos.modal.messageDelete&#x27;,
+          textLink: &#x27;BUTTONS.stayHere&#x27;,
+          textButton: &#x27;BUTTONS.confirmDelete&#x27;,
+        };
+        break;
+    }
+    this.isConfirmAction.update(() &#x3D;&gt; true);
+  }
+
+  public confirmAction(isConfirm: IEmmitrAction): void {
+    switch (isConfirm.origin) {
+      case &#x27;cancel&#x27;:
+        this.cancelForm(isConfirm.action);
+        break;
+      case &#x27;error&#x27;:
+        this.isConfirmAction.update(() &#x3D;&gt; false);
+        break;
+      default:
+        this.deleteForm(isConfirm.action);
+        break;
+    }
+  }
+
+  private deleteGuideline(guideline: string): void {
+    this.planningService
+      .deleteGuidelines(guideline)
+      .pipe(takeUntil(this._unSubscribe))
+      .subscribe(resp &#x3D;&gt; {
+        console.log(&#x27;Delete GuideLine&#x27;, resp);
+        setTimeout(() &#x3D;&gt; {
+          this.actionButton.emit(true);
+        }, 200);
+      });
+  }
+
+  public onSelectedOption(optionId: string, index?: number): void {
+    const selectedOption &#x3D; this.policiansList().find(
+      option &#x3D;&gt; option.id &#x3D;&#x3D;&#x3D; optionId,
+    );
+
+    this.getGuidelinesForm?.at(index)?.patchValue({
+      fechaFin: this.formatDate(
+        selectedOption.fechaFin ? String(selectedOption.fechaFin) : &#x27;&#x27;,
+      ),
+      fechaInicio: this.formatDate(
+        selectedOption.fechaInicio ? String(selectedOption.fechaInicio) : &#x27;&#x27;,
+      ),
+      entidad: selectedOption.entidad.id,
+      nameEntidad: selectedOption.entidad.nombre,
+      tipoEntidad: selectedOption.cobertura,
+    });
+  }
+
+  public changeActive(): void {
+    const currentValue &#x3D; this.GuideLinesForm.get(&#x27;activo&#x27;)?.value;
+    this.GuideLinesForm.patchValue({
+      activo: !currentValue,
+    });
+  }
+
+  public setMessage(title: string &#x3D; null): void {
+    console.log(&#x27;Title &#x27;, title);
+    this.titleHeader &#x3D; title
+      ? title
+      : &#x60;${APP_CONST.MODAL_GUIDELINES.modalGuidelines}${this.title()}&#x60;;
+  }
+
+  public processData(): void {
+    const form &#x3D; this.GuideLinesForm.value.forms;
+    const processData &#x3D; form.map(value &#x3D;&gt; ({
+      id: &#x27;&#x27;,
+      nombre: value.nombre,
+      idPolitica: value.idPolitica,
+      activo: value.activo,
+      idMuseo: value.idMuseo,
+    }));
+    this.saveForm(processData);
+  }
+
+  public saveForm(form: ISaveGuideLines): void {
+    if (this.isEdit().idEdit) {
+      form[0].id &#x3D; this.isEdit().elementSelected.id;
+    }
+
+    const serviceFunction &#x3D; this.isEdit().idEdit
+      ? PLANNING_SERVICE_CONST.edit_guideline
+      : PLANNING_SERVICE_CONST.create_guideline;
+
+    this.planningService[serviceFunction](form)
+      .pipe(takeUntil(this._unSubscribe))
+      .subscribe(response &#x3D;&gt; {
+        console.log(&#x27;Response Create&#x27;, response);
+        if (response?.error) {
+          this.setMessageConfirmModal(&#x27;error&#x27;, response?.error.message);
+        } else {
+          this.isConfirm.update(() &#x3D;&gt; true);
+          setTimeout(() &#x3D;&gt; {
+            this.actionButton.emit(true);
+          }, 2000);
+        }
+      });
+    console.log(&#x27;Value Form&#x27;, form);
+  }
+
+  private formatDate(dateString: string): string {
+    if (dateString &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+      return &#x27;&#x27;;
+    }
+    const date &#x3D; new Date(dateString);
+    const day &#x3D; (&#x27;0&#x27; + date.getDate()).slice(-2);
+    const month &#x3D; (&#x27;0&#x27; + (date.getMonth() + 1)).slice(-2);
+    const year &#x3D; date.getFullYear();
+    return &#x60;${day}/${month}/${year}&#x60;;
+  }
+
+  public get getGuidelinesForm(): FormArray {
+    return this.GuideLinesForm.get(&#x27;forms&#x27;) as FormArray;
+  }
+  // public onRadioChange(selectedValue: string): void {
+  //   this.selectedOption.cobertura &#x3D; selectedValue;
+  // }
+
+  ngOnDestroy(): void {
+    this._unSubscribe.next();
+    this._unSubscribe.complete();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@let isConfirmModalAction &#x3D; isConfirmAction();
+@let isConfirmModal &#x3D; isConfirm();
+@let isEditFlow &#x3D; isEdit();
+
+&lt;div class&#x3D;&quot;contentModalShow&quot;&gt;
+  &lt;div class&#x3D;&quot;contentModal&quot;&gt;
+    &lt;div class&#x3D;&quot;contentInfo&quot;&gt;
+      &lt;div class&#x3D;&quot;contentInfo-title&quot;&gt;
+        {{titleHeader | translate}}
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;contentInfo-titleInfo&quot;&gt;
+        {{&#x27;PLANNING.lineamientos.modal.info&#x27; | translate}}
+      &lt;/div&gt;
+      &lt;form [formGroup]&#x3D;&quot;GuideLinesForm&quot;&gt;
+        &lt;div formArrayName&#x3D;&quot;forms&quot;&gt;
+          &lt;div
+            *ngFor&#x3D;&quot;let group of getGuidelinesForm.controls; let i &#x3D; index&quot;
+            [formGroupName]&#x3D;&quot;i&quot;
+          &gt;
+            &lt;div class&#x3D;&quot;contentForm&quot;&gt;
+              &lt;div class&#x3D;&quot;contentToggle&quot;&gt;
+                &lt;span
+                  &gt;{{&#x27;PLANNING.lineamientos.modal.active&#x27; | translate}}&lt;/span
+                &gt;
+                &lt;div class&#x3D;&quot;toggle-switch&quot; (click)&#x3D;&quot;changeActive()&quot;&gt;
+                  &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;toggle&quot; formControlName&#x3D;&quot;activo&quot; /&gt;
+                  &lt;label for&#x3D;&quot;toggle&quot; class&#x3D;&quot;toggle-label&quot;&gt;&lt;/label&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;name initialContent&quot;&gt;
+                &lt;div class&#x3D;&quot;title&quot;&gt;
+                  {{&#x27;PLANNING.lineamientos.modal.nombreLineamiento&#x27; | translate}}
+                &lt;/div&gt;
+                &lt;input
+                  [maxlength]&#x3D;&quot;maxName&quot;
+                  class&#x3D;&quot;spaceText&quot;
+                  type&#x3D;&quot;text&quot;
+                  formControlName&#x3D;&quot;nombre&quot;
+                  placeholder&#x3D;&quot;{{&#x27;PLANNING.lineamientos.modal.nombreLineamientoPlaceHolder&#x27; | translate}}&quot;
+                /&gt;
+                &lt;div
+                  class&#x3D;&quot;counterText&quot;
+                  [innerHTML]&#x3D;&quot;group?.get(&#x27;nombre&#x27;)?.value.length + &#x27;/&#x27; + maxName&quot;
+                &gt;&lt;/div&gt;
+                &lt;div class&#x3D;&quot;space&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;name&quot;&gt;
+                &lt;div class&#x3D;&quot;title&quot;&gt;
+                  {{&#x27;PLANNING.lineamientos.modal.politica&#x27; | translate}}
+                &lt;/div&gt;
+                &lt;select
+                  name&#x3D;&quot;policians&quot;
+                  formControlName&#x3D;&quot;idPolitica&quot;
+                  (ngModelChange)&#x3D;&quot;onSelectedOption($event, i)&quot;
+                &gt;
+                  &lt;option disabled [ngValue]&#x3D;&quot;null&quot;&gt;
+                    {{&#x27;PLANNING.lineamientos.modal.politicaPlaceHolder&#x27; | translate}}
+                  &lt;/option&gt;
+                  @for (policians of policiansList(); track $index) {
+                    &lt;option [value]&#x3D;&quot;policians.id&quot;&gt;
+                      {{ policians.nombre}}
+                    &lt;/option&gt;
+                  }
+                &lt;/select&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;name&quot;&gt;
+                &lt;div class&#x3D;&quot;title&quot;&gt;
+                  {{&#x27;PLANNING.lineamientos.modal.vigencia&#x27; | translate}}
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;contentVigencia&quot;&gt;
+                  &lt;input
+                    readonly
+                    [value]&#x3D;&quot;group?.get(&#x27;fechaInicio&#x27;)?.value&quot;
+                    formControlName&#x3D;&quot;fechaInicio&quot;
+                    class&#x3D;&quot;spaceText&quot;
+                    type&#x3D;&quot;text&quot;
+                    placeholder&#x3D;&quot;{{&#x27;PLANNING.lineamientos.modal.vigenciaDate&#x27; | translate}}&quot;
+                  /&gt;
+                  &lt;div class&#x3D;&quot;titleDates&quot;&gt;
+                    {{&#x27;PLANNING.lineamientos.modal.hasta&#x27; | translate}}
+                  &lt;/div&gt;
+
+                  &lt;input
+                    readonly
+                    [value]&#x3D;&quot;group?.get(&#x27;fechaFin&#x27;)?.value&quot;
+                    formControlName&#x3D;&quot;fechaFin&quot;
+                    class&#x3D;&quot;spaceText&quot;
+                    type&#x3D;&quot;text&quot;
+                    placeholder&#x3D;&quot;{{&#x27;PLANNING.lineamientos.modal.vigenciaDate&#x27; | translate}}&quot;
+                  /&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;name&quot;&gt;
+                &lt;div class&#x3D;&quot;title&quot;&gt;
+                  {{&#x27;PLANNING.lineamientos.modal.entidad&#x27; | translate}}
+                &lt;/div&gt;
+                &lt;input
+                  readonly
+                  formControlName&#x3D;&quot;nameEntidad&quot;
+                  class&#x3D;&quot;spaceText&quot;
+                  type&#x3D;&quot;text&quot;
+                  placeholder&#x3D;&quot;{{&#x27;PLANNING.lineamientos.modal.entidadPlaceHolder&#x27; | translate}}&quot;
+                /&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;name initialContent&quot;&gt;
+                &lt;div class&#x3D;&quot;title&quot;&gt;
+                  {{&#x27;PLANNING.lineamientos.modal.tipoEntidad&#x27; | translate}}
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;entityType&quot;&gt;
+                  &lt;input
+                    readonly
+                    class&#x3D;&quot;spaceText&quot;
+                    type&#x3D;&quot;text&quot;
+                    formControlName&#x3D;&quot;tipoEntidad&quot;
+                    placeholder&#x3D;&quot;{{&#x27;PLANNING.lineamientos.modal.tipoEntidad&#x27; | translate}}&quot;
+                  /&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;space&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;contentDelete&quot;&gt;
+                @if (getGuidelinesForm?.controls.length &gt; 1) {
+                  &lt;div class&#x3D;&quot;contentDelete-botton&quot; (click)&#x3D;&quot;removeForm(i)&quot;&gt;
+                    &lt;img
+                      class&#x3D;&quot;blackIcon contentDelete-botton_img&quot;
+                      src&#x3D;&quot;{{ ICONS_CONST.delete}}&quot;
+                      alt&#x3D;&quot;{{ICONS_CONST.edit}}&quot;
+                    /&gt;
+                    &lt;u class&#x3D;&quot;titleLinks&quot;&gt;{{&#x27;BUTTONS.delete&#x27; | translate}}&lt;/u&gt;
+                  &lt;/div&gt;
+                }
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;contentButton&quot;&gt;
+            @if (isEditFlow.idEdit) {
+              &lt;div [actionPermission]&#x3D;&quot;&#x27;borrar&#x27;&quot; class&#x3D;&quot;contentButton-add&quot;&gt;
+                &lt;img
+                  class&#x3D;&quot;blackIcon contentButton-add_img&quot;
+                  src&#x3D;&quot;{{ ICONS_CONST.delete}}&quot;
+                  alt&#x3D;&quot;{{ICONS_CONST.delete}}&quot;
+                /&gt;
+                &lt;u
+                  (click)&#x3D;&quot;setMessageConfirmModal(&#x27;delete&#x27;)&quot;
+                  class&#x3D;&quot;blackIcon contentButton-add_link&quot;
+                &gt;
+                  {{&#x27;BUTTONS.delete&#x27; | translate}}
+                &lt;/u&gt;
+              &lt;/div&gt;
+            } @else {
+              &lt;div class&#x3D;&quot;contentButton-add&quot;&gt;
+                &lt;img
+                  class&#x3D;&quot;blackIcon contentButton-add_img&quot;
+                  src&#x3D;&quot;{{ ICONS_CONST.add}}&quot;
+                  alt&#x3D;&quot;{{ICONS_CONST.add}}&quot;
+                /&gt;
+                &lt;u (click)&#x3D;&quot;addForm()&quot; class&#x3D;&quot;blackIcon contentButton-add_link&quot;&gt;
+                  {{&#x27;BUTTONS.addGuideline&#x27; | translate}}
+                &lt;/u&gt;
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;contentButton&quot;&gt;
+      &lt;div class&#x3D;&quot;contentButton-actions&quot;&gt;
+        &lt;u
+          class&#x3D;&quot;contentButton-actions_links&quot;
+          (click)&#x3D;&quot;setMessageConfirmModal(&#x27;cancel&#x27;)&quot;
+          &gt;{{&#x27;BUTTONS.cancel&#x27; | translate}}&lt;/u
+        &gt;
+
+        &lt;button
+          [disabled]&#x3D;&quot;GuideLinesForm.invalid&quot;
+          class&#x3D;&quot;largeButton&quot;
+          (click)&#x3D;&quot;processData()&quot;
+        &gt;
+          {{( !isEditFlow.idEdit ? &#x27;BUTTONS.save&#x27;: &#x27;BUTTONS.saveChanges&#x27;) | translate}}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  @if (isConfirmModalAction) {
+    &lt;div class&#x3D;&quot;contentConfirmModal&quot;&gt;
+      &lt;confirm-action-modal
+        [textModal]&#x3D;&quot;confirmModalAction&quot;
+        (actionButton)&#x3D;&quot;confirmAction($event)&quot;
+      /&gt;
+    &lt;/div&gt;
+  }
+  @if (isConfirmModal) {
+    &lt;div class&#x3D;&quot;contentConfirmModal&quot;&gt;
+      &lt;confirm-modal [textModal]&#x3D;&quot;confirmModalMessageSucces&quot; /&gt;
+    &lt;/div&gt;
+  }
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@let isConfirmModalAction = isConfirmAction();@let isConfirmModal = isConfirm();@let isEditFlow = isEdit();<div class="contentModalShow">  <div class="contentModal">    <div class="contentInfo">      <div class="contentInfo-title">        {{titleHeader | translate}}      </div>      <div class="contentInfo-titleInfo">        {{\'PLANNING.lineamientos.modal.info\' | translate}}      </div>      <form [formGroup]="GuideLinesForm">        <div formArrayName="forms">          <div            *ngFor="let group of getGuidelinesForm.controls; let i = index"            [formGroupName]="i"          >            <div class="contentForm">              <div class="contentToggle">                <span                  >{{\'PLANNING.lineamientos.modal.active\' | translate}}</span                >                <div class="toggle-switch" (click)="changeActive()">                  <input type="checkbox" id="toggle" formControlName="activo" />                  <label for="toggle" class="toggle-label"></label>                </div>              </div>              <div class="name initialContent">                <div class="title">                  {{\'PLANNING.lineamientos.modal.nombreLineamiento\' | translate}}                </div>                <input                  [maxlength]="maxName"                  class="spaceText"                  type="text"                  formControlName="nombre"                  placeholder="{{\'PLANNING.lineamientos.modal.nombreLineamientoPlaceHolder\' | translate}}"                />                <div                  class="counterText"                  [innerHTML]="group?.get(\'nombre\')?.value.length + \'/\' + maxName"                ></div>                <div class="space"></div>              </div>              <div class="name">                <div class="title">                  {{\'PLANNING.lineamientos.modal.politica\' | translate}}                </div>                <select                  name="policians"                  formControlName="idPolitica"                  (ngModelChange)="onSelectedOption($event, i)"                >                  <option disabled [ngValue]="null">                    {{\'PLANNING.lineamientos.modal.politicaPlaceHolder\' | translate}}                  </option>                  @for (policians of policiansList(); track $index) {                    <option [value]="policians.id">                      {{ policians.nombre}}                    </option>                  }                </select>              </div>              <div class="name">                <div class="title">                  {{\'PLANNING.lineamientos.modal.vigencia\' | translate}}                </div>                <div class="contentVigencia">                  <input                    readonly                    [value]="group?.get(\'fechaInicio\')?.value"                    formControlName="fechaInicio"                    class="spaceText"                    type="text"                    placeholder="{{\'PLANNING.lineamientos.modal.vigenciaDate\' | translate}}"                  />                  <div class="titleDates">                    {{\'PLANNING.lineamientos.modal.hasta\' | translate}}                  </div>                  <input                    readonly                    [value]="group?.get(\'fechaFin\')?.value"                    formControlName="fechaFin"                    class="spaceText"                    type="text"                    placeholder="{{\'PLANNING.lineamientos.modal.vigenciaDate\' | translate}}"                  />                </div>              </div>              <div class="name">                <div class="title">                  {{\'PLANNING.lineamientos.modal.entidad\' | translate}}                </div>                <input                  readonly                  formControlName="nameEntidad"                  class="spaceText"                  type="text"                  placeholder="{{\'PLANNING.lineamientos.modal.entidadPlaceHolder\' | translate}}"                />              </div>              <div class="name initialContent">                <div class="title">                  {{\'PLANNING.lineamientos.modal.tipoEntidad\' | translate}}                </div>                <div class="entityType">                  <input                    readonly                    class="spaceText"                    type="text"                    formControlName="tipoEntidad"                    placeholder="{{\'PLANNING.lineamientos.modal.tipoEntidad\' | translate}}"                  />                </div>                <div class="space"></div>              </div>              <div class="contentDelete">                @if (getGuidelinesForm?.controls.length > 1) {                  <div class="contentDelete-botton" (click)="removeForm(i)">                    <img                      class="blackIcon contentDelete-botton_img"                      src="{{ ICONS_CONST.delete}}"                      alt="{{ICONS_CONST.edit}}"                    />                    <u class="titleLinks">{{\'BUTTONS.delete\' | translate}}</u>                  </div>                }              </div>            </div>          </div>          <div class="contentButton">            @if (isEditFlow.idEdit) {              <div [actionPermission]="\'borrar\'" class="contentButton-add">                <img                  class="blackIcon contentButton-add_img"                  src="{{ ICONS_CONST.delete}}"                  alt="{{ICONS_CONST.delete}}"                />                <u                  (click)="setMessageConfirmModal(\'delete\')"                  class="blackIcon contentButton-add_link"                >                  {{\'BUTTONS.delete\' | translate}}                </u>              </div>            } @else {              <div class="contentButton-add">                <img                  class="blackIcon contentButton-add_img"                  src="{{ ICONS_CONST.add}}"                  alt="{{ICONS_CONST.add}}"                />                <u (click)="addForm()" class="blackIcon contentButton-add_link">                  {{\'BUTTONS.addGuideline\' | translate}}                </u>              </div>            }          </div>        </div>      </form>    </div>    <div class="contentButton">      <div class="contentButton-actions">        <u          class="contentButton-actions_links"          (click)="setMessageConfirmModal(\'cancel\')"          >{{\'BUTTONS.cancel\' | translate}}</u        >        <button          [disabled]="GuideLinesForm.invalid"          class="largeButton"          (click)="processData()"        >          {{( !isEditFlow.idEdit ? \'BUTTONS.save\': \'BUTTONS.saveChanges\') | translate}}        </button>      </div>    </div>  </div>  @if (isConfirmModalAction) {    <div class="contentConfirmModal">      <confirm-action-modal        [textModal]="confirmModalAction"        (actionButton)="confirmAction($event)"      />    </div>  }  @if (isConfirmModal) {    <div class="contentConfirmModal">      <confirm-modal [textModal]="confirmModalMessageSucces" />    </div>  }</div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'ChangePasswordComponent', 'selector': 'change-password'},{'name': 'CollaborationProjectsComponent', 'selector': 'app-collaboration-projects'},{'name': 'ConfirmActionModalComponent', 'selector': 'confirm-action-modal'},{'name': 'ConfirmModalComponent', 'selector': 'confirm-modal'},{'name': 'CreateProductComponent', 'selector': 'app-create-product'},{'name': 'CreateProjectModalComponent', 'selector': 'create-project-modal'},{'name': 'DashBoardComponent', 'selector': 'app-dash-board'},{'name': 'DetailContentPestanasComponent', 'selector': 'detail-content-pestanas'},{'name': 'DownloadReportsComponent', 'selector': 'app-download-reports'},{'name': 'EmptyComponentComponent', 'selector': 'empty-component'},{'name': 'EntitiesComponent', 'selector': 'entities-component'},{'name': 'ErrorModalComponent', 'selector': 'error-modal'},{'name': 'EvaluationProjectsComponent', 'selector': 'app-evaluation-projects'},{'name': 'GeneralManagementComponent', 'selector': 'app-planning'},{'name': 'GuidelinesModalComponent', 'selector': 'guidelines-modal'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InactivityModalComponent', 'selector': 'inactivity-modal'},{'name': 'IndicatorsComponent', 'selector': 'indicators'},{'name': 'IndicatorsModalComponent', 'selector': 'indicators-modal'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'login-component'},{'name': 'ManagementMenuComponent', 'selector': 'management-menu'},{'name': 'ManageProjectsComponent', 'selector': 'manage-projects'},{'name': 'MonitoringProjectComponent', 'selector': 'app-monitoring-project'},{'name': 'MultiselectCheckboxComponent', 'selector': 'multiselect-checkbox'},{'name': 'PlanningStrategiesComponent', 'selector': 'planning-strategies'},{'name': 'PlansModalComponent', 'selector': 'plans-modal'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ReportsPlaningComponent', 'selector': 'app-reports-planing'},{'name': 'ResetLinkComponent', 'selector': 'reset-component'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'StrategicGuidelinesComponent', 'selector': 'strategic-guidelines'},{'name': 'StrategicPlansComponent', 'selector': 'strategic-plans'}];
+    var DIRECTIVES = [{'name': 'CloseOutsideDirective', 'selector': '[closeOutside]'},{'name': 'CurrencyFormatDirective', 'selector': '[appCurrencyFormat]'},{'name': 'NoInitSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'NotFinishSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'PermissionDirective', 'selector': '[actionPermission]'}];
+    var ACTUAL_COMPONENT = {'name': 'GuidelinesModalComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GuidelinesModalComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

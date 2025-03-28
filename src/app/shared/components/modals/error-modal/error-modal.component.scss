@@ -1,0 +1,92 @@
+@import '../../../../../styles.scss';
+
+.contentShow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.contentModal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 526px;
+    height: 368px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 2px 2px 12px #0000001F;
+    border-radius: 10px;
+    opacity: 1;
+    position: fixed;
+    z-index: 1000;
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: row;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    gap: 1rem;
+
+    &-imagen {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: center;
+
+        // &_sizeImg {
+        //     height: 64px;
+        //     width: 64px;
+        // }
+    }
+
+    &-text {
+
+        &_title {
+            text-align: center;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-25;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+            letter-spacing: 0px;
+            opacity: 1;
+        }
+
+        &_info{
+            margin-top: 1rem;
+            text-align: center;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-size: $font-size-20;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+            letter-spacing: 0px;
+            opacity: 1;
+        }
+    }
+
+    .contentActions {
+        display: grid;
+        justify-items: center;
+        gap: 2rem;
+
+        &-link {
+            cursor: pointer;
+            text-align: center;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-size: $font-size-14;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+            letter-spacing: 0px;
+            padding-top: 1rem;
+            opacity: 1;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@import '../../../../styles.scss';
+
+.header-content {
+    display: grid;
+    grid-auto-flow: column;
+
+    .log-user {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 1rem;
+        justify-content: end;
+
+        .user-info {
+            display: grid;
+            grid-auto-flow: row;
+            justify-items: right;
+
+            .name {
+                font-style: $font-style-normal;
+                font-weight: $font-weight-bold;
+                font-size: $font-size-18;
+                font-family: $font-family-nunito;
+                letter-spacing: $character-spacing-0;
+                line-height: $line-spacing-24;
+                text-align: left;
+                opacity: 1;
+                color: $color-violet;
+                opacity: 1;
+            }
+
+            .rol {
+                font-style: $font-style-normal;
+                font-weight: $font-weight-normal;
+                font-size: $font-size-18;
+                font-family: $font-family-nunito;
+                letter-spacing: $character-spacing-0;
+                line-height: $line-spacing-24;
+                text-align: left;
+                opacity: 1;
+                color: $color-violet;
+                opacity: 1;
+            }
+        }
+    }
+
+    .title {
+        text-align: left;
+        font-style: $font-style-normal;
+        font-weight: $font-weight-bold;
+        font-family: $font-family-nunito;
+        letter-spacing: $character-spacing-0;
+        font-size: $font-size-25;
+        color: $color-violet;
+        opacity: 1;
+    }
+
+}

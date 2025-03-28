@@ -1,0 +1,269 @@
+/*
+    * Color Palette V1
+    * Date: 2024-07-01
+    * URL: https://xd.adobe.com/view/7d84fd54-5b85-43e6-8429-889874918219-28d7/screen/d2f0dffd-f6bc-4107-93f2-7a00e71a24e2/variables/
+*/
+
+@import './colors';
+@import './texts';
+
+.btn {
+  font-family: $font-family-nunito;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-600;
+  font-size: $font-size-14;
+  line-height: $line-spacing-19;
+  letter-spacing: $character-spacing-0;
+  color: $color-dark-black;
+  background-color: $color-pale-pink;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: $color-bright-pink;
+}
+
+/*
+  * Auth Button 
+*/
+.btnAuth {
+  font-family: $font-family-nunito;
+  font-style: $font-style-normal;
+  font-size: $font-size-14;
+
+  line-height: $line-spacing-19;
+  letter-spacing: $character-spacing-0;
+  color: $color-white;
+  background-color: $color-violet;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  opacity: 1;
+}
+
+.btnAuth:hover {
+  background-color: $color-purple;
+}
+
+.btnAuth:disabled {
+  background-color: $color-light-gray;
+  color: $color-beige;
+}
+
+/*
+  * Close Sesion Button 
+*/
+.btnCloseSesion {
+  cursor: pointer;
+  font-family: $font-family-nunito;
+  font-style: $font-style-normal;
+  font-size: $font-size-14;
+  line-height: $line-spacing-19;
+  letter-spacing: $character-spacing-0;
+  background-color: $color-light-gray;
+  color: $color-beige;
+  width: -webkit-fill-available;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+  opacity: 1;
+}
+
+.btnCloseSesion:hover {
+  background-color: $color-light-gray;
+  color: $color-beige;
+}
+
+.btnCloseSesion:disabled {
+  background-color: $color-light-gray;
+  color: $color-beige;
+}
+
+.smallButton {
+  cursor: pointer;
+  border: none;
+  display: grid;
+  grid-auto-flow: column;
+  // padding: 7px 15px 0px 15px;
+  color: $color-white;
+  font-family: $font-family-nunito;
+  font-style: $font-style-normal;
+  font-size: $font-size-12;
+  letter-spacing: $character-spacing-0;
+  width: 90px;
+  height: 26px;
+  background: $color-violet 0% 0% no-repeat padding-box;
+  border-radius: 18px;
+  opacity: 1;
+  margin-top: 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.smallButton:hover {
+  background: $color-purple 0% 0% no-repeat padding-box;
+}
+
+.mediumButton {
+  cursor: pointer;
+  border: none;
+  display: grid;
+  grid-auto-flow: column;
+  color: $color-white;
+  font-family: $font-family-nunito;
+  font-style: $font-style-normal;
+  font-size: $font-size-12;
+  letter-spacing: $character-spacing-0;
+  width: 150px;
+  height: 36px;
+  background: $color-violet 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  opacity: 1;
+  align-items: center;
+}
+
+.mediumButton:hover {
+  background: $color-purple 0% 0% no-repeat padding-box;
+}
+
+.mediumButton:disabled {
+  background-color: $color-light-gray;
+  color: $color-beige;
+}
+
+.smallRoundButtonIcon {
+  cursor: pointer;
+  border: none;
+  display: grid;
+  grid-auto-flow: column;
+  color: $color-violet;
+  font-family: $font-family-nunito;
+  font-style: $font-style-normal;
+  font-size: $font-size-12;
+  letter-spacing: $character-spacing-0;
+  width: 30px;
+  height: 30px;
+  background: $color-light-purple-hover 0% 0% no-repeat padding-box;
+  border-radius: 18px;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.smallRoundButtonIcon:hover {
+  color: $color-white;
+  background: $color-purple 0% 0% no-repeat padding-box;
+}
+
+.smallRoundButtonIcon:disabled {
+  background-color: $color-light-gray;
+  color: $color-beige;
+}
+
+.smallRoundButtonIcon:hover .violetIcon {
+  filter: brightness(0) saturate(100%) invert(93%) sepia(0%) saturate(5354%) hue-rotate(121deg) brightness(103%) contrast(97%);
+}
+
+.smallSquareButtonIcon {
+  cursor: pointer;
+  border: none;
+  display: grid;
+  grid-auto-flow: column;
+  color: $color-violet;
+  font-family: $font-family-nunito;
+  font-style: $font-style-normal;
+  font-size: $font-size-12;
+  letter-spacing: $character-spacing-0;
+  width: 30px;
+  height: 30px;
+  background: $color-light-purple-hover 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.smallSquareButtonIcon:hover {
+  color: $color-white;
+  background: $color-purple 0% 0% no-repeat padding-box;
+}
+
+.smallSquareButtonIcon:disabled {
+  background-color: $color-light-gray;
+  color: $color-beige;
+}
+
+.smallSquareButtonIcon:hover .violetIcon {
+  filter: brightness(0) saturate(100%) invert(93%) sepia(0%) saturate(5354%) hue-rotate(121deg) brightness(103%) contrast(97%);
+}
+
+
+.mediumRoundButtonIcon {
+  cursor: pointer;
+  border: none;
+  display: grid;
+  grid-auto-flow: column;
+  color: $color-violet;
+  font-family: $font-family-nunito;
+  font-style: $font-style-normal;
+  font-size: $font-size-12;
+  letter-spacing: $character-spacing-0;
+  width: 9rem;
+  height: 26px;
+  background: $color-light-purple-hover 0% 0% no-repeat padding-box;
+  border-radius: 18px;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mediumRoundButtonIcon:hover {
+  color: $color-white;
+  background: $color-purple 0% 0% no-repeat padding-box;
+}
+
+.mediumRoundButtonIcon:disabled {
+  background-color: $color-light-gray;
+  color: $color-beige;
+}
+
+.mediumRoundButtonIcon:hover .violetIcon {
+  filter: brightness(0) saturate(100%) invert(93%) sepia(0%) saturate(5354%) hue-rotate(121deg) brightness(103%) contrast(97%);
+}
+
+.largeButton {
+  cursor: pointer;
+  border: none;
+  display: grid;
+  grid-auto-flow: column;
+  color: $color-white;
+  font-family: $font-family-nunito;
+  font-style: $font-style-normal;
+  font-size: $font-size-12;
+  letter-spacing: $character-spacing-0;
+  width: 200px;
+  height: 36px;
+  background: $color-violet 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  opacity: 1;
+  align-items: center;
+}
+
+.largeButton:hover {
+  background: $color-purple 0% 0% no-repeat padding-box;
+}
+
+.largeButton:disabled {
+  background-color: $color-light-gray;
+  color: $color-beige;
+}

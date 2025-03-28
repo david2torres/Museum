@@ -1,0 +1,53 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": "src",
+    "declaration": false,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "lib": [ "ES2022", "dom"],
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitOverride": true,
+    "noImplicitReturns": false,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./dist/out-tsc",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "target": "ES2022",
+    "types": ["jest"],
+    "paths": {
+      "@shared/*": ["app/shared/*"],
+      "@tokens/*":["app/core/application/tokens/*"],
+      "@services/*": ["app/core/infrastructure/services/*"],
+      "@DomainConstants/*": ["app/core/domain/models/constants/*"],
+      "@DomainInterfaces/*": ["app/core/domain/models/interfaces/*"],
+      "@DomainRepositories/*": ["app/core/domain/repositories/*"],
+      "@DomainUsesCases/*": ["app/core/domain/usecases/*"],
+      "@ApplicationUseCase/*": ["app/core/application/usecases/*"],
+      "@pages/*": ["app/core/UI/pages/*"],
+      "@assets/*": ["assets/*"],
+      "@models/*": ["app/shared/models/*"],
+      "@interfaces/*": ["app/shared/models/interfaces/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

@@ -1,0 +1,24 @@
+@let functionalities = menuFunctionalities();
+
+<div class="container">
+  @for (menu of functionalities; track $index) {
+    <div
+      class="menuCard"
+      [class.selected]="selectedCard === menu.id"
+      (click)="selectFunctionalitie(menu)"
+    >
+      <img
+        [class.violetIcon]="selectedCard !== menu.id"
+        src="{{CARDS_ICONS[menu.icono]}}"
+        alt="{{menu.icono}}"
+      />
+      <div class="menuCard-text">
+        <span>
+          {{ menu.nombre }}
+        </span>
+      </div>
+    </div>
+  }
+</div>
+
+<router-outlet></router-outlet>

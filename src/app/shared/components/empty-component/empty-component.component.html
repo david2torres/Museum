@@ -1,0 +1,23 @@
+<div class="contentWithoutData">
+  <div class="contentWithoutData-info">
+    <img
+      class="contentWithoutData-info_image"
+      src="{{ICONS_CONST.withoutData}}"
+      alt="{{ICONS_CONST.withoutData}}"
+    />
+    <div class="contentWithoutData-info_content">
+      <div
+        class="contentWithoutData-info_content_title"
+        [innerHTML]="infoMessage | translate"
+      ></div>
+      <button class="smallButton contentWithoutData-info_content_button" type="submit" (click)="openCloseModal()">
+        <img
+          class="contentWithoutData-info_content_button-image"
+          src="{{ICONS_CONST.add}}"
+          alt="{{ICONS_CONST.add}}"
+        />
+        {{ 'BUTTONS.create' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

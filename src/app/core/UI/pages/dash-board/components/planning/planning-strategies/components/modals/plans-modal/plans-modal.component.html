@@ -1,0 +1,469 @@
+@let isConfirmModalAction = isConfirmAction();
+@let isConfirmModal = isConfirm();
+@let isEditFlow = isEdit();
+
+<div class="contentModalShow">
+  <div class="contentModal">
+    <div class="contentMargin">
+      @if (isEditAction()) {
+        <div class="contentInfo">
+          <form [formGroup]="actionsForm">
+            <div class="contentEjeAction">
+              <div class="name" id="nameEje">
+                <div class="title">
+                  {{'PLANNING.planes.modal.nameEje' | translate}}
+                </div>
+                <input
+                  [maxlength]="maxName"
+                  class="spaceText"
+                  type="text"
+                  formControlName="nombre"
+                  placeholder="{{'PLANNING.planes.modal.nameEjePlaceHolder' | translate}}"
+                />
+                <div
+                  class="counterText"
+                  [innerHTML]="actionsForm?.get('nombre')?.value.length + '/' + maxName"
+                ></div>
+              </div>
+
+              <div class="name spaceTop" id="descriptionEje">
+                <div class="title">
+                  {{'PLANNING.planes.modal.description' | translate}}
+                </div>
+                <textarea
+                  formControlName="descripcion"
+                  [maxlength]="maxDescription"
+                  name="description"
+                  id="description"
+                  placeholder="{{'PLANNING.planes.modal.descriptionPlaceHolder' | translate}}"
+                  rows="4"
+                  cols="50"
+                ></textarea>
+                <div
+                  class="counterText"
+                  [innerHTML]="actionsForm?.get('descripcion')?.value.length + '/' + maxDescription"
+                ></div>
+              </div>
+
+              <div class="name spaceTop" id="guidelines">
+                <div class="title">
+                  {{'PLANNING.planes.modal.relatedGuidelines' | translate}}
+                </div>
+                <multiselect-checkbox
+                  formControlName="ejeEstrategicoLineamientoEstrategico"
+                  [options]="guideLineList()"
+                  [keyFormControlName]="'idLineamientoEstrategico'"
+                  [placeholder]="'PLANNING.planes.modal.relatedGuidelinesPlaceHolder' | translate"
+                />
+              </div>
+
+              <div class="name spaceTop" id="evaluator">
+                <div class="title">
+                  {{'PLANNING.planes.modal.evaluator' | translate}}
+                </div>
+                <multiselect-checkbox
+                  formControlName="ejeEstrategicoEvaluadores"
+                  [options]="evaluatorsList()"
+                  [keyFormControlName]="'idEvaluador'"
+                  [placeholder]="'PLANNING.planes.modal.evaluatorPlaceHolder' | translate"
+                />
+              </div>
+            </div>
+
+            <div formArrayName="acciones">
+              @if (getActionsForm.controls.length > 0) {
+                <div class="actionTitle">
+                  {{'PLANNING.planes.modal.actionsTitle' | translate}}
+                </div>
+              }
+              <div
+                *ngFor="let actions of getActionsForm.controls; let i = index"
+                [formGroupName]="i"
+              >
+                <div class="contentForm">
+                  <div class="name">
+                    <div class="title">
+                      {{'PLANNING.planes.modal.nameAction' | translate}}
+                    </div>
+                    <input
+                      [maxlength]="maxName"
+                      class="spaceText"
+                      type="text"
+                      formControlName="nombre"
+                      placeholder="{{'PLANNING.planes.modal.nameActionPlaceHolder' | translate}}"
+                    />
+                    <div
+                      class="counterText"
+                      [innerHTML]="actions?.get('nombre')?.value.length + '/' + maxName"
+                    ></div>
+                  </div>
+
+                  <div class="name spaceTop">
+                    <div class="title">
+                      {{'PLANNING.planes.modal.description' | translate}}
+                    </div>
+                    <textarea
+                      [maxlength]="maxDescription"
+                      formControlName="descripcion"
+                      name="description"
+                      id="description"
+                      placeholder="{{'PLANNING.planes.modal.descriptionActionPlaceHolder' | translate}}"
+                      rows="4"
+                      cols="50"
+                    ></textarea>
+                    <div
+                      class="counterText"
+                      [innerHTML]="actions?.get('descripcion')?.value.length + '/' + maxDescription"
+                    ></div>
+                  </div>
+
+                  <div class="name spaceTop">
+                    <div class="title">
+                      {{'PLANNING.planes.modal.indicators' | translate}}
+                    </div>
+                    <multiselect-checkbox
+                      formControlName="accionIndicadores"
+                      [options]="indicatorsList()"
+                      [keyFormControlName]="'noShowInputList'"
+                      [placeholder]="'PLANNING.planes.modal.indicatorsPlaceHolder' | translate"
+                    />
+                    <div class="informationText">
+                      {{'PLANNING.planes.modal.messageIndicators' | translate}}
+                    </div>
+                    @for (
+                      indicator of actionsForm.value.acciones[i].accionIndicadores;
+                      track $index
+                    ) {
+                      <div class="contentIndicators">
+                        <div class="contentIndicators-information">
+                          <div class="contentIndicators-information_text">
+                            <span
+                              class="contentIndicators-information_text_name"
+                              >{{indicator.nombre}}
+                              </span
+                            >
+                            <div
+                              class="contentIndicators-information_text_type"
+                            >
+                              <div class="smallSpace"></div>
+                              <span></span>
+                              <span>{{indicator.tipoIndicador.nombre}}</span>
+                            </div>
+                          </div>
+                          <div
+                            class="contentIndicators-information_contentInput"
+                          >
+                            <span
+                              class="contentIndicators-information_contentInput_text"
+                            >
+                              {{'PLANNING.planes.modal.peso' | translate}}
+                            </span>
+                            <input
+                              min="1"
+                              max="100"
+                              [class.error]="!validatePesos(actions.value.id)"
+                              class="contentIndicators-information_contentInput_input"
+                              type="number"
+                              [value]="peso[actions.value.id][indicator.id] ?? 1"
+                              (input)="onPesoChange(actions.value.id, indicator.id, $event)"
+                            />
+                            <label class="percentage-label">%</label>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                  </div>
+
+                  <div class="contentDelete">
+                    <div
+                      class="contentDelete-botton"
+                      (click)="removeForm(i, 'getActionsForm')"
+                    >
+                      <img
+                        class="blackIcon contentDelete-botton_img"
+                        src="{{ ICONS_CONST.delete}}"
+                        alt="{{ICONS_CONST.edit}}"
+                      />
+                      <u class="titleLinks">{{'BUTTONS.delete' | translate}}</u>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="contentButton" style="padding-top: 1rem;">
+                <div class="contentButton-add">
+                  <img
+                    class="blackIcon contentButton-add_img"
+                    [class.grayIconError]="actionsForm?.invalid || !isError"
+                    src="{{ ICONS_CONST.add}}"
+                    alt="{{ICONS_CONST.add}}"
+                  />
+                  <button
+                    class="underline-button blackIcon contentButton-add_link"
+                    (click)="addForm('getActionsForm')"
+                    [disabled]="actionsForm?.invalid || !isError"
+                  >
+                    {{'BUTTONS.addAction' | translate}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="contentButton">
+          <div class="contentButton-actionsThree">
+            <div
+              class="contentDelete-botton"
+              (click)="setMessageConfirmModal('delete')"
+            >
+              <img
+                class="blackIcon contentDelete-botton_img"
+                src="{{ ICONS_CONST.delete}}"
+                alt="{{ICONS_CONST.edit}}"
+              />
+              <u class="titleLinks">{{'BUTTONS.deleteEje' | translate}}</u>
+            </div>
+
+            <u
+              (click)="setMessageConfirmModal('cancel')"
+              class="contentButton-actions_links"
+              >{{'BUTTONS.cancel' | translate}}</u
+            >
+            <button
+              (click)="processDataAction()"
+              class="largeButton"
+              [disabled]="actionsForm?.invalid || !isError"
+            >
+              {{( !isEditFlow.idEdit ? 'BUTTONS.save': 'BUTTONS.saveChanges') | translate}}
+            </button>
+          </div>
+        </div>
+      } @else {
+        <div class="contentInfo">
+          <div
+            class="contentInfo-title"
+            [innerHTML]="titleHeader | translate: {nameMuseo: nameMuseo}"
+          ></div>
+          <div class="contentInfo-titleInfo">
+            {{'PLANNING.planes.modal.info' | translate}}
+          </div>
+          <form [formGroup]="plansForm">
+            <div class="contentInfo-vigencia">
+              <span
+                class="contentInfo-vigencia_text"
+                >{{'PLANNING.planes.modal.vigencia' | translate}}</span
+              >
+              <div class="contentInfo-vigencia-content">
+                <span
+                  class="contentInfo-vigencia_text"
+                  >{{'PLANNING.planes.modal.desde' | translate}}</span
+                >
+                <select
+                  name="months"
+                  id="months"
+                  formControlName="fechaInicioMes"
+                  class="contentInfo-vigencia-content_months"
+                >
+                  <option disabled [ngValue]="null">
+                    {{'PLANNING.planes.modal.mounth' | translate}}
+                  </option>
+                  @for (month of monthsList; track $index) {
+                    <option [value]="month.value">
+                      {{ month.name}}
+                    </option>
+                  }
+                </select>
+
+                <select
+                  name="year"
+                  id="year"
+                  formControlName="fechaInicioAnio"
+                  class="contentInfo-vigencia-content_year"
+                >
+                  @for (year of yearsList; track $index) {
+                    <option [value]="year">
+                      {{ year}}
+                    </option>
+                  }
+                </select>
+              </div>
+              <div class="contentInfo-vigencia-content">
+                <span
+                  class="contentInfo-vigencia_text"
+                  >{{'PLANNING.planes.modal.hasta' | translate}}</span
+                >
+                <select
+                  name="months"
+                  id="months"
+                  formControlName="fechaFinMes"
+                  class="contentInfo-vigencia-content_months"
+                >
+                  <option disabled [ngValue]="null">
+                    {{'PLANNING.planes.modal.mounth' | translate}}
+                  </option>
+                  @for (month of monthsList; track $index) {
+                    <option [value]="month.value">
+                      {{ month.name}}
+                    </option>
+                  }
+                </select>
+
+                <select
+                  name="year"
+                  id="year"
+                  formControlName="fechaFinAnio"
+                  class="contentInfo-vigencia-content_year"
+                >
+                  @for (year of yearsList; track $index) {
+                    <option [value]="year">
+                      {{ year}}
+                    </option>
+                  }
+                </select>
+              </div>
+            </div>
+
+            @if (!isEditFlow.idEdit) {
+              <div class="contentInfo-formArray_title">
+                {{'PLANNING.planes.modal.titleFormArray' | translate}}
+              </div>
+            }
+
+            <div formArrayName="ejesEstrategicos">
+              <div
+                *ngFor="let group of getPlansForm.controls; let i = index"
+                [formGroupName]="i"
+              >
+                <div class="contentForm">
+                  <div class="name">
+                    <div class="title">
+                      {{'PLANNING.planes.modal.nameEje' | translate}}
+                    </div>
+                    <input
+                      [maxlength]="maxName"
+                      class="spaceText"
+                      type="text"
+                      formControlName="nombre"
+                      placeholder="{{'PLANNING.planes.modal.nameEjePlaceHolder' | translate}}"
+                    />
+                    <div
+                      class="counterText"
+                      [innerHTML]="group?.get('nombre')?.value.length + '/' + maxName"
+                    ></div>
+                  </div>
+
+                  <div class="name spaceTop">
+                    <div class="title">
+                      {{'PLANNING.planes.modal.description' | translate}}
+                    </div>
+                    <textarea
+                      [maxlength]="maxDescription"
+                      formControlName="descripcion"
+                      name="description"
+                      id="description"
+                      placeholder="{{'PLANNING.planes.modal.descriptionPlaceHolder' | translate}}"
+                      rows="4"
+                      cols="50"
+                    ></textarea>
+                    <div
+                      class="counterText"
+                      [innerHTML]="group?.get('descripcion')?.value.length + '/' + maxDescription
+                      "
+                    ></div>
+                  </div>
+
+                  <div class="name spaceTop">
+                    <div class="title">
+                      {{'PLANNING.planes.modal.relatedGuidelines' | translate}}
+                    </div>
+                    <multiselect-checkbox
+                      formControlName="ejeEstrategicoLineamientoEstrategico"
+                      [options]="guideLineList()"
+                      [keyFormControlName]="'idLineamientoEstrategico'"
+                      [placeholder]="'PLANNING.planes.modal.relatedGuidelinesPlaceHolder' | translate"
+                    />
+                  </div>
+
+                  <div class="name spaceTop">
+                    <div class="title">
+                      {{'PLANNING.planes.modal.evaluator' | translate}}
+                    </div>
+                    <multiselect-checkbox
+                      formControlName="ejeEstrategicoEvaluadores"
+                      [options]="evaluatorsList()"
+                      [keyFormControlName]="'idEvaluador'"
+                      [placeholder]="'PLANNING.planes.modal.evaluatorPlaceHolder' | translate"
+                    />
+                  </div>
+
+                  <div class="contentDelete">
+                    @if (getPlansForm.controls.length > 1) {
+                      <div
+                        class="contentDelete-botton"
+                        (click)="removeForm(i, 'getPlansForm')"
+                      >
+                        <img
+                          class="blackIcon contentDelete-botton_img"
+                          src="{{ ICONS_CONST.delete}}"
+                          alt="{{ICONS_CONST.edit}}"
+                        />
+                        <u
+                          class="titleLinks"
+                          >{{'BUTTONS.delete' | translate}}</u
+                        >
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+              <div class="contentButton">
+                <div class="contentButton-add">
+                  <img
+                    class="blackIcon contentButton-add_img"
+                    src="{{ ICONS_CONST.add}}"
+                    alt="{{ICONS_CONST.add}}"
+                  />
+                  <u
+                    (click)="addForm('getPlansForm')"
+                    class="blackIcon contentButton-add_link"
+                  >
+                    {{'BUTTONS.addEje' | translate}}
+                  </u>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="contentButton">
+          <div class="contentButton-actions">
+            <u
+              (click)="setMessageConfirmModal('cancel')"
+              class="contentButton-actions_links"
+              >{{'BUTTONS.cancel' | translate}}</u
+            >
+
+            <button
+              (click)="processData()"
+              class="largeButton"
+              [disabled]="plansForm.invalid"
+            >
+              {{( !isEditFlow.idEdit ? 'BUTTONS.save': 'BUTTONS.saveChanges') | translate}}
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+    @if (isConfirmModalAction) {
+      <div class="contentConfirmModal">
+        <confirm-action-modal
+          (actionButton)="confirmAction($event)"
+          [textModal]="confirmModalAction"
+        />
+      </div>
+    }
+    @if (isConfirmModal) {
+      <div class="contentConfirmModal">
+        <confirm-modal [textModal]="confirmModalMessageSucces" />
+      </div>
+    }
+  </div>
+</div>

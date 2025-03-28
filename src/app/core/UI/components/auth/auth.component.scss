@@ -1,0 +1,268 @@
+@import '../../../../../styles.scss';
+
+.page-container {
+  display: grid;
+  grid-template-columns: 650px 1fr;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .content-section {
+    display: grid;
+    background-image: url('../../../../shared/assets/img/svg/img/login.svg');
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 1;
+    background-position: bottom;
+
+
+    .content-card {
+      padding-top: 3rem;
+      padding-left: 5rem;
+      padding-right: 6rem;
+
+      .header {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 1fr 1fr;
+        height: min-content;
+
+        &_img-left {
+          justify-self: left;
+        }
+
+        &_img-rigth {
+          justify-self: right;
+          margin-top: 8px;
+        }
+      }
+
+      .card {
+        margin-top: 2rem;
+        max-height: 752px;
+        min-height: 450px;
+        background: $color-white 0% 0% no-repeat padding-box;
+        box-shadow: -10px 10px 30px $color-black;
+        border-radius: 20px;
+        opacity: 1;
+
+        &_content {
+          display: grid;
+          grid-auto-flow: row;
+          padding-top: 3rem;
+          padding: 1rem;
+
+          &-image {
+            padding-left: 1rem;
+            padding-top: 2rem;
+            height: 3rem;
+          }
+        }
+
+      }
+    }
+
+  }
+
+  .image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e4e4e4;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    .carousel-container {
+      display: grid;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .carousel-image {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .carousel-text {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      color: #FFFFFF;
+      width: 25rem;
+      display: grid;
+      grid-auto-flow: row;
+      justify-items: end;
+
+      &_title {
+        text-align: left;
+        font-family: "Nunito Sans", sans-serif;
+        font-style: unset;
+        line-height: 12px;
+        font-weight: bold;
+        font-size: 50px;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        letter-spacing: 0px;
+        height: 3rem;
+        width: 20rem;
+        display: grid;
+        justify-content: left;
+        align-items: center;
+        align-content: center;
+      }
+
+      &_subTitle {
+        text-align: left;
+        font-style: $font-style-normal;
+        font-size: $font-size-20;
+        font-family: $font-family-nunito;
+        font-weight: $font-weight-normal;
+        letter-spacing: $character-spacing-0;
+        color: $color-white;
+        letter-spacing: 0px;
+        width: 20rem;
+        padding-top: 1rem;
+        opacity: 1;
+        display: grid;
+        justify-content: left;
+        align-items: center;
+        align-content: center;
+      }
+    }
+
+    .carousel-track {
+      display: flex;
+      animation: slide 70s infinite;
+      height: 100%;
+    }
+
+    .carousel-slide {
+      position: relative;
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .carousel-image {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+      }
+
+      .image-footer {
+        align-self: end;
+        text-align: center;
+        padding: 1rem;
+        position: absolute;
+        height: 3rem;
+        width: -webkit-fill-available;
+        background-color: $color-dark-gray;
+
+        .contentFooter {
+          display: grid;
+          grid-auto-flow: column;
+          grid-template-columns: 0fr 2fr 1fr;
+          gap: 1rem;
+
+          .imgFooter {
+            height: 3rem;
+          }
+
+          .textFooter {
+            display: grid;
+            justify-content: end;
+            align-items: center;
+            color: $color-white;
+
+            text-align: left;
+            font-style: $font-style-normal;
+            font-size: $font-size-10;
+            font-family: $font-family-nunito;
+            // font-weight: $font-weight-regular;
+            letter-spacing: $character-spacing-0;
+            color: $color-white;
+          }
+        }
+      }
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      15% {
+        transform: translateX(0);
+      }
+
+      20% {
+        transform: translateX(-100%);
+      }
+
+      35% {
+        transform: translateX(-100%);
+      }
+
+      40% {
+        transform: translateX(-200%);
+      }
+
+      55% {
+        transform: translateX(-200%);
+      }
+
+      60% {
+        transform: translateX(-300%);
+      }
+
+      75% {
+        transform: translateX(-300%);
+      }
+
+      80% {
+        transform: translateX(-400%);
+      }
+
+      95% {
+        transform: translateX(-400%);
+      }
+
+      100% {
+        transform: translateX(-500%);
+      }
+    }
+  }
+
+}
+
+.footer {
+  display: grid;
+  align-items: end;
+  justify-items: initial;
+  padding-left: 6rem;
+  padding-right: 6rem;
+
+  .version {
+    display: grid;
+    cursor: pointer;
+    font-family: "Nunito Sans", sans-serif;
+    font-style: normal normal medium;
+    font-size: 8px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: $color-beige;
+    text-decoration: underline;
+    letter-spacing: 0px;
+    padding-right: 2rem;
+  }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Merge" transform="translate(0)">
+    <rect id="Rectangle_1459" data-name="Rectangle 1459" width="16" height="16" fill="none"/>
+    <g id="Union_48" data-name="Union 48" transform="translate(950 17074)">
+      <path id="Path_186" data-name="Path 186" d="M12.235,9.529H10.823a2.774,2.774,0,0,1-2.541-1.6L6.588,4.635A4.817,4.817,0,0,0,2.353,2H0V3.882H2.353a2.774,2.774,0,0,1,2.541,1.6L6.588,8.776a4.817,4.817,0,0,0,4.235,2.635h1.412v1.882L16,10.47,12.235,7.647Z" transform="translate(-950 -17072.117)" fill="#f1efec"/>
+      <path id="Path_187" data-name="Path 187" d="M9.247,4.612a2.767,2.767,0,0,1,2.07-.847h1.412V5.647l3.765-2.823L12.729,0V1.882H11.317A4.414,4.414,0,0,0,8.4,2.917a5.253,5.253,0,0,1,.471.753Z" transform="translate(-950.495 -17072)" fill="#f1efec"/>
+      <path id="Path_188" data-name="Path 188" d="M4.423,9.1a2.767,2.767,0,0,1-2.07.847H0v1.882H2.353A4.414,4.414,0,0,0,5.27,10.794a5.253,5.253,0,0,1-.471-.753Z" transform="translate(-950 -17072.535)" fill="#f1efec"/>
+    </g>
+  </g>
+</svg>

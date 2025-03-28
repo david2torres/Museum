@@ -1,0 +1,22 @@
+@let actualOption = selectedOption();
+@if (menu()) {
+  <div class="container">
+    <div class="content-menu">
+      @for (menu of menu(); track $index) {
+        <div
+          [class.selected]="actualOption === menu.nombre"
+          class="text"
+          (click)="selectOption(menu.nombre)"
+        >
+          {{menu.nombre}}
+        </div>
+        <div class="space"></div>
+      }
+    </div>
+    <div class="contentInfo">
+      <div class="contentInfo-space">
+        <ng-container [ngComponentOutlet]="selectedComponent()"></ng-container>
+      </div>
+    </div>
+  </div>
+}

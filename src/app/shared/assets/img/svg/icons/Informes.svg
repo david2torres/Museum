@@ -1,0 +1,8 @@
+<svg id="Informes" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+  <path id="Trazado_7" data-name="Trazado 7" d="M18.208,17.417H3.958a2.375,2.375,0,0,1-2.375-2.375V.792A.792.792,0,1,0,0,.792v14.25A3.963,3.963,0,0,0,3.958,19h14.25a.792.792,0,1,0,0-1.583Z" transform="translate(0 0)" fill="#f1efec"/>
+  <path id="Trazado_8" data-name="Trazado 8" d="M5.792,18.125a.792.792,0,0,0,.792-.792V11.792a.792.792,0,0,0-1.583,0v5.542A.792.792,0,0,0,5.792,18.125Z" transform="translate(-1.042 -2.292)" fill="#f1efec"/>
+  <path id="Trazado_9" data-name="Trazado 9" d="M10,9.792v7.125a.792.792,0,0,0,1.583,0V9.792a.792.792,0,1,0-1.583,0Z" transform="translate(-2.083 -1.875)" fill="#f1efec"/>
+  <path id="Trazado_10" data-name="Trazado 10" d="M15,12.792v4.75a.792.792,0,0,0,1.583,0v-4.75a.792.792,0,0,0-1.583,0Z" transform="translate(-3.125 -2.5)" fill="#f1efec"/>
+  <path id="Trazado_11" data-name="Trazado 11" d="M20,8.792v7.917a.792.792,0,0,0,1.583,0V8.792a.792.792,0,0,0-1.583,0Z" transform="translate(-4.167 -1.667)" fill="#f1efec"/>
+  <path id="Trazado_12" data-name="Trazado 12" d="M5.792,7.125a.792.792,0,0,0,.56-.232L9.19,4.054a.811.811,0,0,1,1.119,0l1.72,1.719a2.375,2.375,0,0,0,3.358,0L19.81,1.351A.792.792,0,1,0,18.69.232L14.268,4.653a.792.792,0,0,1-1.119,0l-1.72-1.719a2.375,2.375,0,0,0-3.358,0L5.232,5.774a.792.792,0,0,0,.56,1.351Z" transform="translate(-1.042 0)" fill="#f1efec"/>
+</svg>

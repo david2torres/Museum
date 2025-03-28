@@ -1,0 +1,96 @@
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { ORIGIN_TABLE } from '@DomainConstants/components/management-projects.constants';
+import { IModalNewProject, IProjectsComponent } from '@DomainInterfaces/projectManagement.interface';
+import { ProjectServiceService } from '@services/project-service.service';
+import { DetailContentPestanasComponent } from '@shared/components/detai-content-pestanas/detail-content-pestanas.component';
+import { Subject, takeUntil } from 'rxjs';
+import { CreateProjectModalComponent } from '../modals/create-project-modal/create-project-modal.component';
+import { INIT_EDIT } from '@DomainConstants/components/planing.constants';
+import { APP_CONST } from '@DomainConstants/shared/app.constants';
+
+@Component({
+  selector: 'app-collaboration-projects',
+  standalone: true,
+  imports: [DetailContentPestanasComponent, CreateProjectModalComponent],
+  templateUrl: './collaboration-projects.component.html',
+  styleUrl: './collaboration-projects.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class CollaborationProjectsComponent implements OnInit, OnDestroy {
+  private _unSubscribe = new Subject<void>();
+  public projectsList = signal<IProjectsComponent[]>([]);
+  public isLoading = signal<boolean>(false);
+  public isModal = signal<boolean>(false);
+  public isEditProject: IModalNewProject = { ...INIT_EDIT };
+  public modalTitle: string = APP_CONST.MODAL_NEW_PROJECT.initTitle;
+
+  public optionsView = {
+    isPaginator: true,
+    isCreate: false,
+    isHeaders: [
+      'Código','Nombre del proyecto','Área responsable','Estado'
+    ],
+    isEdit: false,
+    isSeguimiento: false,
+    isEvaluate: false,
+    isSearch: true,
+    origin: ORIGIN_TABLE.collaborationProjects
+  };
+
+  constructor(private projectService: ProjectServiceService) {}
+
+  ngOnInit(): void {
+    this.loadColaborationProjects();
+  }
+
+  private loadColaborationProjects(): boolean {
+    let isData: boolean = false;
+    this.projectService
+      .getCollaborationProjects()
+      .pipe(takeUntil(this._unSubscribe))
+      .subscribe((projects: IProjectsComponent[]) => {
+        isData = true;
+        this.projectsList.update(() => projects);
+        this.isLoading.update(() => true);
+        console.log('All Colaboration Projects Init', projects);
+      });
+    return isData;
+  }
+
+  onCreate() {
+    console.log('Crear nuevo elemento');
+  }
+
+  onEdit(id: any) {
+    console.log('Editar elemento con id:', id);
+  }
+
+  onSeguimiento(id: any) {
+    console.log('Seguimiento en el elemento con id:', id);
+  }
+
+  public closeModalEvent(isUpdate: boolean): void {
+    console.log('closeModalEvent', isUpdate);
+    this.isModal.update(value => !value);
+  }
+
+  public openCloseModal(
+    isEdit: boolean = false,
+    elementSelected?: any,
+    idPlan?: string,
+  ): void {
+    console.log('Crear nuevo elemento', isEdit, elementSelected, idPlan);
+    this.isEditProject.elementSelected = elementSelected;
+    this.isModal.update(value => !value);
+  }
+
+  onViewProject(element: any) {
+    console.log('Seguimiento en el elemento con id:', element);
+    this.openCloseModal(true, element);
+  }
+
+  ngOnDestroy(): void {
+    this._unSubscribe.next();
+    this._unSubscribe.complete();
+  }
+}

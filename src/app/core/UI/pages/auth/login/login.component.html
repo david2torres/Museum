@@ -1,0 +1,90 @@
+<div class="page-container">
+  @if (isEndInactivity()) {
+    <div class="innactivitySession">
+      <div class="innactivitySession_detail">
+        <img
+          class="innactivitySession_detail_icon"
+          src="{{ICON_IMAGES.inactivity}}"
+        />
+        <div class="innactivitySession_detail_text">
+          {{ 'AUTH.INNACTIVITY.info' | translate }}
+        </div>
+      </div>
+      <div class="content-button innactivitySession_button">
+        <button class="btnAuth" type="submit" (click)="goLogin()">
+          {{ 'BUTTONS.initSesion' | translate }}
+        </button>
+      </div>
+    </div>
+  } @else {
+    <div
+      class="description"
+      [innerHTML]="'AUTH.LOGIN.titleInfo' | translate"
+    ></div>
+    <div class="form-container">
+      <span
+        class="form-container_title"
+        >{{ 'AUTH.LOGIN.titleForm' | translate }}</span
+      >
+      <form
+        class="form-container_input"
+        [formGroup]="loginForm"
+        (ngSubmit)="loginSubmit()"
+      >
+        <div class="input-wrapper" [class.error]="loginError()">
+          <input
+            type="email"
+            formControlName="email"
+            [placeholder]="'AUTH.LOGIN.email' | translate"
+            (input)="onInput()"
+          />
+        </div>
+
+        <div class="input-wrapper" [class.error]="loginError()">
+          <input
+            [type]="passwordVisible ? 'text' : 'password'"
+            formControlName="password"
+            [placeholder]="'AUTH.LOGIN.password' | translate"
+            (input)="onInput()"
+          />
+          @if (!loginError()) {
+            <img
+              class="icon-right basicIcon"
+              (click)="togglePasswordVisibility()"
+              [src]="passwordVisible ? ICON_IMAGES.openEye : ICON_IMAGES.closeEye"
+            />
+          }
+        </div>
+
+        @if (isError) {
+          <div class="content-alert-message">
+            <img src="{{ICON_IMAGES.alert}}" />
+            <span
+              style="margin-left: 8px;"
+              [innerHTML]="messageError | translate"
+            ></span>
+          </div>
+        }
+
+        <div class="content-button">
+          <button
+            class="btnAuth"
+            type="submit"
+            [disabled]="loginForm.invalid || blockAccount || isLoader"
+          >
+            {{ 'BUTTONS.submit' | translate }}
+          </button>
+          <div
+            class="forgotPassword"
+            (click)="navigateTo(NAVIGATE_ROUTES.RESET)"
+          >
+            <span
+              class="forgotPassword_text"
+              >{{  'BUTTONS.forgot' | translate }}</span
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+  }
+</div>

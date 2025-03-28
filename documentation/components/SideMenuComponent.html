@@ -1,0 +1,1205 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sim documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sim documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SideMenuComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-side-menu</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../miscellaneous/variables.html#SIDE_MODULES" target="_self" >SIDE_MODULES</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./side-menu.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./side-menu.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_unSubscribe" >_unSubscribe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ICON_IMAGES" >ICON_IMAGES</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isMenuExpanded" >isMenuExpanded</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#menuItems" >menuItems</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#NAVIGATE_TO" >NAVIGATE_TO</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#router" >router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedMenuItem" >selectedMenuItem</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getEntitySelected" >getEntitySelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#navigateToLogin" >navigateToLogin</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectMenuItem" >selectMenuItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setPathMenu" >setPathMenu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleMenu" >toggleMenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, generalService: <a href="../injectables/GeneralService.html" target="_self">GeneralService</a>, secureStorage: <a href="../injectables/SecureStorageService.html" target="_self">SecureStorageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>generalService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GeneralService.html" target="_self" >GeneralService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>secureStorage</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SecureStorageService.html" target="_self" >SecureStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEntitySelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getEntitySelected</b></span>
+                        <a href="#getEntitySelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getEntitySelected()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToLogin"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>navigateToLogin</b></span>
+                        <a href="#navigateToLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>navigateToLogin()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectMenuItem"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectMenuItem</b></span>
+                        <a href="#selectMenuItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectMenuItem(item: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, functionalities: <a href="../interfaces/Funcionalidade.html" target="_self">Funcionalidade[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>path</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>functionalities</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Funcionalidade.html" target="_self" >Funcionalidade[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPathMenu"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setPathMenu</b></span>
+                        <a href="#setPathMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setPathMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleMenu"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>toggleMenu</b></span>
+                        <a href="#toggleMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_unSubscribe"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_unSubscribe</b></span>
+                        <a href="#_unSubscribe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ICON_IMAGES"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ICON_IMAGES</b></span>
+                        <a href="#ICON_IMAGES"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>MENU_ICONS</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isMenuExpanded"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isMenuExpanded</b></span>
+                        <a href="#isMenuExpanded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuItems"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>menuItems</b></span>
+                        <a href="#menuItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;entidadRolesFuncionalidad[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NAVIGATE_TO"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>NAVIGATE_TO</b></span>
+                        <a href="#NAVIGATE_TO"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>NAVIGATION_TO</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Router</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedMenuItem"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectedMenuItem</b></span>
+                        <a href="#selectedMenuItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;number&gt;(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/core/UI/pages/dash-board/side-menu/side-menu.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, signal, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+import { SIDE_MODULES } from &#x27;./sideMenuModule&#x27;;
+import { NAVIGATION_TO } from &#x27;@DomainConstants/auth/auth.constants&#x27;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+import {
+  Entidade,
+  entidadRolesFuncionalidad,
+  Funcionalidade,
+} from &#x27;@DomainInterfaces/userAuth.interface&#x27;;
+import { MENU_ICONS } from &#x27;@DomainConstants/shared/icons-images.constants&#x27;;
+import { HOME_MENU } from &#x27;@DomainConstants/sideBar/side-bar.constants&#x27;;
+import { STORAGE_CONST } from &#x27;@DomainConstants/shared/storage.constants&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { GeneralService } from &#x27;@services/general-service.service&#x27;;
+import { AuthService } from &#x27;@services/auth-service.service&#x27;;
+import { SecureStorageService } from &#x27;@shared/security/storage/secure-storage.service&#x27;;
+
+@Component({
+  selector: &#x27;app-side-menu&#x27;,
+  standalone: true,
+  imports: [...SIDE_MODULES],
+  templateUrl: &#x27;./side-menu.component.html&#x27;,
+  styleUrl: &#x27;./side-menu.component.scss&#x27;,
+})
+export class SideMenuComponent implements OnInit, OnDestroy {
+  public NAVIGATE_TO &#x3D; NAVIGATION_TO;
+  public ICON_IMAGES &#x3D; MENU_ICONS;
+  public isMenuExpanded: boolean &#x3D; false;
+  private _unSubscribe &#x3D; new Subject&lt;void&gt;();
+  public menuItems &#x3D; signal&lt;entidadRolesFuncionalidad[]&gt;([]);
+  public selectedMenuItem &#x3D; signal&lt;number&gt;(0);
+
+  constructor(
+    private authService: AuthService,
+    public router: Router,
+    private generalService: GeneralService,
+    private secureStorage: SecureStorageService,
+  ) {}
+
+  ngOnInit(): void {
+    this.getEntitySelected();
+    this.setPathMenu();
+  }
+
+  private setPathMenu(): void {
+    this.generalService.getGlobalPath.subscribe(resp &#x3D;&gt; {
+      const id &#x3D; this.menuItems().filter(menu &#x3D;&gt; resp.includes(menu.ruta))[0]
+        ?.id;
+      this.selectedMenuItem.update(() &#x3D;&gt; id);
+    });
+  }
+
+  private getEntitySelected(): void {
+    this.authService.getEntitySelectedUser
+      .pipe(takeUntil(this._unSubscribe))
+      .subscribe((entities: Entidade) &#x3D;&gt; {
+        console.log(&#x27;init emmit&#x27;, entities);
+        const menuSession &#x3D; JSON.parse(
+          this.secureStorage.getItem(STORAGE_CONST.menu),
+        );
+        const menuOption &#x3D; menuSession || entities.modulos;
+        this.menuItems.update(() &#x3D;&gt; [HOME_MENU, ...menuOption]);
+        console.log(this.menuItems());
+      });
+  }
+
+  public toggleMenu(): void {
+    this.isMenuExpanded &#x3D; !this.isMenuExpanded;
+  }
+
+  public selectMenuItem(
+    item: number,
+    path: string,
+    functionalities: Funcionalidade[],
+  ): void {
+    console.log(&#x27;Changed Menus SideBar&#x27;, functionalities);
+    this.selectedMenuItem.update(() &#x3D;&gt; item);
+    this.secureStorage.setItem(
+      STORAGE_CONST.functionalities,
+      JSON.stringify(functionalities),
+    );
+    this.secureStorage.setItem(
+      STORAGE_CONST.pestanas,
+      JSON.stringify(functionalities[0].pestanas),
+    );
+    this.router.navigate([path]);
+  }
+
+  public navigateToLogin(): void {
+    this.authService.navigateToLogin();
+  }
+
+  ngOnDestroy(): void {
+    this._unSubscribe.next();
+    this._unSubscribe.complete();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;content-side&quot; [ngClass]&#x3D;&quot;{ &#x27;expanded&#x27;: isMenuExpanded }&quot;&gt;
+  &lt;div class&#x3D;&quot;sidebar&quot; [ngClass]&#x3D;&quot;{ &#x27;expanded&#x27;: isMenuExpanded }&quot;&gt;
+    &lt;div class&#x3D;&quot;content-menu&quot;&gt;
+      &lt;div class&#x3D;&quot;content-menu_header&quot;&gt;
+        @if (isMenuExpanded) {
+          &lt;img
+            class&#x3D;&quot;whiteIconMargin&quot;
+            src&#x3D;&quot;{{ICON_IMAGES.simSideBar}}&quot;
+            alt&#x3D;&quot;sim&quot;
+          /&gt;
+        } @else {
+          &lt;img
+            style&#x3D;&quot; height: 3rem; width: 3rem;&quot;
+            src&#x3D;&quot;{{ICON_IMAGES.simSideBarIcon}}&quot;
+            alt&#x3D;&quot;simIcon&quot;
+          /&gt;
+        }
+        &lt;div class&#x3D;&quot;content-menu_header-image&quot;&gt;
+          @if (isMenuExpanded) {
+            &lt;div (click)&#x3D;&quot;toggleMenu()&quot;&gt;
+              &lt;img
+                class&#x3D;&quot;whiteIconMargin&quot;
+                src&#x3D;&quot;{{ICON_IMAGES.leftAngle}}&quot;
+                alt&#x3D;&quot;leftAngle&quot;
+              /&gt;
+            &lt;/div&gt;
+          } @else {
+            &lt;div class&#x3D;&quot;content-menu_icon&quot; (click)&#x3D;&quot;toggleMenu()&quot;&gt;
+              &lt;span&gt;
+                &lt;img
+                  class&#x3D;&quot;blackIcomMenu&quot;
+                  src&#x3D;&quot;{{ICON_IMAGES.rightAngle}}&quot;
+                  alt&#x3D;&quot;leftAngle&quot;
+                /&gt;
+              &lt;/span&gt;
+            &lt;/div&gt;
+          }
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;content-options&quot;&gt;
+        &lt;ul&gt;
+          @for (menu of menuItems(); track $index; let i &#x3D; $index) {
+            &lt;li
+              [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: selectedMenuItem() &#x3D;&#x3D;&#x3D; i}&quot;
+              (click)&#x3D;&quot;selectMenuItem(menu.id, menu.funcionalidades[0].ruta, menu.funcionalidades)&quot;
+            &gt;
+              &lt;a&gt;
+                &lt;img
+                  class&#x3D;&quot;whiteIconMargin margin-menu&quot;
+                  src&#x3D;&quot;{{ICON_IMAGES[menu.icono]}}&quot;
+                  alt&#x3D;&quot;{{menu.icono}}&quot;
+                /&gt;
+                &lt;span
+                  *ngIf&#x3D;&quot;isMenuExpanded&quot;
+                  class&#x3D;&quot;text-menu&quot;
+                  &gt;{{ menu.nombre }}&lt;/span
+                &gt;
+              &lt;/a&gt;
+            &lt;/li&gt;
+          }
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;button-container&quot;&gt;
+        &lt;button class&#x3D;&quot;btnCloseSesion&quot; (click)&#x3D;&quot;navigateToLogin()&quot;&gt;
+          &lt;div class&#x3D;&quot;contentTextButon&quot;&gt;
+            &lt;img
+              class&#x3D;&quot;grayIcon&quot;
+              src&#x3D;&quot;{{ICON_IMAGES.endSesion}}&quot;
+              alt&#x3D;&quot;{{ICON_IMAGES.endSesion}}&quot;
+            /&gt;
+            @if (isMenuExpanded) {
+              &lt;span
+                class&#x3D;&quot;textButton&quot;
+                &gt;{{ &#x27;BUTTONS.closeSesion&#x27; | translate }}&lt;/span
+              &gt;
+            }
+          &lt;/div&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="content-side" [ngClass]="{ \'expanded\': isMenuExpanded }">  <div class="sidebar" [ngClass]="{ \'expanded\': isMenuExpanded }">    <div class="content-menu">      <div class="content-menu_header">        @if (isMenuExpanded) {          <img            class="whiteIconMargin"            src="{{ICON_IMAGES.simSideBar}}"            alt="sim"          />        } @else {          <img            style=" height: 3rem; width: 3rem;"            src="{{ICON_IMAGES.simSideBarIcon}}"            alt="simIcon"          />        }        <div class="content-menu_header-image">          @if (isMenuExpanded) {            <div (click)="toggleMenu()">              <img                class="whiteIconMargin"                src="{{ICON_IMAGES.leftAngle}}"                alt="leftAngle"              />            </div>          } @else {            <div class="content-menu_icon" (click)="toggleMenu()">              <span>                <img                  class="blackIcomMenu"                  src="{{ICON_IMAGES.rightAngle}}"                  alt="leftAngle"                />              </span>            </div>          }        </div>      </div>      <div class="content-options">        <ul>          @for (menu of menuItems(); track $index; let i = $index) {            <li              [ngClass]="{\'selected\': selectedMenuItem() === i}"              (click)="selectMenuItem(menu.id, menu.funcionalidades[0].ruta, menu.funcionalidades)"            >              <a>                <img                  class="whiteIconMargin margin-menu"                  src="{{ICON_IMAGES[menu.icono]}}"                  alt="{{menu.icono}}"                />                <span                  *ngIf="isMenuExpanded"                  class="text-menu"                  >{{ menu.nombre }}</span                >              </a>            </li>          }        </ul>      </div>      <div class="button-container">        <button class="btnCloseSesion" (click)="navigateToLogin()">          <div class="contentTextButon">            <img              class="grayIcon"              src="{{ICON_IMAGES.endSesion}}"              alt="{{ICON_IMAGES.endSesion}}"            />            @if (isMenuExpanded) {              <span                class="textButton"                >{{ \'BUTTONS.closeSesion\' | translate }}</span              >            }          </div>        </button>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'ChangePasswordComponent', 'selector': 'change-password'},{'name': 'CollaborationProjectsComponent', 'selector': 'app-collaboration-projects'},{'name': 'ConfirmActionModalComponent', 'selector': 'confirm-action-modal'},{'name': 'ConfirmModalComponent', 'selector': 'confirm-modal'},{'name': 'CreateProductComponent', 'selector': 'app-create-product'},{'name': 'CreateProjectModalComponent', 'selector': 'create-project-modal'},{'name': 'DashBoardComponent', 'selector': 'app-dash-board'},{'name': 'DetailContentPestanasComponent', 'selector': 'detail-content-pestanas'},{'name': 'DownloadReportsComponent', 'selector': 'app-download-reports'},{'name': 'EmptyComponentComponent', 'selector': 'empty-component'},{'name': 'EntitiesComponent', 'selector': 'entities-component'},{'name': 'ErrorModalComponent', 'selector': 'error-modal'},{'name': 'EvaluationProjectsComponent', 'selector': 'app-evaluation-projects'},{'name': 'GeneralManagementComponent', 'selector': 'app-planning'},{'name': 'GuidelinesModalComponent', 'selector': 'guidelines-modal'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InactivityModalComponent', 'selector': 'inactivity-modal'},{'name': 'IndicatorsComponent', 'selector': 'indicators'},{'name': 'IndicatorsModalComponent', 'selector': 'indicators-modal'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'login-component'},{'name': 'ManagementMenuComponent', 'selector': 'management-menu'},{'name': 'ManageProjectsComponent', 'selector': 'manage-projects'},{'name': 'MonitoringProjectComponent', 'selector': 'app-monitoring-project'},{'name': 'MultiselectCheckboxComponent', 'selector': 'multiselect-checkbox'},{'name': 'PlanningStrategiesComponent', 'selector': 'planning-strategies'},{'name': 'PlansModalComponent', 'selector': 'plans-modal'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ReportsPlaningComponent', 'selector': 'app-reports-planing'},{'name': 'ResetLinkComponent', 'selector': 'reset-component'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'StrategicGuidelinesComponent', 'selector': 'strategic-guidelines'},{'name': 'StrategicPlansComponent', 'selector': 'strategic-plans'}];
+    var DIRECTIVES = [{'name': 'CloseOutsideDirective', 'selector': '[closeOutside]'},{'name': 'CurrencyFormatDirective', 'selector': '[appCurrencyFormat]'},{'name': 'NoInitSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'NotFinishSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'PermissionDirective', 'selector': '[actionPermission]'}];
+    var ACTUAL_COMPONENT = {'name': 'SideMenuComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SideMenuComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

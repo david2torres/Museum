@@ -1,0 +1,33 @@
+<div class="page-container">
+  <div
+    class="description"
+    [innerHTML]="'AUTH.ENTITES.infoCard' | translate"
+  ></div>
+  <div class="form-container">
+    <div class="form-container_input">
+      @for (entity of entitiesUser(); track entity.id; let i = $index) {
+        <div
+          class="cardEntity"
+          [ngClass]="{ 'selected': selectedCardIndex === i }"
+          (click)="onCardSelected(i, entity)"
+        >
+          <span class="cardEntity_name">{{entity.nombre}}</span>
+        </div>
+      }
+
+      <div class="content-button">
+        <button
+          class="btnAuth"
+          type="submit"
+          [disabled]="selectedCardIndex == null"
+          (click)="loginSubmit()"
+        >
+          {{ 'BUTTONS.submit' | translate }}
+        </button>
+        <div class="forgotPassword" (click)="navigateToLogin()">
+          <span class="forgotPassword_text">{{  'BUTTONS.back' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

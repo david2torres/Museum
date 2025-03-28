@@ -1,0 +1,852 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sim documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sim documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AuthComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/UI/components/auth/auth.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-auth</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../miscellaneous/variables.html#AUTH_MODULES" target="_self" >AUTH_MODULES</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./auth.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./auth.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#carrouselImages" >carrouselImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ICON_IMAGES" >ICON_IMAGES</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#mode" >mode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#MODE_CONST" >MODE_CONST</a>
+                            </li>
+                            <li>
+                                <a href="#version" >version</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isAuthMode" >isAuthMode</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#validateOriginMode" >validateOriginMode</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: ActivatedRoute)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/core/UI/components/auth/auth.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAuthMode"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isAuthMode</b></span>
+                        <a href="#isAuthMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isAuthMode(mode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/core/UI/components/auth/auth.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#AuthMode" target="_self" >AuthMode</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/app/core/UI/components/auth/auth.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateOriginMode"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>validateOriginMode</b></span>
+                        <a href="#validateOriginMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateOriginMode()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/app/core/UI/components/auth/auth.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carrouselImages"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>carrouselImages</b></span>
+                        <a href="#carrouselImages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>CARROUSEL_CONST</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/core/UI/components/auth/auth.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ICON_IMAGES"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ICON_IMAGES</b></span>
+                        <a href="#ICON_IMAGES"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ICON_IMAGES</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/core/UI/components/auth/auth.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>mode</b></span>
+                        <a href="#mode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;AuthMode&gt;(AUTH_MODES.LOGIN)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/core/UI/components/auth/auth.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MODE_CONST"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>MODE_CONST</b></span>
+                        <a href="#MODE_CONST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>AUTH_MODES</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/core/UI/components/auth/auth.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="version"></a>
+                    <span class="name">
+                        <span ><b>version</b></span>
+                        <a href="#version"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>require(&#x27;../../../../../../package.json&#x27;).version</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/core/UI/components/auth/auth.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { AUTH_MODES, AuthMode } from &#x27;@DomainConstants/auth/auth.constants&#x27;;
+import { AUTH_MODULES } from &#x27;./authModule&#x27;;
+import { Component, signal, OnInit } from &#x27;@angular/core&#x27;;
+import { ICON_IMAGES } from &#x27;@DomainConstants/shared/icons-images.constants&#x27;;
+import { CARROUSEL_CONST } from &#x27;@DomainConstants/components/auth.constants&#x27;;
+
+declare const require: any;
+@Component({
+  selector: &#x27;app-auth&#x27;,
+  standalone: true,
+  imports: [...AUTH_MODULES],
+  templateUrl: &#x27;./auth.component.html&#x27;,
+  styleUrl: &#x27;./auth.component.scss&#x27;,
+})
+export class AuthComponent implements OnInit {
+  version &#x3D; require(&#x27;../../../../../../package.json&#x27;).version;
+  public MODE_CONST &#x3D; AUTH_MODES;
+  public ICON_IMAGES &#x3D; ICON_IMAGES;
+  public carrouselImages &#x3D; CARROUSEL_CONST;
+
+  public mode &#x3D; signal&lt;AuthMode&gt;(AUTH_MODES.LOGIN);
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.validateOriginMode();
+  }
+
+  private validateOriginMode(): void {
+    this.route.params.subscribe(params &#x3D;&gt; {
+      const modeParam &#x3D; params[&#x27;mode&#x27;];
+      if (this.isAuthMode(modeParam)) {
+        this.mode.update(() &#x3D;&gt; modeParam);
+      }
+    });
+  }
+
+  private isAuthMode(mode: string): mode is AuthMode {
+    return Object.values(AUTH_MODES as unknown as string[]).includes(mode);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-container&quot;&gt;
+  &lt;section class&#x3D;&quot;content-section&quot;&gt;
+    &lt;div class&#x3D;&quot;content-card&quot;&gt;
+      &lt;header class&#x3D;&quot;header&quot;&gt;
+        &lt;img
+          class&#x3D;&quot;header_img-left &quot;
+          src&#x3D;&quot;{{ICON_IMAGES.potenciaVida}}&quot;
+          alt&#x3D;&quot;Logo Colombia Potencia De Vida&quot;
+        /&gt;
+      &lt;/header&gt;
+      &lt;div class&#x3D;&quot;card&quot;&gt;
+        &lt;div class&#x3D;&quot;card_content&quot;&gt;
+          &lt;img
+            class&#x3D;&quot;logo card_content-image&quot;
+            src&#x3D;&quot;{{ICON_IMAGES.sim}}&quot;
+            alt&#x3D;&quot;Logo SIM&quot;
+          /&gt;
+          @switch (mode()) {
+            @case (MODE_CONST.LOGIN) {
+              &lt;login-component /&gt;
+            }
+            @case (MODE_CONST.RESET) {
+              &lt;reset-component /&gt;
+            }
+            @case (MODE_CONST.ENTITIES) {
+              &lt;entities-component /&gt;
+            }
+            @case (MODE_CONST.CHANGE) {
+              &lt;change-password /&gt;
+            }
+          }
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;footer class&#x3D;&quot;footer&quot;&gt;
+      &lt;div class&#x3D;&quot;version&quot;&gt;Versión: {{ version }}&lt;/div&gt;
+    &lt;/footer&gt;
+  &lt;/section&gt;
+
+  &lt;section class&#x3D;&quot;image-section&quot;&gt;
+    &lt;div class&#x3D;&quot;carousel-container&quot;&gt;
+      &lt;div class&#x3D;&quot;carousel-track&quot;&gt;
+        @for (carrousel of carrouselImages; track $index) {
+          &lt;div class&#x3D;&quot;carousel-slide&quot;&gt;
+            &lt;img
+              class&#x3D;&quot;carousel-image&quot;
+              src&#x3D;&quot;{{ICON_IMAGES[carrousel.img]}}&quot;
+              alt&#x3D;&quot;[carrousel.img]&quot;
+            /&gt;
+            &lt;footer class&#x3D;&quot;image-footer&quot;&gt;
+              &lt;div class&#x3D;&quot;contentFooter&quot;&gt;
+                &lt;img
+                  class&#x3D;&quot;imgFooter&quot;
+                  src&#x3D;&quot;{{ICON_IMAGES.sm_mnc}}&quot;
+                  alt&#x3D;&quot;[carrousel.img]&quot;
+                /&gt;
+                @if (carrousel.smImg !&#x3D;&#x3D; &#x27;noimg&#x27;) {
+                  &lt;img
+                    class&#x3D;&quot;imgFooter&quot;
+                    src&#x3D;&quot;{{ICON_IMAGES[carrousel.smImg]}}&quot;
+                    alt&#x3D;&quot;[carrousel.img]&quot;
+                  /&gt;
+                } @else {
+                  &lt;div&gt;&lt;/div&gt;
+                }
+                &lt;div class&#x3D;&quot;textFooter&quot;&gt;{{carrousel.city}}&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/footer&gt;
+          &lt;/div&gt;
+        }
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;carousel-text&quot;&gt;
+        &lt;div class&#x3D;&quot;carousel-text_title&quot;&gt;
+          &lt;span&gt;¡Bienvenidos!&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;hr style&#x3D;&quot;width: 100%;&quot; /&gt;
+        &lt;div class&#x3D;&quot;carousel-text_subTitle&quot;&gt;
+          &lt;span&gt;
+            En esta plataforma, los museos del Ministerio de las Culturas, las
+            Artes y los Saberes integramos nuestros procesos administrativos.
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="page-container">  <section class="content-section">    <div class="content-card">      <header class="header">        <img          class="header_img-left "          src="{{ICON_IMAGES.potenciaVida}}"          alt="Logo Colombia Potencia De Vida"        />      </header>      <div class="card">        <div class="card_content">          <img            class="logo card_content-image"            src="{{ICON_IMAGES.sim}}"            alt="Logo SIM"          />          @switch (mode()) {            @case (MODE_CONST.LOGIN) {              <login-component />            }            @case (MODE_CONST.RESET) {              <reset-component />            }            @case (MODE_CONST.ENTITIES) {              <entities-component />            }            @case (MODE_CONST.CHANGE) {              <change-password />            }          }        </div>      </div>    </div>    <footer class="footer">      <div class="version">Versión: {{ version }}</div>    </footer>  </section>  <section class="image-section">    <div class="carousel-container">      <div class="carousel-track">        @for (carrousel of carrouselImages; track $index) {          <div class="carousel-slide">            <img              class="carousel-image"              src="{{ICON_IMAGES[carrousel.img]}}"              alt="[carrousel.img]"            />            <footer class="image-footer">              <div class="contentFooter">                <img                  class="imgFooter"                  src="{{ICON_IMAGES.sm_mnc}}"                  alt="[carrousel.img]"                />                @if (carrousel.smImg !== \'noimg\') {                  <img                    class="imgFooter"                    src="{{ICON_IMAGES[carrousel.smImg]}}"                    alt="[carrousel.img]"                  />                } @else {                  <div></div>                }                <div class="textFooter">{{carrousel.city}}</div>              </div>            </footer>          </div>        }      </div>      <div class="carousel-text">        <div class="carousel-text_title">          <span>¡Bienvenidos!</span>        </div>        <hr style="width: 100%;" />        <div class="carousel-text_subTitle">          <span>            En esta plataforma, los museos del Ministerio de las Culturas, las            Artes y los Saberes integramos nuestros procesos administrativos.          </span>        </div>      </div>    </div>  </section></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'ChangePasswordComponent', 'selector': 'change-password'},{'name': 'CollaborationProjectsComponent', 'selector': 'app-collaboration-projects'},{'name': 'ConfirmActionModalComponent', 'selector': 'confirm-action-modal'},{'name': 'ConfirmModalComponent', 'selector': 'confirm-modal'},{'name': 'CreateProductComponent', 'selector': 'app-create-product'},{'name': 'CreateProjectModalComponent', 'selector': 'create-project-modal'},{'name': 'DashBoardComponent', 'selector': 'app-dash-board'},{'name': 'DetailContentPestanasComponent', 'selector': 'detail-content-pestanas'},{'name': 'DownloadReportsComponent', 'selector': 'app-download-reports'},{'name': 'EmptyComponentComponent', 'selector': 'empty-component'},{'name': 'EntitiesComponent', 'selector': 'entities-component'},{'name': 'ErrorModalComponent', 'selector': 'error-modal'},{'name': 'EvaluationProjectsComponent', 'selector': 'app-evaluation-projects'},{'name': 'GeneralManagementComponent', 'selector': 'app-planning'},{'name': 'GuidelinesModalComponent', 'selector': 'guidelines-modal'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InactivityModalComponent', 'selector': 'inactivity-modal'},{'name': 'IndicatorsComponent', 'selector': 'indicators'},{'name': 'IndicatorsModalComponent', 'selector': 'indicators-modal'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'login-component'},{'name': 'ManagementMenuComponent', 'selector': 'management-menu'},{'name': 'ManageProjectsComponent', 'selector': 'manage-projects'},{'name': 'MonitoringProjectComponent', 'selector': 'app-monitoring-project'},{'name': 'MultiselectCheckboxComponent', 'selector': 'multiselect-checkbox'},{'name': 'PlanningStrategiesComponent', 'selector': 'planning-strategies'},{'name': 'PlansModalComponent', 'selector': 'plans-modal'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ReportsPlaningComponent', 'selector': 'app-reports-planing'},{'name': 'ResetLinkComponent', 'selector': 'reset-component'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'StrategicGuidelinesComponent', 'selector': 'strategic-guidelines'},{'name': 'StrategicPlansComponent', 'selector': 'strategic-plans'}];
+    var DIRECTIVES = [{'name': 'CloseOutsideDirective', 'selector': '[closeOutside]'},{'name': 'CurrencyFormatDirective', 'selector': '[appCurrencyFormat]'},{'name': 'NoInitSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'NotFinishSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'PermissionDirective', 'selector': '[actionPermission]'}];
+    var ACTUAL_COMPONENT = {'name': 'AuthComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

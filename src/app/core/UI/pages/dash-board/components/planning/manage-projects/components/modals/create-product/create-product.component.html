@@ -1,0 +1,244 @@
+@let isConfirmModalAction = isConfirmAction();
+@let isConfirmModal = isConfirm();
+@let isEditFlow = isEdit();
+
+<div class="contentModalShow">
+  <div class="contentModal">
+    <div class="contentInfo">
+      <div class="contentInfo-title">
+        {{titleHeader | translate}}
+      </div>
+
+      <form [formGroup]="ProductsForm">
+        <div class="contentForm">
+          <!-- nombre proyecto -->
+          <div class="name">
+            <div class="title">
+              {{'NEW_PROJECT.products.modal.nameProduct' | translate}}
+            </div>
+            <input
+              formControlName="nombre"
+              class="spaceText"
+              type="text"
+              placeholder="{{'NEW_PROJECT.products.modal.nameProductPlaceHolder' | translate}}"
+            />
+          </div>
+          <!-- Fechas -->
+          <div class="contentVigencia">
+            <div class="name">
+              <div class="title">
+                {{'NEW_PROJECT.products.modal.startDate' | translate}}
+              </div>
+              <input
+                formControlName="fechaInicio"
+                class="spaceText"
+                type="date"
+                placeholder="{{'NEW_PROJECT.products.modal.datePlaceholder' | translate}}"
+              />
+            </div>
+
+            <div class="name">
+              <div class="title">
+                {{'NEW_PROJECT.products.modal.endDate' | translate}}
+              </div>
+              <input
+                formControlName="fechaFin"
+                class="spaceText"
+                type="date"
+                placeholder="{{'NEW_PROJECT.products.modal.datePlaceholder' | translate}}"
+              />
+            </div>
+          </div>
+          <!-- Cantidad -->
+          <div class="name">
+            <div class="title">
+              {{'NEW_PROJECT.products.modal.cantidad' | translate}}
+            </div>
+            <input
+              formControlName="cantidad"
+              class="spaceText"
+              type="number"
+              placeholder="{{'NEW_PROJECT.products.modal.cantidadPlaceHolder' | translate}}"
+            />
+          </div>
+        </div>
+
+        <div formArrayName="rubros">
+          <div
+            *ngFor="let rubro of rubros.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="contentForm">
+              <div class="title" style="padding: 1rem;">
+                {{'NEW_PROJECT.products.modal.budget' | translate}}
+              </div>
+
+              <div class="name">
+                <div class="title">
+                  {{'NEW_PROJECT.products.modal.rubro' | translate}}
+                </div>
+                <select name="idRubro" formControlName="idRubro">
+                  <option disabled [ngValue]="null">
+                    {{'NEW_PROJECT.products.modal.rubroPlaceHolder' | translate}}
+                  </option>
+                  @for (rubro of rubrosList(); track $index) {
+                    <option [value]="rubro.id">
+                      {{ rubro.nombre}}
+                    </option>
+                  }
+                </select>
+              </div>
+
+              <div class="name" id="concepto">
+                <div class="title">
+                  {{ 'NEW_PROJECT.products.modal.concepto' | translate}}
+                </div>
+                <textarea
+                  formControlName="concepto"
+                  [maxlength]="maxDescription"
+                  name="concepto"
+                  id="concepto"
+                  placeholder="{{'NEW_PROJECT.products.modal.conceptoPlaceHolder' | translate}}"
+                  rows="4"
+                  cols="50"
+                ></textarea>
+
+                <div
+                  class="counterText"
+                  [innerHTML]="rubro.get('concepto')?.value.length + '/' + maxDescription"
+                ></div>
+              </div>
+
+              <div>
+                <div class="title" style="padding: 1rem;">
+                  {{'NEW_PROJECT.products.modal.origin' | translate}}
+                </div>
+
+                <div class="contentIntern">
+                  <div class="title">
+                    {{'NEW_PROJECT.products.modal.valorInterno' | translate}}
+                  </div>
+                  <input
+                    (blur)="setTotalValueRubro(i)"
+                    appCurrencyFormat
+                    formControlName="valorInterno"
+                    class="spaceText"
+                    type="text"
+                    placeholder="{{'NEW_PROJECT.products.modal.valorInternoPlaceHolder' | translate}}"
+                  />
+                </div>
+
+                <div class="contentExternal">
+                  <div class="title">
+                    {{'NEW_PROJECT.products.modal.valorExterno' | translate}}
+                  </div>
+                  <input
+                    (blur)="setTotalValueRubro(i)"
+                    appCurrencyFormat
+                    formControlName="valorExterno"
+                    class="spaceText"
+                    type="text"
+                    placeholder="{{'NEW_PROJECT.products.modal.valorExternoPlaceholder' | translate}}"
+                  />
+                  <div class="name">
+                    <select
+                      style="width: 26rem !important;"
+                      name="idAliado"
+                      formControlName="idAliado"
+                    >
+                      <option disabled [ngValue]="null">
+                        {{'NEW_PROJECT.products.modal.aliadoPlaceHolder' | translate}}
+                      </option>
+                      @for (aliado of aliadoList(); track $index) {
+                        <option [value]="aliado.id">
+                          {{ aliado.nombre}}
+                        </option>
+                      }
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contentVigencia">
+                <div class="name">
+                  <div class="title">
+                    {{'NEW_PROJECT.products.modal.valor' | translate}}
+                  </div>
+                  <input
+                    readonly
+                    formControlName="valorTotal"
+                    appCurrencyFormat
+                    class="spaceText"
+                    type="text"
+                    placeholder="{{'NEW_PROJECT.products.modal.valorPlaceholder' | translate}}"
+                  />
+                </div>
+              </div>
+
+              @if (rubros.controls.length > 1) {
+                <div style="padding: 1rem;">
+                  <div [actionPermission]="'borrar'" class="contentButton-add">
+                    <img
+                      class="blackIcon contentButton-add_img"
+                      src="{{ ICONS_CONST.delete}}"
+                      alt="{{ICONS_CONST.delete}}"
+                    />
+                    <u
+                      (click)="removeRubro(i)"
+                      class="blackIcon contentButton-add_link"
+                    >
+                      {{'BUTTONS.delete' | translate}}
+                    </u>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="contentButton">
+          <div class="contentButton-add">
+            <img
+              class="blackIcon contentButton-add_img"
+              src="{{ ICONS_CONST.add}}"
+              alt="{{ICONS_CONST.add}}"
+            />
+            <u (click)="addRubro()" class="blackIcon contentButton-add_link">
+              {{'BUTTONS.addRubro' | translate}}
+            </u>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="contentButton">
+      <div class="contentButton-actions">
+        <u
+          class="contentButton-actions_links"
+          (click)="setMessageConfirmModal('cancel')"
+          >{{'BUTTONS.cancel' | translate}}</u
+        >
+
+        <button
+          [disabled]="ProductsForm.invalid"
+          class="largeButton"
+          (click)="processData()"
+        >
+          {{( !isEditFlow.idEdit ? 'BUTTONS.save': 'BUTTONS.saveChanges') | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+  @if (isConfirmModalAction) {
+    <div class="contentConfirmModal">
+      <confirm-action-modal
+        [textModal]="confirmModalAction"
+        (actionButton)="confirmAction($event)"
+      />
+    </div>
+  }
+  @if (isConfirmModal) {
+    <div class="contentConfirmModal">
+      <confirm-modal [textModal]="confirmModalMessageSucces" />
+    </div>
+  }
+</div>

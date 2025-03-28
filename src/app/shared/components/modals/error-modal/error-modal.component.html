@@ -1,0 +1,32 @@
+@let modalText = infoModal();
+@if (isViewModal()) {
+  <div class="contentShow">
+    <div class="contentModal">
+      <div class="contentModal-imagen">
+        <img
+          class="violetIcon contentModal-imagen_sizeImg"
+          src="{{ICONS_CONST.error}}"
+          alt="{{ICONS_CONST.error}}"
+        />
+      </div>
+
+      <div class="contentModal-text">
+        <div class="contentModal-text_title">
+          {{'ERROR_MESSAGES.title' | translate}}
+        </div>
+        <div class="contentModal-text_info">{{ modalText | translate}}</div>
+        @if (infoCode()) {
+          <div class="contentModal-text_info">{{ infoCode() | translate}}</div>
+        }
+      </div>
+
+      <div class="contentActions">
+        <div>
+          <button (click)="actionConfirm(true)" class="mediumButton">
+            {{'BUTTONS.close'| translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

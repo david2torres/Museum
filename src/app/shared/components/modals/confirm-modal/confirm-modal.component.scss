@@ -1,0 +1,37 @@
+@import '../../../../../styles.scss';
+
+
+.contentModal {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1.5rem;
+
+    &-imagen {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: center;
+
+        &_sizeImg {
+            height: 64px;
+            width: 64px;
+        }
+    }
+
+    &_infoContent {
+        display: grid;
+        justify-content: center;
+
+        &-title {
+            width: 30rem;
+            text-align: center;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-25;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+            letter-spacing: 0px;
+            opacity: 1;
+        }
+    }
+}

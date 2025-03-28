@@ -1,0 +1,527 @@
+@import '../../../../../../../../../../../styles.scss';
+
+.contentModalShow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+
+    .contentModal {
+        display: flex;
+        position: fixed;
+        width: 789px;
+        min-height: 16rem;
+        max-height: 43rem;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 2px 2px 12px #0000001F;
+        border-radius: 10px;
+        opacity: 1;
+
+        .contentMargin {
+            padding-top: 2rem;
+
+            .contentInfo {
+                max-height: 37rem;
+                padding-left: 2rem;
+                padding-right: 2rem;
+                overflow-y: auto;
+                margin-bottom: 1rem;
+                padding-bottom: 0rem;
+
+
+                &-title {
+                    font-family: $font-family-nunito;
+                    font-style: $font-style-normal;
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-25;
+                    letter-spacing: $character-spacing-0;
+                    color: $color-dark-black;
+                    text-align: left;
+                    letter-spacing: 0px;
+                }
+
+                &-titleInfo {
+                    padding-top: 2px;
+                    font-family: $font-family-nunito;
+                    font-style: $font-style-italic;
+                    font-size: $font-size-12;
+                    letter-spacing: $character-spacing-0;
+                    color: $color-dark-black;
+                    text-align: left;
+                    letter-spacing: 0px;
+                }
+
+                &-vigencia {
+                    display: grid;
+                    grid-auto-flow: column;
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    align-items: center;
+                    grid-template-columns: 0fr 0fr 0fr;
+                    gap: 1.5rem;
+
+                    &-content {
+                        display: grid;
+                        grid-auto-flow: column;
+                        align-items: center;
+                        grid-template-columns: 0fr 1fr 1fr;
+                        gap: 10px;
+
+                        &_months {
+                            width: 115px;
+                        }
+
+                        &_year {
+                            width: 80px;
+                        }
+                    }
+
+                    &_text {
+                        font-family: $font-family-nunito;
+                        font-style: $font-style-normal;
+                        font-weight: $font-weight-bold;
+                        font-size: $font-size-14;
+                        letter-spacing: $character-spacing-0;
+                        color: $color-dark-black;
+                        text-align: left;
+                        letter-spacing: 0px;
+                        opacity: 1;
+                    }
+                }
+
+                &-formArray {
+                    &_title {
+                        padding-top: 4px;
+                        padding-bottom: 8px;
+                        font-family: $font-family-nunito;
+                        font-style: $font-style-normal;
+                        font-weight: $font-weight-bold;
+                        font-size: $font-size-18;
+                        letter-spacing: $character-spacing-0;
+                        color: $color-dark-black;
+                        text-align: left;
+                        letter-spacing: 0px;
+                        opacity: 1;
+                    }
+                }
+
+                .contentForm {
+                    background: #F6F8FC 0% 0% no-repeat padding-box;
+                    border-radius: 10px;
+                    opacity: 1;
+                    margin-top: 8px;
+
+                    .contentToggle {
+                        text-align: end;
+                        padding-top: 1rem;
+                        padding-right: 1rem;
+                    }
+
+                    .name {
+                        display: grid;
+                        grid-auto-flow: row;
+                        padding: 1rem;
+                    }
+
+                    .spaceTop {
+                        padding-top: 8px !important;
+                        padding-bottom: 10px !important;
+                    }
+
+                    .contentVigencia {
+                        display: grid;
+                        gap: 1rem;
+                        grid-template-columns: 6fr 0fr 6fr;
+                        grid-auto-flow: column;
+                        align-items: center;
+                        grid-auto-flow: column;
+                        align-items: center;
+                    }
+
+                    .contentRadioButton {
+                        text-align: right;
+                        display: grid;
+                        grid-auto-flow: column;
+                        grid-template-columns: 1fr 6fr;
+                        justify-items: left;
+                        padding-left: 1rem;
+                        padding-top: 5px;
+
+                        &-label {
+                            display: grid;
+                            grid-auto-flow: column;
+                            cursor: pointer;
+                            gap: 5px;
+                        }
+                    }
+
+                    .contentDelete {
+                        display: grid;
+                        text-align: end;
+                        padding-right: 10px;
+                        padding-bottom: 10px;
+                        justify-content: end;
+
+                        &-botton {
+                            cursor: pointer;
+                            width: max-content;
+
+                            &_img {
+                                padding-right: 5px;
+                                height: 12px;
+                            }
+                        }
+
+                    }
+
+                    .space {
+                        height: 0px;
+                        border: 1px solid #3C3C3B;
+                        margin-top: 1rem;
+                    }
+                }
+
+                .contentDelete {
+                    display: grid;
+                    text-align: end;
+                    padding-right: 10px;
+                    padding-bottom: 10px;
+
+                    &-botton {
+                        cursor: pointer;
+
+                        &_img {
+                            padding-right: 5px;
+                            height: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .contentEjeAction {
+            display: grid;
+            grid-auto-flow: row;
+
+            .name {
+                display: grid;
+                grid-auto-flow: row;
+                // padding: 1rem;
+            }
+
+            .spaceTop {
+                padding-top: 8px !important;
+                padding-bottom: 10px !important;
+            }
+
+        }
+
+        .actionTitle {
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-18;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+            text-align: left;
+            letter-spacing: 0px;
+        }
+    }
+}
+
+
+.contentIndicators {
+    display: grid;
+    grid-auto-flow: row;
+    padding: 8px 16px 0px 16px;
+
+    &-information {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 1fr;
+        align-items: center;
+        align-content: center;
+
+        &_text {
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-columns: 2fr 1fr;
+            background: $color-light-purple;
+            padding: 3px 7px 4px 9px;
+            border-radius: 6px;
+            margin-right: 8px;
+
+            &_name {
+                display: grid;
+                align-items: center;
+                text-align: left;
+                font-family: $font-family-nunito;
+                font-style: $font-style-normal;
+                font-size: $font-size-12;
+                letter-spacing: $character-spacing-0;
+                color: $color-dark-black;
+                letter-spacing: 0px;
+                opacity: 1;
+            }
+
+            &_type {
+                text-align: left;
+                font-family: "Nunito Sans", sans-serif;
+                font-style: normal;
+                font-size: 12px;
+                letter-spacing: 0px;
+                color: #3C3C3B;
+                letter-spacing: 0px;
+                opacity: 1;
+                display: grid;
+                grid-auto-flow: column;
+                align-items: center;
+                grid-template-columns: 0fr;
+                gap: 10px;
+            }
+        }
+
+        &_contentInput {
+
+            &_input {
+                height: 18px;
+                width: 45px;
+                border-radius: 5px;
+                text-align: left;
+                font-family: $font-family-nunito;
+                font-style: $font-style-normal;
+                font-size: $font-size-11;
+                letter-spacing: $character-spacing-0;
+                color: $color-dark-charcoal;
+                letter-spacing: 0px;
+                opacity: 1;
+            }
+
+            &_text {
+                text-align: left;
+                font-family: $font-family-nunito;
+                font-style: $font-style-normal;
+                font-size: $font-size-12;
+                letter-spacing: $character-spacing-0;
+                color: $color-dark-black;
+                letter-spacing: 0px;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.contentConfirmModal {
+    width: 789px;
+    // height: 43rem;
+    height: -webkit-fill-available;
+    background: rgb(255 255 255 / 92%) 0% 0% no-repeat padding-box;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1215686275);
+    border-radius: 10px;
+    opacity: 1;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    display: grid;
+}
+
+.title {
+    text-align: left;
+    font-family: $font-family-nunito;
+    font-style: $font-style-normal;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-14;
+    letter-spacing: $character-spacing-0;
+    color: $color-dark-black;
+    letter-spacing: 0px;
+    opacity: 1;
+    padding-bottom: 12px;
+}
+
+.titleDates {
+    text-align: left;
+    font-family: $font-family-nunito;
+    font-style: $font-style-normal;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-14;
+    letter-spacing: $character-spacing-0;
+    color: $color-dark-black;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.titleLinks {
+    font-family: $font-family-nunito;
+    font-style: $font-style-normal;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-14;
+    line-height: $line-spacing-20;
+    letter-spacing: $character-spacing-0;
+    color: $color-dark-black;
+}
+
+.informationText {
+    text-align: left;
+    font-family: $font-family-nunito;
+    font-style: $font-style-italic;
+    font-size: $font-size-10;
+    letter-spacing: $character-spacing-0;
+    color: $color-beige;
+    letter-spacing: 0px;
+    opacity: 1;
+    padding: 4px 16px 8px 16px;
+}
+
+.smallSpace {
+    top: 330px;
+    left: 681px;
+    width: 0px;
+    height: 17px;
+    border: 1px solid #3C3C3B;
+    opacity: 1;
+}
+
+.error {
+    top: 540px;
+    left: 120px;
+    height: 18px;
+    width: 45px;
+    background: $color-pale-pink 0% 0% no-repeat padding-box;
+    border: 0.75px solid $color-bright-pink;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+.percentage-label {
+    margin-left: -27px;
+    color: #3C3C3B;
+    pointer-events: none;
+    text-align: left;
+    font-family: $font-family-nunito;
+    font-style: $font-style-normal;
+    font-size: $font-size-11;
+    letter-spacing: $character-spacing-0;
+    color: $color-dark-charcoal;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.contentButton {
+    display: grid;
+    grid-auto-flow: row;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+
+    &-add {
+        display: grid;
+        justify-items: left;
+        grid-auto-flow: column;
+        grid-template-columns: 0fr 1fr;
+        align-items: center;
+        margin-top: 1rem;
+
+        &_img {
+            padding-right: 5px;
+            height: 12px;
+        }
+
+        &_link {
+            cursor: pointer;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-weight: $font-weight-normal;
+            font-size: $font-size-14;
+            line-height: $line-spacing-20;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+        }
+    }
+
+    &-actions {
+        display: grid;
+        grid-template-columns: 6fr 1fr;
+        justify-items: end;
+        align-items: center;
+        gap: 1rem;
+
+        &_links {
+            cursor: pointer;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-weight: $font-weight-normal;
+            font-size: $font-size-14;
+            line-height: $line-spacing-20;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+        }
+    }
+
+    &-actionsThree {
+        display: grid;
+        grid-template-columns: 6fr 1fr 1fr;
+        justify-items: end;
+        align-items: center;
+        gap: 1rem;
+        justify-items: baseline;
+        padding-left: 25px;
+
+        &_links {
+            cursor: pointer;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-weight: $font-weight-normal;
+            font-size: $font-size-14;
+            line-height: $line-spacing-20;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+        }
+
+        .contentDelete {
+            display: grid;
+            text-align: end;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            justify-content: end;
+
+            &-botton {
+                cursor: pointer;
+                width: max-content;
+
+                &_img {
+                    padding-right: 5px;
+                    height: 12px;
+                }
+            }
+        }
+    }
+}
+
+.underline-button {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.underline-button:disabled {
+    color: rgb(84 79 71 / 36%)  !important;
+}
+
+.grayIconError {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(4%) saturate(889%) hue-rotate(357deg) brightness(85%) contrast(87%) !important;
+}

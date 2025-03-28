@@ -1,0 +1,673 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sim documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sim documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ISeguimientoResponse</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/domain/models/interfaces/projectManagement.interface.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#meses" 
+>
+                                            meses
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#seguimientos" 
+>
+                                            seguimientos
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="meses"></a>
+                                        <span class="name "><b>meses</b>
+                                            <a href="#meses">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>meses:     <code>IMes[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>IMes[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="seguimientos"></a>
+                                        <span class="name "><b>seguimientos</b>
+                                            <a href="#seguimientos">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>seguimientos:         <code><a href="../interfaces/ISeguimiento.html" target="_self" >ISeguimiento[]</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/ISeguimiento.html" target="_self" >ISeguimiento[]</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IProjectsComponent {
+  tipoLista: string;
+  proyectos: IProjects[];
+}
+
+export interface IProjects {
+  id:                        string;
+  habilitarSeguimiento:      boolean;
+  habilitarEvaluado:         boolean;
+  evaluado:                  boolean;
+  habilitarEstado:           boolean;
+  numero:                    string;
+  nombre:                    string;
+  idMuseo:                   number;
+  idAreaResponsable:         string;
+  idEstado:                  string;
+  idEjeEstrategico:          string;
+  idAccion:                  string;
+  fechaInicio:               Date;
+  fechaFin:                  Date;
+  justificacion:             string;
+  descripcion:               string;
+  objetivoGeneral:           string;
+  idTipologiaSostenibilidad: string;
+  emailUsuario:              string;
+  areaResponsable:           AreaResponsable;
+  estado:                    Estado;
+  evaluador:                 Evaluador;
+  lineamientosEstrategicos:  string[];
+  indicadores:               string[];
+  objetivosEspecificos:      string[];
+  areasApoyo:                any[];
+  comunidades:               any[];
+  aliados:                   any[];
+  productos:                 IProducto[];
+  presupuesto:               ProyectoPresupuesto;
+  seguimientos:              ISeguimiento[];
+  meses:                     IMes[];
+}
+
+export interface ISeguimientoResponse {
+  seguimientos: ISeguimiento[];
+  meses:        IMes[];
+}
+
+export interface ISeguimiento {
+  idProyecto:    string;
+  nombreProyecto?: string;
+  mes:           IMes;
+  productos:     IIndicador[];
+  indicadores:   IIndicador[];
+  presupuesto:   SeguimientoPresupuesto;
+  observaciones: string;
+}
+
+export interface IMes {
+  id:     number;
+  nombre: string;
+}
+
+export interface SeguimientoPresupuesto {
+  totalAprovado:  number;
+  totalEjecutado: number;
+  valorMensual:   number;
+}
+export interface IIndicador {
+  id:                 string;
+  nombre:             string;
+  meta?:              number;
+  cantidad?:          number;
+  fechaInicio?:        Date;
+  fechaFin?:           Date;
+  avanceAcumulado:    number;
+  avanceCualitativo:  string;
+  avanceCuantitativo: number;
+  linkEvidencia?:     string;
+}
+export interface ProyectoPresupuesto {
+  presupuestoTotal:   number;
+  presupuestoInterno: PresupuestoTerno;
+  presupuestoExterno: PresupuestoTerno;
+}
+
+export interface IAliado {
+  idAliado: string;
+  idTipoAporte: string;
+}
+export interface AreaResponsable {
+  id: string;
+  idMuseo: number;
+  nombre: string;
+}
+export interface IComunidad {
+  idComunidad: string;
+  gruposEtarios: string[];
+  idDepartamento: number;
+  municipios: number[];
+}
+export interface Estado {
+  id: string;
+  nombre: string;
+  descripcion: string;
+  proyectos?: Proyecto[];
+}
+export interface Proyecto {
+  id: string;
+  numero: string;
+  nombre: string;
+  justificacion: string;
+  objetivoGeneral: string;
+  idAreaResponsable: string;
+  idMuseo: number;
+  idResponsableRegistroAvance: string;
+  idEstado: string;
+  fechaInicio: string;
+  fechaFin: string;
+  idAccion: string;
+  productos: any[];
+  proyectoAreas: any[];
+  objetivosEspecificos: any[];
+  proyectoComunidades: any[];
+  proyectoIndicadores: any[];
+}
+export interface Evaluador {
+  id: string;
+  nombre: string;
+}
+export interface IPresupuesto {
+  presupuestoTotal: number;
+  presupuestoInterno: PresupuestoTerno;
+  presupuestoExterno: PresupuestoTerno;
+}
+export interface PresupuestoTerno {
+  valorPresupuesto: number;
+  items: Item[];
+}
+export interface Item {
+  nombre: string;
+  valor: number;
+  codColor: string;
+  porcentaje: number;
+}
+
+export interface ICreateProductsComponent {
+  idProyecto: string;
+  id?: string;
+  nombre: string;
+  fechaInicio: Date;
+  fechaFin: Date;
+  cantidad: number;
+  rubros: ICreateRubro[];
+}
+
+export interface ICreateRubro {
+  idRubro: string;
+  concepto: string;
+  valorInterno: number;
+  valorExterno: number;
+  idAliado: string;
+}
+export interface IProducto {
+  idProyecto: string;
+  id: string;
+  nombre: string;
+  fechaInicio: Date;
+  fechaFin: Date;
+  cantidad: number;
+  rubros: IRubro[];
+}
+
+export interface IRubro {
+  idRubro: string;
+  concepto: string;
+  valorInterno: string;
+  valorExterno: string;
+  idAliado: string;
+  valorTotal: string;
+}
+
+export interface IModalNewProject {
+  idEdit?: boolean;
+  elementSelected?: any;
+  idPlan?: string;
+}
+export interface IDynamicListPorjects {
+  id: string;
+  nombre: string;
+  descripcion: null;
+  lineamientosEstrategicos: IDynamicGuideline[];
+  acciones: IDynamicAction[];
+  evaluadores: null;
+}
+export interface IDynamicAction {
+  id: string;
+  nombre: string;
+  descripcion: null;
+  indicadores: IDynamicIndicator[];
+}
+export interface IDynamicIndicator {
+  id: string;
+  nombre: string;
+  formula: null;
+  meta: null;
+  peso: null;
+  tendencia: null;
+  criterio: null;
+  tipoIndicador: null;
+  categoriaIndicador: null;
+}
+export interface IDynamicGuideline {
+  id: string;
+  nombre: string;
+}
+
+export interface IGenericList {
+  id: string;
+  nombre: string;
+}
+
+// Create Project
+export interface ICreateProject {
+  idEjeEstrategico: string;
+  lineamientosEstrategicos: string[];
+  idAccion: string;
+  indicadores: string[];
+  nombre: string;
+  fechaInicio: Date;
+  fechaFin: Date;
+  justificacion: string;
+  descripcion: string;
+  objetivoGeneral: string;
+  objetivosEspecificos: string[];
+  areasApoyo: string[];
+  idTipologiaSostenibilidad: string;
+  comunidades: Comunidade[];
+  aliados: Aliado[];
+  productos: IProductoProject[];
+}
+export interface Aliado {
+  idAliado: string;
+  idTipoAporte: string;
+}
+export interface Comunidade {
+  idComunidad: string;
+  gruposEtarios: string[];
+  idDepartamento: string[];
+  municipios: string[];
+}
+export interface IProductoProject {
+  nombre: string;
+  fechaInicio: Date;
+  fechaFin: Date;
+  cantidad: number;
+  rubros: Rubro[];
+}
+export interface Rubro {
+  idRubro: string;
+  concepto: string;
+  valor: number;
+  valorInterno: number;
+  valorExterno: ValorExterno;
+}
+export interface ValorExterno {
+  valor: number;
+  idAliado: string;
+}
+
+// AREAS POR MUSEO
+export interface IAreasPorMuseo {
+  id: string;
+  idMuseo: number;
+  nombre: string;
+}
+// TIPOLOGIA
+export interface ITipologias {
+  id: string;
+  nombre: string;
+  proyectos: any[];
+}
+// Comunidades
+export interface IComunidades {
+  id: string;
+  nombre: string;
+  pcdCs: any[];
+  pcdrEs: any[];
+}
+// Grupo Etario
+export interface IGrupoEtario {
+  id: string;
+  nombre: string;
+  orden: number;
+  pcdrEs: any[];
+}
+// Departamento Municipio
+export interface IDepartamentos {
+  id: number;
+  nombre: string;
+  ciudades: ICiudadMunicipio[];
+}
+export interface ICiudadMunicipio {
+  id: number;
+  nombre: string;
+}
+// aliados
+export interface IAliados {
+  id: string;
+  nombre: string;
+  caracterizacion: string;
+  localizacion: string;
+}
+//Tipo de Aporte
+export interface ITipoAporte {
+  id: string;
+  nombre: string;
+  proyectoAliados: any[];
+}
+// STATES Projects
+export interface IEstadosProyectos {
+  id: string;
+  nombre: string;
+  descripcion: string;
+  proyectos: any[];
+}
+
+// Generated by https://quicktype.io
+export interface ISaveSeguimiento {
+  idProyecto:     string;
+  nombreProyecto: string;
+  mes:            Mes;
+  productos:      Indicadores[];
+  indicadores:    Indicadores[];
+  presupuesto:    Presupuesto;
+  observaciones:  string;
+}
+
+export interface Indicadores {
+  id:                 string;
+  nombre:             string;
+  meta?:              number;
+  avanceAcumulado:    number;
+  avanceCualitativo:  string;
+  avanceCuantitativo: number;
+  linkEvidencia?:     string;
+}
+
+export interface Mes {
+  id:     number;
+  nombre: string;
+}
+
+export interface Presupuesto {
+  totalAprovado:  number;
+  totalEjecutado: number;
+  valorMensual:   number;
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ISeguimientoResponse.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

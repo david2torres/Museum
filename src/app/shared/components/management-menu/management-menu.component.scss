@@ -1,0 +1,60 @@
+@import '../../../../styles.scss';
+
+.container {
+
+    .content-menu {
+        cursor: pointer;
+        display: grid;
+        grid-auto-flow: column;
+        padding: 1rem;
+        width: 30rem;
+
+        .text {
+            width: fit-content;
+            border-radius: 4px;
+            padding: 8px;
+            text-align: center;
+            color: $color-violet;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-size: $font-size-14;
+            letter-spacing: $character-spacing-0;
+
+            &:hover {
+                background-color: $color-purple;
+                color: $color-white ;
+            }
+
+            &.selected {
+                background-color: $color-light-purple;
+                color: $color-violet ;
+            }
+        }
+
+        .space {
+            width: 0px;
+            height: 26px;
+            border: 0.800000011920929px solid #4B3C8C;
+            opacity: 1;
+        }
+
+        .space:last-child {
+            border: none
+        }
+    }
+
+    .contentInfo {
+        padding-bottom: 1rem;
+        min-height: 34rem !important;
+        overflow: auto;
+
+        &-space {
+            padding-right: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            margin: 0rem;
+        }
+
+    }
+}

@@ -1,0 +1,137 @@
+@let indicatorList = indicatorsList();
+
+@if (isData()) {
+  @if (indicatorList.length == 0) {
+    <div class="content contentWD">
+      <div class="content-active_button"></div>
+      <empty-component
+        [message]="messageEmpty"
+        (actionButton)="openCloseModal()"
+      />
+    </div>
+  }
+
+  @if (indicatorList.length !== 0) {
+    <div class="content-active_button_button">
+      <button
+        [actionPermission]="'crear'"
+        class="smallButton"
+        type="submit"
+        style="width: 112px !important;"
+        (click)="openCloseModal()"
+      >
+        <img
+          class="content-active_button_button-image"
+          src="{{ICONS_CONST.add}}"
+          alt="{{ICONS_CONST.add}}"
+        />
+        {{ 'BUTTONS.create' | translate }}
+      </button>
+    </div>
+  }
+
+  @for (indicador of indicatorList; track $index) {
+    <div class="content">
+      <div class="content-active_button">
+        <div class="content-active_button_title">
+          <span class="blackIcon content-active_button_text">
+            {{'PLANNING.indicadores.title' | translate: { nombre: indicador.nombre} }}
+          </span>
+          <img
+            (click)="viewIndicator($index)"
+            class="blackIcon content-active_button_img"
+            src="{{ isViewBlock[$index] ? ICONS_CONST.anguloDown : ICONS_CONST.anguloUp}}"
+            alt="angulo"
+          />
+        </div>
+      </div>
+      @if (!isViewBlock[$index]) {
+        @for (typeIndicator of indicador.indicadores; track $index) {
+          <div class="contenList">
+            <div class="contenList-title">{{typeIndicator.nombre}}</div>
+            <div class="contenIcon">
+              <div
+                [actionPermission]="'editar'"
+                class="contenIcon-edit"
+                (click)="openCloseModal(true, typeIndicator)"
+              >
+                <img
+                  class="violetIcon contenIcon-edit-image"
+                  src="{{ICONS_CONST.edit}}"
+                  alt="{{ICONS_CONST.edit}}"
+                />
+              </div>
+              <div
+                style="cursor: pointer;"
+                (click)="viewDetailIndicator(typeIndicator.id)"
+              >
+                <img
+                  class="blackIcon contenIcon-image"
+                  src="{{ isViewDetail[typeIndicator.id]? ICONS_CONST.upArrowSmall: ICONS_CONST.downArrowSmall}}"
+                  alt="{{ICONS_CONST.upArrowSmall}}"
+                />
+              </div>
+            </div>
+          </div>
+          @if (isViewDetail[typeIndicator.id]) {
+            <div class="detailContent">
+              <div class="detailContent_info">
+                <span class="detailContent_info-title">
+                  {{ 'PLANNING.indicadores.formula' | translate }}
+                </span>
+                <div class="detailContent_info-contentInfo">
+                  {{typeIndicator.formula}}
+                </div>
+              </div>
+
+              <div class="detailContent_info">
+                <span class="detailContent_info-title">
+                  {{ 'PLANNING.indicadores.meta' | translate }}
+                </span>
+                <div class="detailContent_info-contentInfo">
+                  {{typeIndicator.meta}} {{getNameByID(typeIndicator.idUnidadDeMedida, 1)}}
+                </div>
+              </div>
+
+              <div class="detailContent_info">
+                <span class="detailContent_info-title">
+                  {{ 'PLANNING.indicadores.clasificacion' | translate }}
+                </span>
+                <div class="detailContent_info-contentInfo">
+                  {{ getNameByID(typeIndicator.idTipoIndicador,2)}}
+                </div>
+              </div>
+
+              <div class="detailContent_info">
+                <span class="detailContent_info-title">
+                  {{ 'PLANNING.indicadores.tendencia' | translate }}
+                </span>
+                <div class="detailContent_info-contentInfo">
+                  {{ typeIndicator.tendencia}}
+                </div>
+              </div>
+
+              <div class="detailContent_info">
+                <span class="detailContent_info-title">
+                  {{ 'PLANNING.indicadores.criterio' | translate }}
+                </span>
+                <div class="detailContent_info-contentInfo">
+                  {{typeIndicator.criterio}}
+                </div>
+              </div>
+            </div>
+          }
+        }
+      }
+    </div>
+  }
+}
+@if (isModal()) {
+  <div>
+    <indicators-modal
+      [title]="modalTitle"
+      [isEdit]="isEditGuideline"
+      (actionButton)="closeModalEvent($event)"
+    />
+  </div>
+}

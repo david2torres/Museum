@@ -1,0 +1,2156 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sim documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sim documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >PlanningRepository</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/infrastructure/repositories/planning-repository.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#apiUrl" >apiUrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createGuideLine" >createGuideLine</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createStrategicPlans" >createStrategicPlans</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createTypeIndicators" >createTypeIndicators</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteEjeStrategic" >deleteEjeStrategic</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteGuidelines" >deleteGuidelines</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteTypeIndicators" >deleteTypeIndicators</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editEjeStrategic" >editEjeStrategic</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editGuideline" >editGuideline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editStrategicPlans" >editStrategicPlans</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editTypeIndicators" >editTypeIndicators</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCategoriesIndicador" >getCategoriesIndicador</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getEvaluators" >getEvaluators</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getGuidelines" >getGuidelines</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getIndicators" >getIndicators</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getListaTiposIndicador" >getListaTiposIndicador</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getPolicies" >getPolicies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getStrategicPlans" >getStrategicPlans</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getTypeIndicators" >getTypeIndicators</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getUnidadesMedida" >getUnidadesMedida</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleError" >handleError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#log" >log</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(apiHttp: <a href="../injectables/ApiService.html" target="_self">ApiService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/infrastructure/repositories/planning-repository.service.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apiHttp</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createGuideLine"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>createGuideLine</b></span>
+                        <a href="#createGuideLine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createGuideLine(bodyGuideline: <a href="../interfaces/ICeateGuidelinesResponse.html" target="_self">ICeateGuidelinesResponse[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:78</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bodyGuideline</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICeateGuidelinesResponse.html" target="_self" >ICeateGuidelinesResponse[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createStrategicPlans"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>createStrategicPlans</b></span>
+                        <a href="#createStrategicPlans"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createStrategicPlans(bodyStrategicPlan: <a href="../interfaces/ICreateStrategicPlans.html" target="_self">ICreateStrategicPlans</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:156</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bodyStrategicPlan</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICreateStrategicPlans.html" target="_self" >ICreateStrategicPlans</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTypeIndicators"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>createTypeIndicators</b></span>
+                        <a href="#createTypeIndicators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createTypeIndicators(bodyTypeIndicator: <a href="../interfaces/ITypeIndicatorsRequest.html" target="_self">ITypeIndicatorsRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:237</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bodyTypeIndicator</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ITypeIndicatorsRequest.html" target="_self" >ITypeIndicatorsRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteEjeStrategic"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>deleteEjeStrategic</b></span>
+                        <a href="#deleteEjeStrategic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteEjeStrategic(idEje: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:118</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idEje</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteGuidelines"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>deleteGuidelines</b></span>
+                        <a href="#deleteGuidelines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteGuidelines(idLineamiento: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:106</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idLineamiento</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTypeIndicators"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>deleteTypeIndicators</b></span>
+                        <a href="#deleteTypeIndicators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteTypeIndicators(idiTypeIndicator: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:271</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idiTypeIndicator</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editEjeStrategic"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>editEjeStrategic</b></span>
+                        <a href="#editEjeStrategic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editEjeStrategic(body: <a href="../interfaces/IEditEjeEstrategico.html" target="_self">IEditEjeEstrategico</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:193</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IEditEjeEstrategico.html" target="_self" >IEditEjeEstrategico</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editGuideline"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>editGuideline</b></span>
+                        <a href="#editGuideline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editGuideline(bodyGuideline: <a href="../interfaces/IEditGuidelineResponse.html" target="_self">IEditGuidelineResponse</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:93</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bodyGuideline</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IEditGuidelineResponse.html" target="_self" >IEditGuidelineResponse</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editStrategicPlans"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>editStrategicPlans</b></span>
+                        <a href="#editStrategicPlans"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editStrategicPlans(bodyStrategicPlan: <a href="../interfaces/ICreateStrategicPlans.html" target="_self">ICreateStrategicPlans</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:173</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bodyStrategicPlan</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICreateStrategicPlans.html" target="_self" >ICreateStrategicPlans</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editTypeIndicators"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>editTypeIndicators</b></span>
+                        <a href="#editTypeIndicators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editTypeIndicators(bodyTypeIndicator: <a href="../interfaces/ITypeIndicatorsRequest.html" target="_self">ITypeIndicatorsRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:254</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bodyTypeIndicator</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ITypeIndicatorsRequest.html" target="_self" >ITypeIndicatorsRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCategoriesIndicador"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getCategoriesIndicador</b></span>
+                        <a href="#getCategoriesIndicador"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCategoriesIndicador()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:307</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ICategories.html" target="_self" >Observable&lt;ICategories[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEvaluators"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getEvaluators</b></span>
+                        <a href="#getEvaluators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getEvaluators(idMuseo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:130</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idMuseo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;IEvaluadoresResponse[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGuidelines"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getGuidelines</b></span>
+                        <a href="#getGuidelines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getGuidelines(idMuseo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:50</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idMuseo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IGetGuidelinesResponse.html" target="_self" >Observable&lt;IGetGuidelinesResponse[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIndicators"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getIndicators</b></span>
+                        <a href="#getIndicators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getIndicators()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:210</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;IIndicadoresResponse[]&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getListaTiposIndicador"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getListaTiposIndicador</b></span>
+                        <a href="#getListaTiposIndicador"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getListaTiposIndicador()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:296</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;ITipoIndicador[]&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPolicies"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getPolicies</b></span>
+                        <a href="#getPolicies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPolicies()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:143</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;IPoliticasResponse[]&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStrategicPlans"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getStrategicPlans</b></span>
+                        <a href="#getStrategicPlans"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getStrategicPlans(idMuseo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:63</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idMuseo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IStrategicPlansResponse.html" target="_self" >Observable&lt;IStrategicPlansResponse[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTypeIndicators"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getTypeIndicators</b></span>
+                        <a href="#getTypeIndicators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTypeIndicators()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:224</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ITypeIndicatorsRequest.html" target="_self" >Observable&lt;ITypeIndicatorsRequest[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUnidadesMedida"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getUnidadesMedida</b></span>
+                        <a href="#getUnidadesMedida"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUnidadesMedida()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractPlanningUseCases.html" target="_self" >AbstractPlanningUseCases</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractPlanningUseCases.html#source" target="_self" >AbstractPlanningUseCases:283</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IUnidadesMedida.html" target="_self" >Observable&lt;IUnidadesMedida[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleError"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>handleError</b></span>
+                        <a href="#handleError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleError(operation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, result?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="318"
+                                    class="link-to-prism">src/app/core/infrastructure/repositories/planning-repository.service.ts:318</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>operation</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;operation&#x27;</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>result</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="log"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>log</b></span>
+                        <a href="#log"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>log(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="323"
+                                    class="link-to-prism">src/app/core/infrastructure/repositories/planning-repository.service.ts:323</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiUrl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>apiUrl</b></span>
+                        <a href="#apiUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment.planning</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/infrastructure/repositories/planning-repository.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  evaluatorResponseSimulate,
+  indicatorRequestSimulate,
+  indicatorsResponseSimulate,
+  lineamientosResponseSimulate,
+  politicasResponseSimulate,
+  //lineamientosResponseSimulate,
+  //politicasResponseSimulate,
+  strategicPlansResponse,
+  tipoIndicadorSimulate,
+  unidadesMedidasSimulate,
+} from &#x27;@DomainConstants/mocks/simulateServices.constants&#x27;;
+import {
+  ICategories,
+  ICeateGuidelinesResponse,
+  ICreateStrategicPlans,
+  IEditEjeEstrategico,
+  IEditGuidelineResponse,
+  IEvaluadoresResponse,
+  IGetGuidelinesResponse,
+  IIndicadoresResponse,
+  IPoliticasResponse,
+  IStrategicPlansResponse,
+  ITipoIndicador,
+  ITypeIndicatorsRequest,
+  IUnidadesMedida,
+} from &#x27;@DomainInterfaces/planning.interface&#x27;;
+import { IUserLoginRespone } from &#x27;@DomainInterfaces/userAuth.interface&#x27;;
+import { AbstractPlanningUseCases } from &#x27;@DomainUsesCases/PlanningUseCases.abstract&#x27;;
+import { environment } from &#x27;app/environment/environment&#x27;;
+import { catchError, Observable, of, tap } from &#x27;rxjs&#x27;;
+import { ApiService } from &#x27;../api/api.service&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class PlanningRepository extends AbstractPlanningUseCases {
+  private apiUrl &#x3D; environment.planning;
+
+  constructor(private apiHttp: ApiService) {
+    super();
+  }
+
+  public getGuidelines(idMuseo: number): Observable&lt;IGetGuidelinesResponse[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getGuidelines}?idMuseo&#x3D;${idMuseo}&#x60;;
+    return this.apiHttp
+      .get&lt;IGetGuidelinesResponse[]&gt;(url, lineamientosResponseSimulate)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response Service&#x27;, row);
+          this.log(&#x27;fetched uploadFileData&#x27;);
+        }),
+        catchError(error &#x3D;&gt; this.handleError(&#x27;uploadFileData&#x27;, error)),
+      );
+  }
+
+  public getStrategicPlans(
+    idMuseo: number,
+  ): Observable&lt;IStrategicPlansResponse[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getStrategicPlan}?idMuseo&#x3D;${idMuseo}&#x60;;
+    return this.apiHttp
+      .get&lt;IStrategicPlansResponse[]&gt;(url, strategicPlansResponse)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response Service&#x27;, row);
+          this.log(&#x27;fetched uploadFileData&#x27;);
+        }),
+        catchError(error &#x3D;&gt; this.handleError(&#x27;uploadFileData&#x27;, error)),
+      );
+  }
+
+  public createGuideLine(
+    bodyGuideline: ICeateGuidelinesResponse[],
+  ): Observable&lt;any&gt; {
+    const body: ICeateGuidelinesResponse[] &#x3D; bodyGuideline;
+    return this.apiHttp
+      .post&lt;ICeateGuidelinesResponse&gt;(this.apiUrl.createGuidelines, body)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response createGuideLine&#x27;, row);
+          this.log(&#x27;fetched createGuideLine&#x27;);
+        }),
+        catchError((error: any) &#x3D;&gt; this.handleError(&#x27;createGuideLine&#x27;, error)),
+      );
+  }
+
+  public editGuideline(bodyGuideline: IEditGuidelineResponse): Observable&lt;any&gt; {
+    const body: IEditGuidelineResponse &#x3D; { ...bodyGuideline[0] };
+    return this.apiHttp
+      .put&lt;IEditGuidelineResponse&gt;(this.apiUrl.editGuidelines, body)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response Service&#x27;, row);
+          this.log(&#x27;fetched uploadFileData&#x27;);
+        }),
+        catchError(error &#x3D;&gt; this.handleError(&#x27;uploadFileData&#x27;, error)),
+      );
+  }
+
+  public deleteGuidelines(idLineamiento: string): Observable&lt;any&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.deleteGuidelines}${idLineamiento}&#x60;;
+    console.log(&#x27;Url delete guidelines&#x27;, url);
+    return this.apiHttp.delete&lt;IUserLoginRespone&gt;(url).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response Service&#x27;, row);
+        this.log(&#x27;fetched uploadFileData&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;uploadFileData&#x27;, error)),
+    );
+  }
+
+  public deleteEjeStrategic(idEje: string): Observable&lt;any&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.deleteEjeStrategic}${idEje}&#x60;;
+    console.log(&#x27;Url delete deleteEjeStrategic&#x27;, url);
+    return this.apiHttp.delete&lt;IUserLoginRespone&gt;(url).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response deleteEjeStrategic&#x27;, row);
+        this.log(&#x27;fetched deleteEjeStrategic&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;deleteEjeStrategic&#x27;, error)),
+    );
+  }
+
+  public getEvaluators(idMuseo: number): Observable&lt;IEvaluadoresResponse[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getEvaluators}?idMuseo&#x3D;${idMuseo}&#x60;;
+    return this.apiHttp
+      .get&lt;IEvaluadoresResponse[]&gt;(url, evaluatorResponseSimulate)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response Service&#x27;, row);
+          this.log(&#x27;fetched uploadFileData&#x27;);
+        }),
+        catchError(error &#x3D;&gt; this.handleError(&#x27;uploadFileData&#x27;, error)),
+      );
+  }
+
+  public getPolicies(): Observable&lt;IPoliticasResponse[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getPolicians}&#x60;;
+    return this.apiHttp
+      .get&lt;IPoliticasResponse[]&gt;(url, politicasResponseSimulate)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response Service&#x27;, row);
+          this.log(&#x27;fetched getPolicies&#x27;);
+        }),
+        catchError(error &#x3D;&gt; this.handleError(&#x27;getPolicies&#x27;, error)),
+      );
+  }
+
+  public createStrategicPlans(
+    bodyStrategicPlan: ICreateStrategicPlans,
+  ): Observable&lt;any&gt; {
+    const body: ICreateStrategicPlans &#x3D; bodyStrategicPlan;
+    return this.apiHttp
+      .post&lt;ICreateStrategicPlans&gt;(this.apiUrl.createStrategicPlan, body)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response createStrategicPlan&#x27;, row);
+          this.log(&#x27;fetched createStrategicPlan&#x27;);
+        }),
+        catchError((error: any) &#x3D;&gt;
+          this.handleError(&#x27;createStrategicPlan&#x27;, error),
+        ),
+      );
+  }
+
+  public editStrategicPlans(
+    bodyStrategicPlan: ICreateStrategicPlans,
+  ): Observable&lt;any&gt; {
+    const body: ICreateStrategicPlans &#x3D; bodyStrategicPlan;
+    /**
+     * Validate Loader Dynamic component Style
+     */
+    const url &#x3D;
+      bodyStrategicPlan.ejesEstrategicos.length &gt; 0
+        ? &#x60;${this.apiUrl.editStrategicPlan}&#x60;
+        : &#x60;${this.apiUrl.editStrategicPlan}/?st&#x3D;sm&#x60;;
+    return this.apiHttp.put&lt;ICreateStrategicPlans&gt;(url, body).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response Edit StrategicPlan&#x27;, row);
+        this.log(&#x27;fetched Edit StrategicPlan&#x27;);
+      }),
+      catchError((error: any) &#x3D;&gt; this.handleError(&#x27;Edit StrategicPlan&#x27;, error)),
+    );
+  }
+
+  public editEjeStrategic(body: IEditEjeEstrategico): Observable&lt;any&gt; {
+    /**
+     * Validate Loader Dynamic component Style
+     */
+    const url &#x3D;
+      body.acciones.length &gt; 0
+        ? &#x60;${this.apiUrl.editEjeStrategic}&#x60;
+        : &#x60;${this.apiUrl.editEjeStrategic}/?st&#x3D;md&#x60;;
+    return this.apiHttp.put&lt;IEditEjeEstrategico&gt;(url, body).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response Service&#x27;, row);
+        this.log(&#x27;fetched uploadFileData&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;uploadFileData&#x27;, error)),
+    );
+  }
+
+  public getIndicators(): Observable&lt;IIndicadoresResponse[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getIndicators}&#x60;;
+    return this.apiHttp
+      .get&lt;IIndicadoresResponse[]&gt;(url, indicatorsResponseSimulate)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response getIndicators&#x27;, row);
+          this.log(&#x27;fetched getIndicators&#x27;);
+        }),
+        catchError(error &#x3D;&gt; this.handleError(&#x27;getIndicators&#x27;, error)),
+      );
+  }
+
+  // Types Indicators
+  public getTypeIndicators(): Observable&lt;ITypeIndicatorsRequest[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getTypeIndicators}&#x60;;
+    return this.apiHttp
+      .get&lt;ITypeIndicatorsRequest[]&gt;(url, indicatorRequestSimulate)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response getTypeIndicators&#x27;, row);
+          this.log(&#x27;fetched getTypeIndicators&#x27;);
+        }),
+        catchError(error &#x3D;&gt; this.handleError(&#x27;getTypeIndicators&#x27;, error)),
+      );
+  }
+
+  public createTypeIndicators(
+    bodyTypeIndicator: ITypeIndicatorsRequest,
+  ): Observable&lt;any&gt; {
+    const body: ITypeIndicatorsRequest &#x3D; bodyTypeIndicator;
+    return this.apiHttp
+      .post&lt;ITypeIndicatorsRequest&gt;(this.apiUrl.createTypeIndicators, body)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response createTypeIndicators&#x27;, row);
+          this.log(&#x27;fetched createTypeIndicators&#x27;);
+        }),
+        catchError((error: any) &#x3D;&gt;
+          this.handleError(&#x27;createTypeIndicators&#x27;, error),
+        ),
+      );
+  }
+
+  public editTypeIndicators(
+    bodyTypeIndicator: ITypeIndicatorsRequest,
+  ): Observable&lt;any&gt; {
+    const body: ITypeIndicatorsRequest &#x3D; bodyTypeIndicator;
+    return this.apiHttp
+      .put&lt;ITypeIndicatorsRequest&gt;(this.apiUrl.editTypeIndicators, body)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response editTypeIndicators&#x27;, row);
+          this.log(&#x27;fetched editTypeIndicators&#x27;);
+        }),
+        catchError((error: any) &#x3D;&gt;
+          this.handleError(&#x27;editTypeIndicators&#x27;, error),
+        ),
+      );
+  }
+
+  public deleteTypeIndicators(idiTypeIndicator: string): Observable&lt;any&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.deleteTypeIndicators}${idiTypeIndicator}&#x60;;
+    console.log(&#x27;Url delete deleteTypeIndicators&#x27;, url);
+    return this.apiHttp.delete&lt;any&gt;(url).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response Service&#x27;, row);
+        this.log(&#x27;fetched deleteTypeIndicators&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;deleteTypeIndicators&#x27;, error)),
+    );
+  }
+
+  public getUnidadesMedida(): Observable&lt;IUnidadesMedida[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getUnidadesMedida}&#x60;;
+    return this.apiHttp
+      .get&lt;IUnidadesMedida[]&gt;(url, unidadesMedidasSimulate)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response getUnidadesMedida&#x27;, row);
+          this.log(&#x27;fetched getUnidadesMedida&#x27;);
+        }),
+        catchError(error &#x3D;&gt; this.handleError(&#x27;getUnidadesMedida&#x27;, error)),
+      );
+  }
+
+  public getListaTiposIndicador(): Observable&lt;ITipoIndicador[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getListaTiposIndicador}&#x60;;
+    return this.apiHttp.get&lt;ITipoIndicador[]&gt;(url, tipoIndicadorSimulate).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getListaTiposIndicador&#x27;, row);
+        this.log(&#x27;fetched getListaTiposIndicador&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getListaTiposIndicador&#x27;, error)),
+    );
+  }
+
+  public getCategoriesIndicador(): Observable&lt;ICategories[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getCategoriesIndicador}&#x60;;
+    return this.apiHttp.get&lt;any[]&gt;(url, tipoIndicadorSimulate).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getCategoriesIndicador&#x27;, row);
+        this.log(&#x27;fetched getCategoriesIndicador&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getCategoriesIndicador&#x27;, error)),
+    );
+  }
+
+  public handleError(operation &#x3D; &#x27;operation&#x27;, result?: any) {
+    console.error(&#x27;ERROR&#x27;, operation, result.message);
+    return of(result);
+  }
+
+  public log(message: string) {
+    return message;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'PlanningRepository.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

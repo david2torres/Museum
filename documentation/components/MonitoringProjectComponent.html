@@ -1,0 +1,2513 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sim documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sim documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MonitoringProjectComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-monitoring-project</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../miscellaneous/variables.html#PROJECT_MODAL_MODULES" target="_self" >PROJECT_MODAL_MODULES</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./monitoring-project.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./monitoring-project.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#actionButton" >actionButton</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#area" >area</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmModalAction" >confirmModalAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmModalMessageSucces" >confirmModalMessageSucces</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ICONS_CONST" >ICONS_CONST</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#informativeMessage" >informativeMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isConfirm" >isConfirm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isConfirmAction" >isConfirmAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isEdit" >isEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#maxDescription" >maxDescription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#monitoringForm" >monitoringForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#monitoringList" >monitoringList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#monthsList" >monthsList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#projectInfo" >projectInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#title" >title</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#titleHeader" >titleHeader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#totalAprovado" >totalAprovado</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#totalEjecutado" >totalEjecutado</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#unSubscribe" >unSubscribe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#cancelForm" >cancelForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#compareMeses" >compareMeses</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmAction" >confirmAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#emitAndCloseModal" >emitAndCloseModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initForm" >initForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadDataMonth" >loadDataMonth</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#saveSeguimiento" >saveSeguimiento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setIndicadores" >setIndicadores</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setLocalInformation" >setLocalInformation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setMessageConfirmModal" >setMessageConfirmModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setProductos" >setProductos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isEdit" >isEdit</a>
+                            </li>
+                            <li>
+                                <a href="#projectInfo" >projectInfo</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionButton" >actionButton</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#getProducts" >getProducts</a>
+                                </li>
+                                <li>
+                                    <a href="#getIndicadores" >getIndicadores</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, secureStorage: <a href="../injectables/SecureStorageService.html" target="_self">SecureStorageService</a>, projectsService: <a href="../injectables/ProjectServiceService.html" target="_self">ProjectServiceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:65</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>secureStorage</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SecureStorageService.html" target="_self" >SecureStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>projectsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProjectServiceService.html" target="_self" >ProjectServiceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isEdit"></a>
+                        <b>isEdit</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:44</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectInfo"></a>
+                        <b>projectInfo</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:45</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:43</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="actionButton"></a>
+                        <b>actionButton</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:47</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>cancelForm</b></span>
+                        <a href="#cancelForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>cancelForm(action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>action</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="compareMeses"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>compareMeses</b></span>
+                        <a href="#compareMeses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>compareMeses(o1: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, o2: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="259"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:259</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>o1</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>o2</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmAction"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmAction</b></span>
+                        <a href="#confirmAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>confirmAction(isConfirm: <a href="../interfaces/IEmmitrAction.html" target="_self">IEmmitrAction</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="181"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:181</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isConfirm</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IEmmitrAction.html" target="_self" >IEmmitrAction</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emitAndCloseModal"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>emitAndCloseModal</b></span>
+                        <a href="#emitAndCloseModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>emitAndCloseModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initForm</b></span>
+                        <a href="#initForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadDataMonth"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loadDataMonth</b></span>
+                        <a href="#loadDataMonth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadDataMonth(idMes: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idMes</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="272"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:272</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveSeguimiento"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>saveSeguimiento</b></span>
+                        <a href="#saveSeguimiento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveSeguimiento()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="245"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:245</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setIndicadores"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setIndicadores</b></span>
+                        <a href="#setIndicadores"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setIndicadores(indicadores: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>indicadores</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLocalInformation"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setLocalInformation</b></span>
+                        <a href="#setLocalInformation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setLocalInformation()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMessageConfirmModal"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setMessageConfirmModal</b></span>
+                        <a href="#setMessageConfirmModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setMessageConfirmModal(origin: <a href="../undefineds/actionOrigin.html" target="_self">actionOrigin</a>, message?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>origin</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#actionOrigin" target="_self" >actionOrigin</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setProductos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setProductos</b></span>
+                        <a href="#setProductos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setProductos(productos: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>productos</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionButton"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>actionButton</b></span>
+                        <a href="#actionButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="area"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>area</b></span>
+                        <a href="#area"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmModalAction"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmModalAction</b></span>
+                        <a href="#confirmModalAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IConfirmActionModal.html" target="_self" >IConfirmActionModal</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmModalMessageSucces"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmModalMessageSucces</b></span>
+                        <a href="#confirmModalMessageSucces"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;PLANNING.planes.modal.success&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ICONS_CONST"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ICONS_CONST</b></span>
+                        <a href="#ICONS_CONST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ICON_IMAGES</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="informativeMessage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>informativeMessage</b></span>
+                        <a href="#informativeMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isConfirm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isConfirm</b></span>
+                        <a href="#isConfirm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isConfirmAction"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isConfirmAction</b></span>
+                        <a href="#isConfirmAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isEdit</b></span>
+                        <a href="#isEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxDescription"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>maxDescription</b></span>
+                        <a href="#maxDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LIMIT.textArea</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="monitoringForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>monitoringForm</b></span>
+                        <a href="#monitoringForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="monitoringList"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>monitoringList</b></span>
+                        <a href="#monitoringList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;ISeguimiento[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="monthsList"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>monthsList</b></span>
+                        <a href="#monthsList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;IMes[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="projectInfo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>projectInfo</b></span>
+                        <a href="#projectInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="title"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="titleHeader"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>titleHeader</b></span>
+                        <a href="#titleHeader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalAprovado"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>totalAprovado</b></span>
+                        <a href="#totalAprovado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;number&gt;(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalEjecutado"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>totalEjecutado</b></span>
+                        <a href="#totalEjecutado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;number&gt;(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unSubscribe"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>unSubscribe</b></span>
+                        <a href="#unSubscribe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getProducts"></a>
+                        <span class="name"><b>getProducts</b><a href="#getProducts"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>getProducts()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="264" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:264</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getIndicadores"></a>
+                        <span class="name"><b>getIndicadores</b><a href="#getIndicadores"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>getIndicadores()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="268" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/monitoring-project/monitoring-project.component.ts:268</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  OnDestroy,
+  OnInit,
+  output,
+  signal,
+} from &#x27;@angular/core&#x27;;
+import { ICON_IMAGES } from &#x27;@DomainConstants/shared/icons-images.constants&#x27;;
+import {
+  IConfirmActionModal,
+  IEmmitrAction,
+} from &#x27;@DomainInterfaces/planning.interface&#x27;;
+import {
+  IMes,
+  // ISaveSeguimiento,
+  ISeguimiento,
+  ISeguimientoResponse,
+} from &#x27;@DomainInterfaces/projectManagement.interface&#x27;;
+import { FormArray, FormBuilder, FormGroup } from &#x27;@angular/forms&#x27;;
+// import { ProjectServiceService } from &#x27;@services/project-service.service&#x27;;
+import { SecureStorageService } from &#x27;@shared/security/storage/secure-storage.service&#x27;;
+import { STORAGE_CONST } from &#x27;@DomainConstants/shared/storage.constants&#x27;;
+import { PROJECT_MODAL_MODULES } from &#x27;../create-project-modal/createProjects.modules&#x27;;
+import { actionOrigin } from &#x27;@DomainConstants/types/actions.types&#x27;;
+import { LIMIT } from &#x27;@DomainConstants/components/planing.constants&#x27;;
+import { APP_CONST } from &#x27;@DomainConstants/shared/app.constants&#x27;;
+import { ProjectServiceService } from &#x27;@services/project-service.service&#x27;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+
+
+@Component({
+  selector: &#x27;app-monitoring-project&#x27;,
+  standalone: true,
+  imports: [...PROJECT_MODAL_MODULES],
+  templateUrl: &#x27;./monitoring-project.component.html&#x27;,
+  styleUrl: &#x27;./monitoring-project.component.scss&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+
+export class MonitoringProjectComponent implements OnInit, OnDestroy {
+  public title &#x3D; input.required&lt;string&gt;();
+  public isEdit &#x3D; input&lt;ISeguimientoResponse&gt;();
+  public projectInfo &#x3D; input&lt;any&gt;();
+
+  public actionButton &#x3D; output&lt;boolean&gt;();
+
+  public monitoringList &#x3D; signal&lt;ISeguimiento[]&gt;([]);
+  public monthsList &#x3D; signal&lt;IMes[]&gt;([]);
+  public isConfirmAction &#x3D; signal&lt;boolean&gt;(false);
+  public isConfirm &#x3D; signal&lt;boolean&gt;(false);
+  public totalAprovado &#x3D; signal&lt;number&gt;(0);
+  public totalEjecutado &#x3D; signal&lt;number&gt;(0);
+  
+  public monitoringForm!: FormGroup;
+  public informativeMessage: string;
+  public ICONS_CONST &#x3D; ICON_IMAGES;
+  public confirmModalMessageSucces: string &#x3D; &#x27;PLANNING.planes.modal.success&#x27;;
+  public maxDescription: number &#x3D; LIMIT.textArea;
+  public confirmModalAction: IConfirmActionModal;
+  public user: string;
+  public area: string;
+  public titleHeader: string;
+  private unSubscribe &#x3D; new Subject&lt;void&gt;();
+
+  constructor(
+    private fb: FormBuilder,
+    private secureStorage: SecureStorageService,
+    private projectsService: ProjectServiceService,
+  ) {}
+
+  ngOnInit(): void {
+    console.log(&#x27;Seguimiento Modal Data&#x27;,&#x60;${APP_CONST.MODAL_MONITORING.modalMonitoring}${this.title()}&#x60;);
+    this.setLocalInformation();
+    this.monthsList.update(() &#x3D;&gt; this.isEdit().meses);
+    this.monitoringList.update(() &#x3D;&gt; this.isEdit().seguimientos);
+    this.initForm();
+    this.titleHeader &#x3D; &#x60;${APP_CONST.MODAL_MONITORING.modalMonitoring}${this.title()}&#x60;;
+    this.monitoringForm.get(&#x27;mes&#x27;)?.valueChanges.subscribe((mesId: any) &#x3D;&gt; {
+      if (mesId) {
+        this.loadDataMonth(mesId);
+      }
+    });
+  }
+
+  private initForm(): void {
+    console.log(&#x27;Init all data&#x27;, this.projectInfo())
+    this.monitoringForm &#x3D; this.fb.group({
+      idProyecto: this.projectInfo()[0]?.id,
+      nombreProyecto: this.projectInfo()[0]?.nombre,
+      mes: [this.isEdit().meses[0]],
+      productos: this.fb.array([]),
+      indicadores: this.fb.array([]),
+      presupuesto: this.fb.group({
+        valorMensual: [0],
+        totalAprovado: [0],
+        totalEjecutado: [0],
+      }),
+      observaciones: [&#x27;&#x27;]
+    });
+    this.loadDataMonth(this.isEdit().meses[0]);
+  }
+
+  public loadDataMonth(idMes: any): void {
+    console.log(&#x27;load darta&#x27;, idMes)
+    const selectedSeguimiento &#x3D; this.isEdit().seguimientos.find((s: any) &#x3D;&gt; s.mes.id &#x3D;&#x3D;&#x3D; idMes.id);
+    
+    if (selectedSeguimiento) {
+      this.monitoringForm.patchValue({
+        mes: {
+          id: selectedSeguimiento.mes.id,
+          nombre: selectedSeguimiento.mes.nombre
+        },
+        presupuesto: { 
+          valorMensual: selectedSeguimiento.presupuesto.valorMensual,
+          totalAprovado: selectedSeguimiento.presupuesto.totalAprovado,
+          totalEjecutado: selectedSeguimiento.presupuesto.totalEjecutado,
+        },
+        observaciones: selectedSeguimiento.observaciones
+      }, { emitEvent: false });
+
+      this.totalAprovado.update(() &#x3D;&gt; selectedSeguimiento.presupuesto.totalAprovado);
+      this.totalEjecutado.update(() &#x3D;&gt; selectedSeguimiento.presupuesto.totalEjecutado);
+
+      this.setProductos(selectedSeguimiento.productos);
+      this.setIndicadores(selectedSeguimiento.indicadores);
+    }
+  }
+
+  private setProductos(productos: any[]) {
+    const productosFormArray &#x3D; this.monitoringForm.get(&#x27;productos&#x27;) as FormArray;
+    productosFormArray.clear();
+    productos.forEach(producto &#x3D;&gt; {
+      productosFormArray.push(
+        this.fb.group({
+          id: [producto.id],
+          nombre: [producto.nombre],
+          avanceAcumulado: [producto.avanceAcumulado],
+          avanceCualitativo: [producto.avanceCualitativo],
+          avanceCuantitativo: [producto.avanceCuantitativo],
+          linkEvidencia: [producto.linkEvidencia],
+          cantidad: [producto.cantidad],
+          fechaInicio: [producto.fechaInicio],
+          fechaFin: [producto.fechaFin],
+        })
+      );
+    });
+  }
+
+  private   setIndicadores(indicadores: any[]) {
+    const indicadoresFormArray &#x3D; this.monitoringForm.get(&#x27;indicadores&#x27;) as FormArray;
+    indicadoresFormArray.clear();
+    indicadores.forEach(indicador &#x3D;&gt; {
+      indicadoresFormArray.push(
+        this.fb.group({
+          id: [indicador.id],
+          nombre: [indicador.nombre],
+          meta: [indicador.meta],
+          avanceAcumulado: [indicador.avanceAcumulado],
+          avanceCualitativo: [indicador.avanceCualitativo],
+          avanceCuantitativo: [indicador.avanceCuantitativo],
+        })
+      );
+    });
+  }
+
+  private setLocalInformation(): void {
+    this.user &#x3D; this.secureStorage.getItem(STORAGE_CONST.userName);
+    this.area &#x3D; this.secureStorage.getItem(STORAGE_CONST.userArea);
+  }
+  
+  private emitAndCloseModal(): void {
+    this.setMessageConfirmModal(&#x27;confirm&#x27;);
+    this.isConfirmAction.update(() &#x3D;&gt; true);
+    setTimeout(() &#x3D;&gt; {
+      this.actionButton.emit(false);
+    }, 1200);
+  }
+
+  public confirmAction(isConfirm: IEmmitrAction): void {
+    console.log(&#x27;Action Confirm Modal&#x27;, isConfirm);
+    switch (isConfirm.origin) {
+      case &#x27;cancel&#x27;:
+        this.cancelForm(isConfirm.action);
+        break;
+      case &#x27;error&#x27;:
+        this.isConfirmAction.update(() &#x3D;&gt; false);
+        break;
+      default:
+        break;
+    }
+    console.log(&#x27;IsCofirm&#x27;, isConfirm);
+  }
+
+  private cancelForm(action: boolean) {
+    if (action) {
+      this.actionButton.emit(false);
+    } else {
+      this.isConfirmAction.update(() &#x3D;&gt; false);
+    }
+  }
+
+  public setMessageConfirmModal(origin: actionOrigin, message?: string): void {
+    console.log(&#x27;setMessageConfirmModal creat3e project&#x27;, origin);
+    switch (origin) {
+      case &#x27;cancel&#x27;:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;SHARED_MESSAGES.confirmCancel&#x27;,
+          messages: &#x27;SHARED_MESSAGES.nessageCancel&#x27;,
+          textLink: &#x27;BUTTONS.stayHere&#x27;,
+          textButton: &#x27;BUTTONS.confirmCancel&#x27;,
+        };
+        break;
+      case &#x27;delete&#x27;:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;PLANNING.planes.modal.confirmDelete&#x27;,
+          messages: &#x27;PLANNING.planes.modal.messageDelete&#x27;,
+          textLink: &#x27;BUTTONS.stayHere&#x27;,
+          textButton: &#x27;BUTTONS.confirmDelete&#x27;,
+        };
+        break;
+      case &#x27;confirm&#x27;:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;NEW_PROJECT.modal.saveConfirm&#x27;,
+          messages: &#x27;NEW_PROJECT.modal.messageConfirm&#x27;,
+        };
+        break;
+      case &#x27;error&#x27;:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;PLANNING.planes.modal.errorCrearTitle&#x27;,
+          messages: message,
+          textLink: null,
+          textButton: &#x27;BUTTONS.agree&#x27;,
+        };
+        break;
+    }
+    this.isConfirmAction.update(() &#x3D;&gt; true);
+  }
+
+  public saveSeguimiento(): void {
+    console.log(&#x27;save seguimiento&#x27;);
+    const payload &#x3D; this.monitoringForm.value;
+    console.log(&#x27;Enviando:&#x27;, payload);
+    this.projectsService.saveSeguimiento(payload).pipe(takeUntil(this.unSubscribe)).subscribe(resp &#x3D;&gt; {
+      //TODO EVALUAR ERROR
+      if(resp) {
+        this.emitAndCloseModal();
+      }
+    })
+  }
+
+
+  // TODO Funcion Select pasra comprar Objetos por id y no por referencia
+ public compareMeses(o1: any, o2: any): boolean {
+    return o1 &amp;&amp; o2 ? o1.id &#x3D;&#x3D;&#x3D; o2.id : o1 &#x3D;&#x3D;&#x3D; o2;
+  }
+
+
+  get getProducts(): FormArray {
+    return this.monitoringForm.get(&#x27;productos&#x27;) as FormArray;
+  }
+
+  get getIndicadores(): FormArray {
+    return this.monitoringForm.get(&#x27;indicadores&#x27;) as FormArray;
+  }
+
+  ngOnDestroy(): void {
+    this.unSubscribe.complete();
+    this.unSubscribe.next();
+    }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@let isConfirmModalAction &#x3D; isConfirmAction();
+@let isConfirmModal &#x3D; isConfirm();
+
+&lt;div class&#x3D;&quot;contentModalShow&quot;&gt;
+  &lt;div class&#x3D;&quot;contentModal&quot;&gt;
+    &lt;div class&#x3D;&quot;contentMargin&quot;&gt;
+      &lt;div class&#x3D;&quot;contentInfo&quot;&gt;
+        &lt;div class&#x3D;&quot;contentInfo-header&quot;&gt;
+          &lt;div class&#x3D;&quot;contentInfo-header_title&quot;&gt;
+            {{titleHeader | translate}}
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;contentInfo-header_detailContent&quot;&gt;
+            &lt;span [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.modal.numberProject&#x27; | translate: {numberProject: &#x27;numberProject&#x27;} &quot;&gt;&lt;/span&gt;
+            &lt;span [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.modal.area&#x27; | translate: {area: area}&quot;&gt;&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;form [formGroup]&#x3D;&quot;monitoringForm&quot; action&#x3D;&quot;&quot;&gt;
+          &lt;div class&#x3D;&quot;contentForm-months&quot;&gt;
+            &lt;div class&#x3D;&quot;title&quot;&gt;
+              {{&#x27;NEW_PROJECT.monitoring.monthTitle&#x27; | translate}}
+            &lt;/div&gt;
+            &lt;select formControlName&#x3D;&quot;mes&quot; name&#x3D;&quot;mes&quot; id&#x3D;&quot;mes&quot; [compareWith]&#x3D;&quot;compareMeses&quot;
+              class&#x3D;&quot;contentForm-generalForm_contentlabel_space_select truncate-select&quot;&gt;
+              &lt;option disabled [ngValue]&#x3D;&quot;null&quot;&gt;
+                {{&#x27;NEW_PROJECT.monitoring.monthTitlePlaceholder&#x27; | translate}}
+              &lt;/option&gt;
+              @for (mes of monthsList(); track $index) {
+              &lt;option [ngValue]&#x3D;&quot;mes&quot;&gt;
+                {{ mes.nombre}}
+              &lt;/option&gt;
+              }
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Productos --&gt;
+          &lt;div class&#x3D;&quot;contentForm&quot;&gt;
+            &lt;div class&#x3D;&quot;contentForm-generalForm&quot;&gt;
+              &lt;div class&#x3D;&quot;contentForm-generalForm_title&quot;&gt;
+                {{ &#x27;NEW_PROJECT.monitoring.titleProduct&#x27; | translate}}
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel&quot;&gt;
+                &lt;div formArrayName&#x3D;&quot;productos&quot;&gt;
+                  @for (producto of getProducts?.controls; track $index; let i &#x3D; $index) {
+                  &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail&quot;&gt;
+                    &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_info&quot;&gt;
+                      &lt;label class&#x3D;&quot;infoDetail truncate&quot;&gt;{{producto.value.nombre}}&lt;/label&gt;
+                      &lt;label class&#x3D;&quot;infoDetail&quot;
+                        [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.monitoring.cantidad&#x27; | translate: {cantidad:producto.value.cantidad }&quot;&gt;&lt;/label&gt;
+                      &lt;label class&#x3D;&quot;infoDetail&quot;
+                        [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.monitoring.date&#x27; | translate: {initial:producto.value.fechaInicio | date : &#x27;dd/MM/yyyy&#x27;, end:producto.value.fechaFin | date : &#x27;dd/MM/yyyy&#x27;}&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_info&quot; style&#x3D;&quot;grid-template-columns: 1fr;&quot;&gt;
+                      &lt;span class&#x3D;&quot;infoDetail paddingAlign&quot;
+                        [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.monitoring.avanceAcomulado&#x27; | translate: {advance:producto.value.avanceAcumulado }&quot;&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div [formGroupName]&#x3D;&quot;i&quot;&gt;
+                    &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail&quot;&gt;
+                      &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_description&quot;&gt;
+                        &lt;div class&#x3D;&quot;title&quot;&gt;
+                          {{ &#x27;NEW_PROJECT.monitoring.avanceCualtativo&#x27; | translate }}
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                          &lt;textarea style&#x3D;&quot;width: -webkit-fill-available;&quot; formControlName&#x3D;&quot;avanceCualitativo&quot;
+                            [maxlength]&#x3D;&quot;maxDescription&quot; name&#x3D;&quot;avanceCualitativo&quot; id&#x3D;&quot;justification&quot;
+                            placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.monitoring.avanceCualtiativoPlaceholder&#x27; | translate}}&quot; rows&#x3D;&quot;4&quot;
+                            cols&#x3D;&quot;50&quot;&gt;&lt;/textarea&gt;
+                          &lt;div class&#x3D;&quot;counterText&quot; style&#x3D;&quot;margin-top: -20px;&quot;&gt;
+                            {{ producto.get(&#x27;avanceCualitativo&#x27;)?.value?.length || 0 }}/{{ maxDescription }}
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_description&quot;
+                        style&#x3D;&quot;grid-template-columns: 1fr;&quot;&gt;
+                        &lt;div class&#x3D;&quot;title&quot;&gt;
+                          {{ &#x27;NEW_PROJECT.monitoring.avanceCuantitativo&#x27; | translate }}
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                          &lt;input style&#x3D;&quot;height: 5rem;width: 7rem; &quot; formControlName&#x3D;&quot;avanceCuantitativo&quot; type&#x3D;&quot;number&quot;
+                            id&#x3D;&quot;avanceCuantitativo&quot;&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div style&#x3D;&quot;padding: 0rem 6px 1rem 8px;&quot;&gt;
+                      &lt;input formControlName&#x3D;&quot;linkEvidencia&quot; style&#x3D;&quot;width: -webkit-fill-available;&quot;
+                        placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.monitoring.linkEvidencia&#x27; | translate}}&quot; type&#x3D;&quot;text&quot;&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  }
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Indicadores --&gt;
+          &lt;div class&#x3D;&quot;contentForm&quot;&gt;
+            &lt;div class&#x3D;&quot;contentForm-generalForm&quot;&gt;
+              &lt;div class&#x3D;&quot;contentForm-generalForm_title&quot;&gt;
+                {{ &#x27;NEW_PROJECT.monitoring.titleIndicadores&#x27; | translate}}
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;infoDetail&quot; style&#x3D;&quot;margin-top: 1rem;&quot;
+                [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.monitoring.infoIndicadores&#x27; | translate&quot;&gt;&lt;/div&gt;
+              &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel&quot;&gt;
+                &lt;div formArrayName&#x3D;&quot;indicadores&quot;&gt;
+                  @for (indicadores of getIndicadores?.controls; track $index; let i &#x3D; $index) {
+                  &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail&quot;&gt;
+                    &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_info&quot;
+                      style&#x3D;&quot;grid-template-columns: 10fr 1fr;&quot;&gt;
+                      &lt;label class&#x3D;&quot;infoDetail truncate&quot;&gt;{{indicadores.value.nombre}}&lt;/label&gt;
+                      &lt;label class&#x3D;&quot;infoDetail&quot;
+                        [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.monitoring.meta&#x27; | translate: {meta:indicadores.value.meta }&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_info&quot; style&#x3D;&quot;grid-template-columns: 1fr;&quot;&gt;
+                      &lt;span class&#x3D;&quot;infoDetail paddingAlign&quot;
+                        [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.monitoring.avanceAcomulado&#x27; | translate: {advance:indicadores.value.avanceAcumulado }&quot;&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div [formGroupName]&#x3D;&quot;i&quot;&gt;
+                    &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail&quot;&gt;
+                      &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_description&quot;&gt;
+                        &lt;div class&#x3D;&quot;title&quot;&gt;
+                          {{ &#x27;NEW_PROJECT.monitoring.avanceCualtativo&#x27; | translate }}
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                          &lt;textarea style&#x3D;&quot;width: -webkit-fill-available;&quot; formControlName&#x3D;&quot;avanceCualitativo&quot;
+                            [maxlength]&#x3D;&quot;maxDescription&quot; name&#x3D;&quot;avanceCualitativo&quot; id&#x3D;&quot;justification&quot;
+                            placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.monitoring.avanceCualtiativoPlaceholder&#x27; | translate}}&quot; rows&#x3D;&quot;4&quot;
+                            cols&#x3D;&quot;50&quot;&gt;&lt;/textarea&gt;
+                          &lt;div class&#x3D;&quot;counterText&quot; style&#x3D;&quot;margin-top: -20px;&quot;&gt;
+                            {{ indicadores.get(&#x27;avanceCualitativo&#x27;)?.value?.length || 0 }}/{{ maxDescription }}
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_description&quot;&gt;
+                        &lt;div class&#x3D;&quot;title&quot;&gt;
+                          {{ &#x27;NEW_PROJECT.monitoring.avanceCuantitativo&#x27; | translate }}
+                        &lt;/div&gt;
+                        &lt;input style&#x3D;&quot;height: 5rem;width: 7rem;&quot; formControlName&#x3D;&quot;avanceCuantitativo&quot; type&#x3D;&quot;number&quot;
+                          id&#x3D;&quot;avanceCuantitativo&quot;&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  }
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Presupuesto --&gt;
+          &lt;div class&#x3D;&quot;contentForm&quot;&gt;
+            &lt;div class&#x3D;&quot;contentForm-generalForm&quot;&gt;
+              &lt;div class&#x3D;&quot;contentForm-generalForm_title&quot;&gt;
+                {{ &#x27;NEW_PROJECT.monitoring.presupuesto&#x27; | translate}}
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel&quot;&gt;
+                &lt;div&gt;
+                  &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail&quot; style&#x3D;&quot;grid-template-columns: 1fr 1fr;&quot;&gt;
+                    &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_info&quot;&gt;
+                      &lt;label class&#x3D;&quot;infoDetail&quot;
+                        [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.monitoring.totalEjecutado&#x27; | translate: {ejecutado:totalEjecutado() | currencyCOP }&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_info&quot;&gt;
+                      &lt;label class&#x3D;&quot;infoDetail truncate&quot;
+                        [innerHTML]&#x3D;&quot;&#x27;NEW_PROJECT.monitoring.totalAprobado&#x27; | translate: {aprobado:totalAprovado()  | currencyCOP }&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Valor Mensual Ejecutado--&gt;
+                  &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail&quot; style&#x3D;&quot;grid-template-columns: 1fr;&quot;&gt;
+                    &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_description&quot;
+                      style&#x3D;&quot;grid-auto-flow: column; grid-template-columns: 1fr 5fr; gap: 0rem; align-items: baseline;&quot;&gt;
+                      &lt;div class&#x3D;&quot;title&quot;&gt;
+                        {{ &#x27;NEW_PROJECT.monitoring.valorMensual&#x27; | translate }}
+                      &lt;/div&gt;
+                      &lt;div formGroupName&#x3D;&quot;presupuesto&quot;&gt;
+                        &lt;input appCurrencyFormat style&#x3D;&quot;width: 23rem;&quot; formControlName&#x3D;&quot;valorMensual&quot; class&#x3D;&quot;spaceText&quot;
+                          type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.monitoring.valorMensual&#x27;| translate}}&quot; /&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Observaciones --&gt;
+          &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail&quot; style&#x3D;&quot;grid-template-columns: 1fr;&quot;&gt;
+            &lt;div class&#x3D;&quot;contentForm-generalForm_contentlabel_detail_description&quot;&gt;
+              &lt;div class&#x3D;&quot;title&quot;&gt;
+                {{ &#x27;NEW_PROJECT.monitoring.observaciones&#x27; | translate }}
+              &lt;/div&gt;
+              &lt;div&gt;
+                &lt;textarea style&#x3D;&quot;width: -webkit-fill-available;&quot; formControlName&#x3D;&quot;observaciones&quot;
+                  [maxlength]&#x3D;&quot;maxDescription&quot; name&#x3D;&quot;observaciones&quot; id&#x3D;&quot;justification&quot;
+                  placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.monitoring.observacionesPlaceholder&#x27; | translate}}&quot; rows&#x3D;&quot;4&quot;
+                  cols&#x3D;&quot;50&quot;&gt;&lt;/textarea&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/form&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;contentButton&quot;&gt;
+        &lt;div class&#x3D;&quot;contentButton-actions&quot;&gt;
+          &lt;u style&#x3D;&quot;width: 5rem !important;&quot; (click)&#x3D;&quot;setMessageConfirmModal(&#x27;cancel&#x27;)&quot;
+            class&#x3D;&quot;contentButton-actions_links addMore&quot;&gt;{{&#x27;BUTTONS.cancel&#x27; | translate}}&lt;/u&gt;
+
+          &lt;button class&#x3D;&quot;largeButton&quot; (click)&#x3D;&quot;saveSeguimiento()&quot;&gt;
+            {{ &#x27;BUTTONS.saveAdvance&#x27; | translate }}
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    @if (isConfirmModalAction) {
+    &lt;div class&#x3D;&quot;contentConfirmModal&quot;&gt;
+      &lt;confirm-action-modal (actionButton)&#x3D;&quot;confirmAction($event)&quot; [textModal]&#x3D;&quot;confirmModalAction&quot; /&gt;
+    &lt;/div&gt;
+    }
+    @if (isConfirmModal) {
+    &lt;div class&#x3D;&quot;contentConfirmModal&quot;&gt;
+      &lt;confirm-modal [textModal]&#x3D;&quot;confirmModalMessageSucces&quot; /&gt;
+    &lt;/div&gt;
+    }
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@let isConfirmModalAction = isConfirmAction();@let isConfirmModal = isConfirm();<div class="contentModalShow">  <div class="contentModal">    <div class="contentMargin">      <div class="contentInfo">        <div class="contentInfo-header">          <div class="contentInfo-header_title">            {{titleHeader | translate}}          </div>          <div class="contentInfo-header_detailContent">            <span [innerHTML]="\'NEW_PROJECT.modal.numberProject\' | translate: {numberProject: \'numberProject\'} "></span>            <span [innerHTML]="\'NEW_PROJECT.modal.area\' | translate: {area: area}"></span>          </div>        </div>        <form [formGroup]="monitoringForm" action="">          <div class="contentForm-months">            <div class="title">              {{\'NEW_PROJECT.monitoring.monthTitle\' | translate}}            </div>            <select formControlName="mes" name="mes" id="mes" [compareWith]="compareMeses"              class="contentForm-generalForm_contentlabel_space_select truncate-select">              <option disabled [ngValue]="null">                {{\'NEW_PROJECT.monitoring.monthTitlePlaceholder\' | translate}}              </option>              @for (mes of monthsList(); track $index) {              <option [ngValue]="mes">                {{ mes.nombre}}              </option>              }            </select>          </div>          <!-- Productos -->          <div class="contentForm">            <div class="contentForm-generalForm">              <div class="contentForm-generalForm_title">                {{ \'NEW_PROJECT.monitoring.titleProduct\' | translate}}              </div>              <div class="contentForm-generalForm_contentlabel">                <div formArrayName="productos">                  @for (producto of getProducts?.controls; track $index; let i = $index) {                  <div class="contentForm-generalForm_contentlabel_detail">                    <div class="contentForm-generalForm_contentlabel_detail_info">                      <label class="infoDetail truncate">{{producto.value.nombre}}</label>                      <label class="infoDetail"                        [innerHTML]="\'NEW_PROJECT.monitoring.cantidad\' | translate: {cantidad:producto.value.cantidad }"></label>                      <label class="infoDetail"                        [innerHTML]="\'NEW_PROJECT.monitoring.date\' | translate: {initial:producto.value.fechaInicio | date : \'dd/MM/yyyy\', end:producto.value.fechaFin | date : \'dd/MM/yyyy\'}"></label>                    </div>                    <div class="contentForm-generalForm_contentlabel_detail_info" style="grid-template-columns: 1fr;">                      <span class="infoDetail paddingAlign"                        [innerHTML]="\'NEW_PROJECT.monitoring.avanceAcomulado\' | translate: {advance:producto.value.avanceAcumulado }"></span>                    </div>                  </div>                  <div [formGroupName]="i">                    <div class="contentForm-generalForm_contentlabel_detail">                      <div class="contentForm-generalForm_contentlabel_detail_description">                        <div class="title">                          {{ \'NEW_PROJECT.monitoring.avanceCualtativo\' | translate }}                        </div>                        <div>                          <textarea style="width: -webkit-fill-available;" formControlName="avanceCualitativo"                            [maxlength]="maxDescription" name="avanceCualitativo" id="justification"                            placeholder="{{\'NEW_PROJECT.monitoring.avanceCualtiativoPlaceholder\' | translate}}" rows="4"                            cols="50"></textarea>                          <div class="counterText" style="margin-top: -20px;">                            {{ producto.get(\'avanceCualitativo\')?.value?.length || 0 }}/{{ maxDescription }}                          </div>                        </div>                      </div>                      <div class="contentForm-generalForm_contentlabel_detail_description"                        style="grid-template-columns: 1fr;">                        <div class="title">                          {{ \'NEW_PROJECT.monitoring.avanceCuantitativo\' | translate }}                        </div>                        <div>                          <input style="height: 5rem;width: 7rem; " formControlName="avanceCuantitativo" type="number"                            id="avanceCuantitativo">                        </div>                      </div>                    </div>                    <div style="padding: 0rem 6px 1rem 8px;">                      <input formControlName="linkEvidencia" style="width: -webkit-fill-available;"                        placeholder="{{\'NEW_PROJECT.monitoring.linkEvidencia\' | translate}}" type="text">                    </div>                  </div>                  }                </div>              </div>            </div>          </div>          <!-- Indicadores -->          <div class="contentForm">            <div class="contentForm-generalForm">              <div class="contentForm-generalForm_title">                {{ \'NEW_PROJECT.monitoring.titleIndicadores\' | translate}}              </div>              <div class="infoDetail" style="margin-top: 1rem;"                [innerHTML]="\'NEW_PROJECT.monitoring.infoIndicadores\' | translate"></div>              <div class="contentForm-generalForm_contentlabel">                <div formArrayName="indicadores">                  @for (indicadores of getIndicadores?.controls; track $index; let i = $index) {                  <div class="contentForm-generalForm_contentlabel_detail">                    <div class="contentForm-generalForm_contentlabel_detail_info"                      style="grid-template-columns: 10fr 1fr;">                      <label class="infoDetail truncate">{{indicadores.value.nombre}}</label>                      <label class="infoDetail"                        [innerHTML]="\'NEW_PROJECT.monitoring.meta\' | translate: {meta:indicadores.value.meta }"></label>                    </div>                    <div class="contentForm-generalForm_contentlabel_detail_info" style="grid-template-columns: 1fr;">                      <span class="infoDetail paddingAlign"                        [innerHTML]="\'NEW_PROJECT.monitoring.avanceAcomulado\' | translate: {advance:indicadores.value.avanceAcumulado }"></span>                    </div>                  </div>                  <div [formGroupName]="i">                    <div class="contentForm-generalForm_contentlabel_detail">                      <div class="contentForm-generalForm_contentlabel_detail_description">                        <div class="title">                          {{ \'NEW_PROJECT.monitoring.avanceCualtativo\' | translate }}                        </div>                        <div>                          <textarea style="width: -webkit-fill-available;" formControlName="avanceCualitativo"                            [maxlength]="maxDescription" name="avanceCualitativo" id="justification"                            placeholder="{{\'NEW_PROJECT.monitoring.avanceCualtiativoPlaceholder\' | translate}}" rows="4"                            cols="50"></textarea>                          <div class="counterText" style="margin-top: -20px;">                            {{ indicadores.get(\'avanceCualitativo\')?.value?.length || 0 }}/{{ maxDescription }}                          </div>                        </div>                      </div>                      <div class="contentForm-generalForm_contentlabel_detail_description">                        <div class="title">                          {{ \'NEW_PROJECT.monitoring.avanceCuantitativo\' | translate }}                        </div>                        <input style="height: 5rem;width: 7rem;" formControlName="avanceCuantitativo" type="number"                          id="avanceCuantitativo">                      </div>                    </div>                  </div>                  }                </div>              </div>            </div>          </div>          <!-- Presupuesto -->          <div class="contentForm">            <div class="contentForm-generalForm">              <div class="contentForm-generalForm_title">                {{ \'NEW_PROJECT.monitoring.presupuesto\' | translate}}              </div>              <div class="contentForm-generalForm_contentlabel">                <div>                  <div class="contentForm-generalForm_contentlabel_detail" style="grid-template-columns: 1fr 1fr;">                    <div class="contentForm-generalForm_contentlabel_detail_info">                      <label class="infoDetail"                        [innerHTML]="\'NEW_PROJECT.monitoring.totalEjecutado\' | translate: {ejecutado:totalEjecutado() | currencyCOP }"></label>                    </div>                    <div class="contentForm-generalForm_contentlabel_detail_info">                      <label class="infoDetail truncate"                        [innerHTML]="\'NEW_PROJECT.monitoring.totalAprobado\' | translate: {aprobado:totalAprovado()  | currencyCOP }"></label>                    </div>                  </div>                  <!-- Valor Mensual Ejecutado-->                  <div class="contentForm-generalForm_contentlabel_detail" style="grid-template-columns: 1fr;">                    <div class="contentForm-generalForm_contentlabel_detail_description"                      style="grid-auto-flow: column; grid-template-columns: 1fr 5fr; gap: 0rem; align-items: baseline;">                      <div class="title">                        {{ \'NEW_PROJECT.monitoring.valorMensual\' | translate }}                      </div>                      <div formGroupName="presupuesto">                        <input appCurrencyFormat style="width: 23rem;" formControlName="valorMensual" class="spaceText"                          type="text" placeholder="{{\'NEW_PROJECT.monitoring.valorMensual\'| translate}}" />                      </div>                    </div>                  </div>                </div>              </div>            </div>          </div>          <!-- Observaciones -->          <div class="contentForm-generalForm_contentlabel_detail" style="grid-template-columns: 1fr;">            <div class="contentForm-generalForm_contentlabel_detail_description">              <div class="title">                {{ \'NEW_PROJECT.monitoring.observaciones\' | translate }}              </div>              <div>                <textarea style="width: -webkit-fill-available;" formControlName="observaciones"                  [maxlength]="maxDescription" name="observaciones" id="justification"                  placeholder="{{\'NEW_PROJECT.monitoring.observacionesPlaceholder\' | translate}}" rows="4"                  cols="50"></textarea>              </div>            </div>          </div>        </form>      </div>      <div class="contentButton">        <div class="contentButton-actions">          <u style="width: 5rem !important;" (click)="setMessageConfirmModal(\'cancel\')"            class="contentButton-actions_links addMore">{{\'BUTTONS.cancel\' | translate}}</u>          <button class="largeButton" (click)="saveSeguimiento()">            {{ \'BUTTONS.saveAdvance\' | translate }}          </button>        </div>      </div>    </div>    @if (isConfirmModalAction) {    <div class="contentConfirmModal">      <confirm-action-modal (actionButton)="confirmAction($event)" [textModal]="confirmModalAction" />    </div>    }    @if (isConfirmModal) {    <div class="contentConfirmModal">      <confirm-modal [textModal]="confirmModalMessageSucces" />    </div>    }  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'ChangePasswordComponent', 'selector': 'change-password'},{'name': 'CollaborationProjectsComponent', 'selector': 'app-collaboration-projects'},{'name': 'ConfirmActionModalComponent', 'selector': 'confirm-action-modal'},{'name': 'ConfirmModalComponent', 'selector': 'confirm-modal'},{'name': 'CreateProductComponent', 'selector': 'app-create-product'},{'name': 'CreateProjectModalComponent', 'selector': 'create-project-modal'},{'name': 'DashBoardComponent', 'selector': 'app-dash-board'},{'name': 'DetailContentPestanasComponent', 'selector': 'detail-content-pestanas'},{'name': 'DownloadReportsComponent', 'selector': 'app-download-reports'},{'name': 'EmptyComponentComponent', 'selector': 'empty-component'},{'name': 'EntitiesComponent', 'selector': 'entities-component'},{'name': 'ErrorModalComponent', 'selector': 'error-modal'},{'name': 'EvaluationProjectsComponent', 'selector': 'app-evaluation-projects'},{'name': 'GeneralManagementComponent', 'selector': 'app-planning'},{'name': 'GuidelinesModalComponent', 'selector': 'guidelines-modal'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InactivityModalComponent', 'selector': 'inactivity-modal'},{'name': 'IndicatorsComponent', 'selector': 'indicators'},{'name': 'IndicatorsModalComponent', 'selector': 'indicators-modal'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'login-component'},{'name': 'ManagementMenuComponent', 'selector': 'management-menu'},{'name': 'ManageProjectsComponent', 'selector': 'manage-projects'},{'name': 'MonitoringProjectComponent', 'selector': 'app-monitoring-project'},{'name': 'MultiselectCheckboxComponent', 'selector': 'multiselect-checkbox'},{'name': 'PlanningStrategiesComponent', 'selector': 'planning-strategies'},{'name': 'PlansModalComponent', 'selector': 'plans-modal'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ReportsPlaningComponent', 'selector': 'app-reports-planing'},{'name': 'ResetLinkComponent', 'selector': 'reset-component'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'StrategicGuidelinesComponent', 'selector': 'strategic-guidelines'},{'name': 'StrategicPlansComponent', 'selector': 'strategic-plans'}];
+    var DIRECTIVES = [{'name': 'CloseOutsideDirective', 'selector': '[closeOutside]'},{'name': 'CurrencyFormatDirective', 'selector': '[appCurrencyFormat]'},{'name': 'NoInitSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'NotFinishSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'PermissionDirective', 'selector': '[actionPermission]'}];
+    var ACTUAL_COMPONENT = {'name': 'MonitoringProjectComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MonitoringProjectComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

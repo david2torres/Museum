@@ -1,0 +1,37 @@
+<div class="content">
+  <div class="inputIcon" (click)="toggleDropdown()">
+    <input
+      readonly
+      class="inputIcon-border"
+      [placeholder]="placeholder()"
+      [value]="getSelectedItemsText()"
+    />
+    <img
+      class="blackIcon content-active_button_img"
+      src="{{ ANGLE_ICON }}"
+      alt="angulo"
+    />
+  </div>
+  <div class="custom-multiselect">
+    @if (dropdownOpen()) {
+      <div class="dropdown-content">
+        @for (option of options(); track $index) {
+          <div class="contentInfo">
+            <div
+              class="contentSection"
+              [ngClass]="{ 'contentInfo-selected': isSelected(option.id) }"
+            >
+              <input
+                class="checkInput"
+                type="checkbox"
+                [checked]="isSelected(option.id)"
+                (change)="onCheckboxChange($event, option.id)"
+              />
+              <span class="text">{{ option.nombre }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

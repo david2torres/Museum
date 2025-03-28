@@ -1,0 +1,84 @@
+<div class="content-side" [ngClass]="{ 'expanded': isMenuExpanded }">
+  <div class="sidebar" [ngClass]="{ 'expanded': isMenuExpanded }">
+    <div class="content-menu">
+      <div class="content-menu_header">
+        @if (isMenuExpanded) {
+          <img
+            class="whiteIconMargin"
+            src="{{ICON_IMAGES.simSideBar}}"
+            alt="sim"
+          />
+        } @else {
+          <img
+            style=" height: 3rem; width: 3rem;"
+            src="{{ICON_IMAGES.simSideBarIcon}}"
+            alt="simIcon"
+          />
+        }
+        <div class="content-menu_header-image">
+          @if (isMenuExpanded) {
+            <div (click)="toggleMenu()">
+              <img
+                class="whiteIconMargin"
+                src="{{ICON_IMAGES.leftAngle}}"
+                alt="leftAngle"
+              />
+            </div>
+          } @else {
+            <div class="content-menu_icon" (click)="toggleMenu()">
+              <span>
+                <img
+                  class="blackIcomMenu"
+                  src="{{ICON_IMAGES.rightAngle}}"
+                  alt="leftAngle"
+                />
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="content-options">
+        <ul>
+          @for (menu of menuItems(); track $index; let i = $index) {
+            <li
+              [ngClass]="{'selected': selectedMenuItem() === i}"
+              (click)="selectMenuItem(menu.id, menu.funcionalidades[0].ruta, menu.funcionalidades)"
+            >
+              <a>
+                <img
+                  class="whiteIconMargin margin-menu"
+                  src="{{ICON_IMAGES[menu.icono]}}"
+                  alt="{{menu.icono}}"
+                />
+                <span
+                  *ngIf="isMenuExpanded"
+                  class="text-menu"
+                  >{{ menu.nombre }}</span
+                >
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="button-container">
+        <button class="btnCloseSesion" (click)="navigateToLogin()">
+          <div class="contentTextButon">
+            <img
+              class="grayIcon"
+              src="{{ICON_IMAGES.endSesion}}"
+              alt="{{ICON_IMAGES.endSesion}}"
+            />
+            @if (isMenuExpanded) {
+              <span
+                class="textButton"
+                >{{ 'BUTTONS.closeSesion' | translate }}</span
+              >
+            }
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

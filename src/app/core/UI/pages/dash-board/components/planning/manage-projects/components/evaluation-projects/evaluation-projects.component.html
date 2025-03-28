@@ -1,0 +1,20 @@
+@if (isLoading()) {
+  <detail-content-pestanas
+    [projectsList]="projectsList()"
+    [optionsView]="optionsView"
+    (createEvent)="onCreate()"
+    (editEvent)="onEdit($event)"
+    (seguimientoEvent)="onSeguimiento($event)"
+    (viewProject)="onViewProject($event)"
+  />
+}
+
+@if (isModal()) {
+  <div>
+    <create-project-modal
+      [isEdit]="isEditProject"
+      [title]="modalTitle"
+      (actionButton)="closeModalEvent($event)"
+    />
+  </div>
+}

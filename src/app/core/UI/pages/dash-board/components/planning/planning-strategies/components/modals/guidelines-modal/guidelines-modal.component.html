@@ -1,0 +1,202 @@
+@let isConfirmModalAction = isConfirmAction();
+@let isConfirmModal = isConfirm();
+@let isEditFlow = isEdit();
+
+<div class="contentModalShow">
+  <div class="contentModal">
+    <div class="contentInfo">
+      <div class="contentInfo-title">
+        {{titleHeader | translate}}
+      </div>
+      <div class="contentInfo-titleInfo">
+        {{'PLANNING.lineamientos.modal.info' | translate}}
+      </div>
+      <form [formGroup]="GuideLinesForm">
+        <div formArrayName="forms">
+          <div
+            *ngFor="let group of getGuidelinesForm.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="contentForm">
+              <div class="contentToggle">
+                <span
+                  >{{'PLANNING.lineamientos.modal.active' | translate}}</span
+                >
+                <div class="toggle-switch" (click)="changeActive()">
+                  <input type="checkbox" id="toggle" formControlName="activo" />
+                  <label for="toggle" class="toggle-label"></label>
+                </div>
+              </div>
+
+              <div class="name initialContent">
+                <div class="title">
+                  {{'PLANNING.lineamientos.modal.nombreLineamiento' | translate}}
+                </div>
+                <input
+                  [maxlength]="maxName"
+                  class="spaceText"
+                  type="text"
+                  formControlName="nombre"
+                  placeholder="{{'PLANNING.lineamientos.modal.nombreLineamientoPlaceHolder' | translate}}"
+                />
+                <div
+                  class="counterText"
+                  [innerHTML]="group?.get('nombre')?.value.length + '/' + maxName"
+                ></div>
+                <div class="space"></div>
+              </div>
+
+              <div class="name">
+                <div class="title">
+                  {{'PLANNING.lineamientos.modal.politica' | translate}}
+                </div>
+                <select
+                  name="policians"
+                  formControlName="idPolitica"
+                  (ngModelChange)="onSelectedOption($event, i)"
+                >
+                  <option disabled [ngValue]="null">
+                    {{'PLANNING.lineamientos.modal.politicaPlaceHolder' | translate}}
+                  </option>
+                  @for (policians of policiansList(); track $index) {
+                    <option [value]="policians.id">
+                      {{ policians.nombre}}
+                    </option>
+                  }
+                </select>
+              </div>
+
+              <div class="name">
+                <div class="title">
+                  {{'PLANNING.lineamientos.modal.vigencia' | translate}}
+                </div>
+                <div class="contentVigencia">
+                  <input
+                    readonly
+                    [value]="group?.get('fechaInicio')?.value"
+                    formControlName="fechaInicio"
+                    class="spaceText"
+                    type="text"
+                    placeholder="{{'PLANNING.lineamientos.modal.vigenciaDate' | translate}}"
+                  />
+                  <div class="titleDates">
+                    {{'PLANNING.lineamientos.modal.hasta' | translate}}
+                  </div>
+
+                  <input
+                    readonly
+                    [value]="group?.get('fechaFin')?.value"
+                    formControlName="fechaFin"
+                    class="spaceText"
+                    type="text"
+                    placeholder="{{'PLANNING.lineamientos.modal.vigenciaDate' | translate}}"
+                  />
+                </div>
+              </div>
+
+              <div class="name">
+                <div class="title">
+                  {{'PLANNING.lineamientos.modal.entidad' | translate}}
+                </div>
+                <input
+                  readonly
+                  formControlName="nameEntidad"
+                  class="spaceText"
+                  type="text"
+                  placeholder="{{'PLANNING.lineamientos.modal.entidadPlaceHolder' | translate}}"
+                />
+              </div>
+
+              <div class="name initialContent">
+                <div class="title">
+                  {{'PLANNING.lineamientos.modal.tipoEntidad' | translate}}
+                </div>
+                <div class="entityType">
+                  <input
+                    readonly
+                    class="spaceText"
+                    type="text"
+                    formControlName="tipoEntidad"
+                    placeholder="{{'PLANNING.lineamientos.modal.tipoEntidad' | translate}}"
+                  />
+                </div>
+                <div class="space"></div>
+              </div>
+
+              <div class="contentDelete">
+                @if (getGuidelinesForm?.controls.length > 1) {
+                  <div class="contentDelete-botton" (click)="removeForm(i)">
+                    <img
+                      class="blackIcon contentDelete-botton_img"
+                      src="{{ ICONS_CONST.delete}}"
+                      alt="{{ICONS_CONST.edit}}"
+                    />
+                    <u class="titleLinks">{{'BUTTONS.delete' | translate}}</u>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="contentButton">
+            @if (isEditFlow.idEdit) {
+              <div [actionPermission]="'borrar'" class="contentButton-add">
+                <img
+                  class="blackIcon contentButton-add_img"
+                  src="{{ ICONS_CONST.delete}}"
+                  alt="{{ICONS_CONST.delete}}"
+                />
+                <u
+                  (click)="setMessageConfirmModal('delete')"
+                  class="blackIcon contentButton-add_link"
+                >
+                  {{'BUTTONS.delete' | translate}}
+                </u>
+              </div>
+            } @else {
+              <div class="contentButton-add">
+                <img
+                  class="blackIcon contentButton-add_img"
+                  src="{{ ICONS_CONST.add}}"
+                  alt="{{ICONS_CONST.add}}"
+                />
+                <u (click)="addForm()" class="blackIcon contentButton-add_link">
+                  {{'BUTTONS.addGuideline' | translate}}
+                </u>
+              </div>
+            }
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="contentButton">
+      <div class="contentButton-actions">
+        <u
+          class="contentButton-actions_links"
+          (click)="setMessageConfirmModal('cancel')"
+          >{{'BUTTONS.cancel' | translate}}</u
+        >
+
+        <button
+          [disabled]="GuideLinesForm.invalid"
+          class="largeButton"
+          (click)="processData()"
+        >
+          {{( !isEditFlow.idEdit ? 'BUTTONS.save': 'BUTTONS.saveChanges') | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+  @if (isConfirmModalAction) {
+    <div class="contentConfirmModal">
+      <confirm-action-modal
+        [textModal]="confirmModalAction"
+        (actionButton)="confirmAction($event)"
+      />
+    </div>
+  }
+  @if (isConfirmModal) {
+    <div class="contentConfirmModal">
+      <confirm-modal [textModal]="confirmModalMessageSucces" />
+    </div>
+  }
+</div>

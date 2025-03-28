@@ -1,0 +1,194 @@
+@if (isData()) {
+  <div class="content">
+    <div
+      class="content-active"
+      [class.contentWD]="ActiveGuideLines.length == 0"
+    >
+      <div class="content-active_button">
+        <span class="blackIcon content-active_button_text"
+          >{{'PLANNING.active' | translate}}
+          <img
+            (click)="viewList('active')"
+            class="blackIcon content-active_button_img"
+            src="{{ viewMore.active ? ICONS_CONST.anguloUp : ICONS_CONST.anguloDown}}"
+            alt="angulo"
+          />
+        </span>
+        @if (ActiveGuideLines.length !== 0) {
+          <div class="content-active_button_button">
+            <button
+              [actionPermission]="'crear'"
+              class="smallButton"
+              type="submit"
+              (click)="openCloseModal()"
+            >
+              <img
+                class="content-active_button_button-image"
+                src="{{ICONS_CONST.add}}"
+                alt="{{ICONS_CONST.add}}"
+              />
+              {{ 'BUTTONS.create' | translate }}
+            </button>
+          </div>
+        }
+      </div>
+
+      @if (ActiveGuideLines.length == 0) {
+        <empty-component
+          [message]="messageEmpty"
+          (actionButton)="openCloseModal()"
+        />
+      } @else {
+        @if (viewMore['active']) {
+          @for (lineamiento of ActiveGuideLines; track $index) {
+            <div class="contenList">
+              <div class="contenList-title">{{lineamiento.nombre}}</div>
+              <div class="contenIcon">
+                <div
+                  [actionPermission]="'editar'"
+                  class="contenIcon-edit"
+                  (click)="openCloseModal(true, lineamiento)"
+                >
+                  <img
+                    class="violetIcon contenIcon-edit-image"
+                    src="{{ICONS_CONST.edit}}"
+                    alt="{{ICONS_CONST.edit}}"
+                  />
+                </div>
+                <div
+                  style="cursor: pointer;"
+                  (click)="viewDetailGuideline($index)"
+                >
+                  <img
+                    class="blackIcon contenIcon-image"
+                    src="{{ isViewDetail[$index]? ICONS_CONST.upArrowSmall: ICONS_CONST.downArrowSmall}}"
+                    alt="{{ICONS_CONST.upArrowSmall}}"
+                  />
+                </div>
+              </div>
+            </div>
+            @if (isViewDetail[$index]) {
+              <div class="detailContent">
+                <div class="detailContent_info">
+                  <span class="detailContent_info-title"
+                    >{{'PLANNING.lineamientos.infoGuideLine.title' | translate}}
+                  </span>
+                  <div class="detailContent_info-subTitle">
+                    {{lineamiento.politica.nombre}}
+                  </div>
+                </div>
+
+                <div class="detailContent_info">
+                  <span
+                    class="detailContent_info-title"
+                    >{{'PLANNING.lineamientos.infoGuideLine.vigencia' | translate}}</span
+                  >
+                  <div class="detailContent_info-subTitle">
+                    {{lineamiento.politica.fechaInicio | date: 'yyyy'}} -
+                    {{lineamiento.politica.fechaInicio | date: 'yyyy'}}
+                  </div>
+                </div>
+
+                <div class="detailContent_info">
+                  <span
+                    class="detailContent_info-title"
+                    >{{'PLANNING.lineamientos.infoGuideLine.entity' | translate}}</span
+                  >
+                  <div class="detailContent_info-subTitle">
+                    {{lineamiento.politica.entidad.nombre}}
+                  </div>
+                </div>
+              </div>
+            }
+          }
+        }
+      }
+    </div>
+  </div>
+  <br />
+  <div class="content">
+    <div class="content-active_button" (click)="viewList('inactive')">
+      <span class="blackIcon content-active_button_text"
+        >{{'PLANNING.inactive' | translate}}
+        <img
+          class="blackIcon content-active_button_img"
+          src="{{ viewMore.inactive ? ICONS_CONST.anguloUp : ICONS_CONST.anguloDown}}"
+          alt="{{ICONS_CONST.edit}}"
+        />
+      </span>
+    </div>
+    @if (viewMore['inactive']) {
+      @for (lineamiento of InactveGuidelines; track $index) {
+        <div class="contenList">
+          <div class="contenList-title">{{lineamiento.nombre}}</div>
+          <div class="contenIcon">
+            <div
+              [actionPermission]="'editar'"
+              class="contenIcon-edit"
+              (click)="openCloseModal(true, lineamiento)"
+            >
+              <img
+                class="violetIcon contenIcon-edit-image"
+                src="{{ICONS_CONST.edit}}"
+                alt="{{ICONS_CONST.edit}}"
+              />
+            </div>
+            <div
+              style="cursor: pointer;"
+              (click)="viewDetailGuidelineInactive($index)"
+            >
+              <img
+                class="blackIcon contenIcon-image"
+                src="{{ isViewDetailInactive[$index]? ICONS_CONST.upArrowSmall: ICONS_CONST.downArrowSmall}}"
+                alt="{{ICONS_CONST.upArrowSmall}}"
+              />
+            </div>
+          </div>
+        </div>
+        @if (isViewDetailInactive[$index]) {
+          <div class="detailContent">
+            <div class="detailContent_info">
+              <span
+                class="detailContent_info-title"
+                >{{'PLANNING.lineamientos.infoGuideLine.title' | translate}}</span
+              >
+              <div class="detailContent_info-subTitle">
+                {{lineamiento.politica.nombre}}
+              </div>
+            </div>
+
+            <div class="detailContent_info">
+              <span
+                class="detailContent_info-title"
+                >{{'PLANNING.lineamientos.infoGuideLine.vigencia' | translate}}</span
+              >
+              <div class="detailContent_info-subTitle">
+                {{lineamiento.politica.fechaInicio | date: 'yyyy'}} -
+                {{lineamiento.politica.fechaInicio | date: 'yyyy'}}
+              </div>
+            </div>
+
+            <div class="detailContent_info">
+              <span
+                class="detailContent_info-title"
+                >{{'PLANNING.lineamientos.infoGuideLine.entity' | translate}}</span
+              >
+              <div class="detailContent_info-subTitle">
+                {{lineamiento.politica.entidad.nombre}}
+              </div>
+            </div>
+          </div>
+        }
+      }
+    }
+  </div>
+}
+@if (isModal()) {
+  <div>
+    <guidelines-modal
+      [title]="modalTitle"
+      [isEdit]="isEditGuideline"
+      (actionButton)="closeModalEvent($event)"
+    />
+  </div>
+}

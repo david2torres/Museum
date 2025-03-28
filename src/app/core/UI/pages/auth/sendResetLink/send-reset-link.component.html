@@ -1,0 +1,50 @@
+<div class="page-container">
+  <div
+    class="description"
+    [innerHTML]="(successEmail() ? 'AUTH.RESET.succesSend': 'AUTH.RESET.infoCard') | translate"
+  ></div>
+  <div class="form-container">
+    <form
+      class="form-container_input"
+      [formGroup]="resetForm"
+      (ngSubmit)="resetLinkSubmit()"
+    >
+      <div
+        class="input-wrapper"
+        [ngClass]="{'succes': successEmail(), 'error': resetError()}"
+      >
+        <input
+          type="email"
+          formControlName="email"
+          [placeholder]="'AUTH.LOGIN.email' | translate"
+          (input)="onInput()"
+        />
+        @if (successEmail()) {
+          <img class="icon-right succesIcon" src="{{ICON_IMAGES.check}}" />
+        }
+      </div>
+
+      @if (isEmailError) {
+        <div class="content-alert-message">
+          <img src="{{ICON_IMAGES.alert}}" />
+          <span class="infoText" [innerHTML]="messageError() | translate"></span>
+        </div>
+      }
+
+      <div class="content-button">
+        <button
+          class="btnAuth"
+          type="submit"
+          [disabled]="resetForm.invalid || successEmail()"
+        >
+          {{ 'BUTTONS.sendEmail' | translate }}
+        </button>
+        <div class="forgotPassword" (click)="navigateToLogin()">
+          <span class="forgotPassword_text">
+            {{ (successEmail() ? 'BUTTONS.resendEmail' : 'BUTTONS.backInit') | translate }}
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

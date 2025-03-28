@@ -1,0 +1,98 @@
+@import '../../../../styles.scss';
+
+.content {
+  display: grid;
+
+  .inputIcon {
+    cursor: pointer;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 0fr;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #C6C6C6;
+    border-radius: 10px;
+    opacity: 1;
+    align-items: center;
+    padding-right: 1rem;
+
+    &-border {
+      cursor: pointer;
+      border: 0px solid #C6C6C6;
+    }
+  }
+
+  .custom-multiselect {
+    position: relative;
+    display: inline-block;
+
+    .dropdown-content {
+      display: block;
+      position: absolute;
+      background-color: white;
+      z-index: 1000;
+      width: 100%;
+      max-height: 130px;
+      overflow-y: auto;
+      border: 1px solid #C6C6C6;
+      border-radius: 10px;
+      opacity: 1;
+      margin-top: 4px;
+      padding-top: 3px;
+      padding-bottom: 6px;
+
+      &::-webkit-scrollbar-track {
+        margin: 0rem;
+        background: none !important;
+      }
+
+      .contentInfo {
+        cursor: pointer;
+        height: 26px;
+        padding: 6px;
+
+        .contentSection {
+          display: grid;
+          grid-auto-flow: column;
+          grid-template-columns: 0fr 2fr;
+          gap: 1rem;
+          display: grid;
+          grid-auto-flow: column;
+          grid-template-columns: 0fr 2fr;
+          gap: 1rem;
+          align-items: center;
+          height: 30px;
+          border-radius: 6px;
+          opacity: 1;
+          align-items: center;
+          align-content: center;
+          padding-left: 7px;
+
+          .checkInput {
+            cursor: pointer;
+            width: 15px;
+            height: 15px;
+            border: 0.800000011920929px solid #3C3C3B;
+            border-radius: 4px;
+            opacity: 1;
+          }
+
+          .text {
+            text-align: left;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-size: $font-size-14;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+            letter-spacing: 0px;
+            opacity: 1;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.contentInfo-selected {
+  background-color: $color-light-purple;
+}

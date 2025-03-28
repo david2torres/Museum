@@ -1,0 +1,2732 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sim documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sim documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CreateProductComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-create-product</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../miscellaneous/variables.html#PRODUCTS_MODAL_MODULES" target="_self" >PRODUCTS_MODAL_MODULES</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./create-product.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./create-product.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_unSubscribe" >_unSubscribe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#actionButton" >actionButton</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#aliadoList" >aliadoList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmModalAction" >confirmModalAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmModalMessageSucces" >confirmModalMessageSucces</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ICONS_CONST" >ICONS_CONST</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#idProject" >idProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isConfirm" >isConfirm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isConfirmAction" >isConfirmAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isEdit" >isEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#maxDescription" >maxDescription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#maxName" >maxName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ProductsForm" >ProductsForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rubrosList" >rubrosList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#title" >title</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#titleHeader" >titleHeader</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addRubro" >addRubro</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#cancelForm" >cancelForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmAction" >confirmAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createFormGroup" >createFormGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createRubroGroup" >createRubroGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#currencytotalValue" >currencytotalValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteForm" >deleteForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteGuideline" >deleteGuideline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initForm" >initForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initRubros" >initRubros</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadInitData" >loadInitData</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#processData" >processData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeRubro" >removeRubro</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setMessage" >setMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setMessageConfirmModal" >setMessageConfirmModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setTotalValueRubro" >setTotalValueRubro</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#idProject" >idProject</a>
+                            </li>
+                            <li>
+                                <a href="#isEdit" >isEdit</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionButton" >actionButton</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#rubros" >rubros</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, projectsService: <a href="../injectables/ProjectServiceService.html" target="_self">ProjectServiceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>projectsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProjectServiceService.html" target="_self" >ProjectServiceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="idProject"></a>
+                        <b>idProject</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:39</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isEdit"></a>
+                        <b>isEdit</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:40</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:38</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="actionButton"></a>
+                        <b>actionButton</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addRubro"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addRubro</b></span>
+                        <a href="#addRubro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addRubro(data?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>cancelForm</b></span>
+                        <a href="#cancelForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>cancelForm(action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="212"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:212</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>action</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmAction"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmAction</b></span>
+                        <a href="#confirmAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>confirmAction(isConfirm: <a href="../interfaces/IEmmitrAction.html" target="_self">IEmmitrAction</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="198"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:198</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isConfirm</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IEmmitrAction.html" target="_self" >IEmmitrAction</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createFormGroup"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createFormGroup</b></span>
+                        <a href="#createFormGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createFormGroup(data?: <a href="../interfaces/ICreateProductsComponent.html" target="_self">ICreateProductsComponent</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICreateProductsComponent.html" target="_self" >ICreateProductsComponent</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>FormGroup</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createRubroGroup"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createRubroGroup</b></span>
+                        <a href="#createRubroGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createRubroGroup(data?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>FormGroup</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currencytotalValue"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>currencytotalValue</b></span>
+                        <a href="#currencytotalValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>currencytotalValue(sum: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sum</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>deleteForm</b></span>
+                        <a href="#deleteForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteForm(action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="224"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:224</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>action</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteGuideline"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>deleteGuideline</b></span>
+                        <a href="#deleteGuideline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteGuideline(productId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="233"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>productId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initForm</b></span>
+                        <a href="#initForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initForm(isEdit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isEdit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initRubros"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initRubros</b></span>
+                        <a href="#initRubros"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initRubros(rubros?: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rubros</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>FormGroup[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadInitData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadInitData</b></span>
+                        <a href="#loadInitData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadInitData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processData"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>processData</b></span>
+                        <a href="#processData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="244"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:244</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeRubro"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>removeRubro</b></span>
+                        <a href="#removeRubro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeRubro(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="161"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMessage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setMessage</b></span>
+                        <a href="#setMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setMessage(title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="237"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:237</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>title</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>null</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMessageConfirmModal"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setMessageConfirmModal</b></span>
+                        <a href="#setMessageConfirmModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setMessageConfirmModal(origin: <a href="../undefineds/actionOrigin.html" target="_self">actionOrigin</a>, message?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>origin</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#actionOrigin" target="_self" >actionOrigin</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setTotalValueRubro"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setTotalValueRubro</b></span>
+                        <a href="#setTotalValueRubro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setTotalValueRubro(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_unSubscribe"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>_unSubscribe</b></span>
+                        <a href="#_unSubscribe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionButton"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>actionButton</b></span>
+                        <a href="#actionButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aliadoList"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>aliadoList</b></span>
+                        <a href="#aliadoList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;any[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmModalAction"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmModalAction</b></span>
+                        <a href="#confirmModalAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IConfirmActionModal.html" target="_self" >IConfirmActionModal</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmModalMessageSucces"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmModalMessageSucces</b></span>
+                        <a href="#confirmModalMessageSucces"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;PLANNING.lineamientos.modal.success&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ICONS_CONST"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ICONS_CONST</b></span>
+                        <a href="#ICONS_CONST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ICON_IMAGES</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idProject"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>idProject</b></span>
+                        <a href="#idProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isConfirm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isConfirm</b></span>
+                        <a href="#isConfirm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isConfirmAction"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isConfirmAction</b></span>
+                        <a href="#isConfirmAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isEdit</b></span>
+                        <a href="#isEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxDescription"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>maxDescription</b></span>
+                        <a href="#maxDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LIMIT.textArea</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxName"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>maxName</b></span>
+                        <a href="#maxName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LIMIT.input</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ProductsForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ProductsForm</b></span>
+                        <a href="#ProductsForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rubrosList"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>rubrosList</b></span>
+                        <a href="#rubrosList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;any[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="title"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="titleHeader"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>titleHeader</b></span>
+                        <a href="#titleHeader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rubros"></a>
+                        <span class="name"><b>rubros</b><a href="#rubros"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>rubros()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="260" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/manage-projects/components/modals/create-product/create-product.component.ts:260</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+  signal,
+} from &#x27;@angular/core&#x27;;
+import { ICON_IMAGES } from &#x27;@DomainConstants/shared/icons-images.constants&#x27;;
+import {
+  IConfirmActionModal,
+  IEmmitrAction,
+  IModalEdit,
+} from &#x27;@DomainInterfaces/planning.interface&#x27;;
+import { PRODUCTS_MODAL_MODULES } from &#x27;./products-module&#x27;;
+import { FormArray, FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { combineLatest, Subject, takeUntil } from &#x27;rxjs&#x27;;
+import { LIMIT } from &#x27;@DomainConstants/components/planing.constants&#x27;;
+// import { SecureStorageService } from &#x27;@shared/security/storage/secure-storage.service&#x27;;
+import { ProjectServiceService } from &#x27;@services/project-service.service&#x27;;
+import { actionOrigin } from &#x27;@DomainConstants/types/actions.types&#x27;;
+import { APP_CONST } from &#x27;@DomainConstants/shared/app.constants&#x27;;
+import {
+  ICreateProductsComponent,
+  IProjects,
+} from &#x27;@DomainInterfaces/projectManagement.interface&#x27;;
+
+@Component({
+  selector: &#x27;app-create-product&#x27;,
+  standalone: true,
+  imports: [...PRODUCTS_MODAL_MODULES],
+  templateUrl: &#x27;./create-product.component.html&#x27;,
+  styleUrl: &#x27;./create-product.component.scss&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+
+export class CreateProductComponent {
+  public ICONS_CONST &#x3D; ICON_IMAGES;
+  public title &#x3D; input.required&lt;string&gt;();
+  public idProject &#x3D; input.required&lt;string&gt;();
+  public isEdit &#x3D; input&lt;IModalEdit&gt;();
+  public actionButton &#x3D; output&lt;any&gt;();
+
+  public isConfirmAction &#x3D; signal&lt;boolean&gt;(false);
+  public isConfirm &#x3D; signal&lt;boolean&gt;(false);
+
+  public rubrosList &#x3D; signal&lt;any[]&gt;([]);
+  public aliadoList &#x3D; signal&lt;any[]&gt;([]);
+
+  public ProductsForm: FormGroup;
+  public titleHeader: string;
+  public confirmModalAction: IConfirmActionModal;
+  public confirmModalMessageSucces: string &#x3D;
+    &#x27;PLANNING.lineamientos.modal.success&#x27;;
+  public _unSubscribe &#x3D; new Subject&lt;void&gt;();
+  public maxName: number &#x3D; LIMIT.input;
+  public maxDescription: number &#x3D; LIMIT.textArea;
+
+  constructor(
+    private fb: FormBuilder,
+    private projectsService: ProjectServiceService,
+    // private secureStorage: SecureStorageService,
+  ) {
+    this.loadInitData();
+  }
+
+  ngOnInit(): void {
+    this.initForm(this.isEdit().idEdit);
+    this.setMessage(this.isEdit().elementSelected?.nombre);
+    if (this.isEdit().idEdit) {
+      this.confirmModalMessageSucces &#x3D;
+        &#x27;PLANNING.lineamientos.modal.updateGuidelineMessage&#x27;;
+    }
+  }
+
+  private loadInitData(): void {
+    combineLatest([
+      this.projectsService.getAliado(),
+      this.projectsService.getRubro(),
+    ])
+      .pipe(takeUntil(this._unSubscribe))
+      .subscribe(([aliados, rubros]) &#x3D;&gt; {
+        console.log(aliados, rubros);
+        this.rubrosList.update(() &#x3D;&gt; rubros);
+        this.aliadoList.update(() &#x3D;&gt; aliados);
+      });
+  }
+
+  private initForm(isEdit: boolean): void {
+    this.ProductsForm &#x3D; this.createFormGroup(
+      isEdit ? this.isEdit().elementSelected : null,
+    );
+  }
+
+  private createFormGroup(data?: ICreateProductsComponent): FormGroup {
+    return this.fb.group({
+      idProyecto: [this.idProject()],
+      id: [data?.id],
+      nombre: [data?.nombre, Validators.required],
+      fechaInicio: [
+        data?.fechaInicio
+          ? new Date(data.fechaInicio).toISOString().split(&#x27;T&#x27;)[0]
+          : &#x27;&#x27;,
+        Validators.required,
+      ],
+      fechaFin: [
+        data?.fechaFin
+          ? new Date(data.fechaFin).toISOString().split(&#x27;T&#x27;)[0]
+          : &#x27;&#x27;,
+        Validators.required,
+      ],
+      cantidad: [data?.cantidad, [Validators.required]],
+      rubros: this.fb.array(this.initRubros(data?.rubros)),
+    });
+  }
+
+  private initRubros(rubros?: any[]): FormGroup[] {
+    if (rubros &amp;&amp; rubros.length &gt; 0) {
+      return rubros.map(rubro &#x3D;&gt; this.createRubroGroup(rubro));
+    }
+    return [this.createRubroGroup()];
+  }
+
+  private createRubroGroup(data?: any): FormGroup {
+    return this.fb.group({
+      idRubro: [data?.idRubro || &#x27;&#x27;, Validators.required],
+      concepto: [data?.concepto || &#x27;&#x27;, Validators.required],
+      valorTotal: [data?.valorTotal ?? 0],
+      valorInterno: [data?.valorInterno ?? 0],
+      valorExterno: [data?.valorExterno ?? 0],
+      idAliado: [data?.idAliado],
+    });
+  }
+
+  public setTotalValueRubro(index: number): void {
+    const rubroGroup &#x3D; this.rubros.at(index) as FormGroup;
+    if (!rubroGroup) return;
+    const valorInterno &#x3D; Number(rubroGroup.get(&#x27;valorInterno&#x27;)?.value) || 0;
+    const valorExterno &#x3D; Number(rubroGroup.get(&#x27;valorExterno&#x27;)?.value) || 0;
+    let sum &#x3D; valorExterno + valorInterno;
+    rubroGroup.get(&#x27;valorTotal&#x27;)?.setValue(sum);
+    this.currencytotalValue(sum);
+  }
+
+  private currencytotalValue(sum: number): void {
+    const inputElement: HTMLInputElement &#x3D; document.querySelector(
+      &#x60;[formControlName&#x3D;&quot;valorTotal&quot;]&#x60;,
+    ) as HTMLInputElement;
+
+    if (inputElement) {
+      inputElement.value &#x3D; new Intl.NumberFormat(&#x27;es-CO&#x27;, {
+        style: &#x27;currency&#x27;,
+        currency: &#x27;COP&#x27;,
+      }).format(sum);
+    }
+  }
+
+  public addRubro(data?: any): void {
+    this.rubros.push(this.createRubroGroup(data));
+  }
+
+  public removeRubro(index: number): void {
+    this.rubros.removeAt(index);
+  }
+
+  public setMessageConfirmModal(origin: actionOrigin, message?: string): void {
+    switch (origin) {
+      case &#x27;cancel&#x27;:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;SHARED_MESSAGES.confirmCancel&#x27;,
+          messages: &#x27;SHARED_MESSAGES.nessageCancel&#x27;,
+          textLink: &#x27;BUTTONS.stayHere&#x27;,
+          textButton: &#x27;BUTTONS.confirmCancel&#x27;,
+        };
+        break;
+      case &#x27;error&#x27;:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;PLANNING.lineamientos.modal.errorTitle&#x27;,
+          messages: message,
+          textLink: null,
+          textButton: &#x27;BUTTONS.agree&#x27;,
+        };
+        break;
+      default:
+        this.confirmModalAction &#x3D; {
+          origin: origin,
+          title: &#x27;PLANNING.lineamientos.modal.confirmDelete&#x27;,
+          messages: &#x27;PLANNING.lineamientos.modal.messageDelete&#x27;,
+          textLink: &#x27;BUTTONS.stayHere&#x27;,
+          textButton: &#x27;BUTTONS.confirmDelete&#x27;,
+        };
+        break;
+    }
+    this.isConfirmAction.update(() &#x3D;&gt; true);
+  }
+
+  public confirmAction(isConfirm: IEmmitrAction): void {
+    switch (isConfirm.origin) {
+      case &#x27;cancel&#x27;:
+        this.cancelForm(isConfirm.action);
+        break;
+      case &#x27;error&#x27;:
+        this.isConfirmAction.update(() &#x3D;&gt; false);
+        break;
+      default:
+        this.deleteForm(isConfirm.action);
+        break;
+    }
+  }
+
+  public cancelForm(action: boolean) {
+    let actionEmmmiter &#x3D; {
+      action: false,
+      object: null,
+    };
+    if (action) {
+      this.actionButton.emit(actionEmmmiter);
+    } else {
+      this.isConfirmAction.update(() &#x3D;&gt; false);
+    }
+  }
+
+  public deleteForm(action: boolean): void {
+    if (action) {
+      this.deleteGuideline(this.isEdit().elementSelected.id);
+    } else {
+      this.isConfirmAction.update(() &#x3D;&gt; false);
+    }
+    console.log(&#x27;idGuideline&#x27;, this.isEdit().elementSelected.id);
+  }
+
+  private deleteGuideline(productId: string): void {
+    console.log(&#x27;Delete Product&#x27;, productId);
+  }
+
+  public setMessage(title: string &#x3D; null): void {
+    console.log(&#x27;Title &#x27;, title);
+    this.titleHeader &#x3D; title
+      ? title
+      : &#x60;${APP_CONST.MODAL_NEW_PRODUCT.modalProject}${this.title()}&#x60;;
+  }
+
+  public processData(): void {
+    console.log(&#x27;Save form&#x27;, this.ProductsForm);
+    let body &#x3D; this.ProductsForm.value;
+    this.projectsService.createProduct(body).subscribe((resp: IProjects) &#x3D;&gt; {
+      console.log(&#x27;New Response&#x27;, resp);
+      if (resp.nombre) {
+        let actionEmmmiter &#x3D; {
+          action: true,
+          object: resp,
+        };
+        this.actionButton.emit(actionEmmmiter);
+        console.log(&#x27;update Plans&#x27;);
+      }
+    });
+  }
+
+  get rubros(): FormArray {
+    return this.ProductsForm.get(&#x27;rubros&#x27;) as FormArray;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@let isConfirmModalAction &#x3D; isConfirmAction();
+@let isConfirmModal &#x3D; isConfirm();
+@let isEditFlow &#x3D; isEdit();
+
+&lt;div class&#x3D;&quot;contentModalShow&quot;&gt;
+  &lt;div class&#x3D;&quot;contentModal&quot;&gt;
+    &lt;div class&#x3D;&quot;contentInfo&quot;&gt;
+      &lt;div class&#x3D;&quot;contentInfo-title&quot;&gt;
+        {{titleHeader | translate}}
+      &lt;/div&gt;
+
+      &lt;form [formGroup]&#x3D;&quot;ProductsForm&quot;&gt;
+        &lt;div class&#x3D;&quot;contentForm&quot;&gt;
+          &lt;!-- nombre proyecto --&gt;
+          &lt;div class&#x3D;&quot;name&quot;&gt;
+            &lt;div class&#x3D;&quot;title&quot;&gt;
+              {{&#x27;NEW_PROJECT.products.modal.nameProduct&#x27; | translate}}
+            &lt;/div&gt;
+            &lt;input
+              formControlName&#x3D;&quot;nombre&quot;
+              class&#x3D;&quot;spaceText&quot;
+              type&#x3D;&quot;text&quot;
+              placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.products.modal.nameProductPlaceHolder&#x27; | translate}}&quot;
+            /&gt;
+          &lt;/div&gt;
+          &lt;!-- Fechas --&gt;
+          &lt;div class&#x3D;&quot;contentVigencia&quot;&gt;
+            &lt;div class&#x3D;&quot;name&quot;&gt;
+              &lt;div class&#x3D;&quot;title&quot;&gt;
+                {{&#x27;NEW_PROJECT.products.modal.startDate&#x27; | translate}}
+              &lt;/div&gt;
+              &lt;input
+                formControlName&#x3D;&quot;fechaInicio&quot;
+                class&#x3D;&quot;spaceText&quot;
+                type&#x3D;&quot;date&quot;
+                placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.products.modal.datePlaceholder&#x27; | translate}}&quot;
+              /&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;name&quot;&gt;
+              &lt;div class&#x3D;&quot;title&quot;&gt;
+                {{&#x27;NEW_PROJECT.products.modal.endDate&#x27; | translate}}
+              &lt;/div&gt;
+              &lt;input
+                formControlName&#x3D;&quot;fechaFin&quot;
+                class&#x3D;&quot;spaceText&quot;
+                type&#x3D;&quot;date&quot;
+                placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.products.modal.datePlaceholder&#x27; | translate}}&quot;
+              /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;!-- Cantidad --&gt;
+          &lt;div class&#x3D;&quot;name&quot;&gt;
+            &lt;div class&#x3D;&quot;title&quot;&gt;
+              {{&#x27;NEW_PROJECT.products.modal.cantidad&#x27; | translate}}
+            &lt;/div&gt;
+            &lt;input
+              formControlName&#x3D;&quot;cantidad&quot;
+              class&#x3D;&quot;spaceText&quot;
+              type&#x3D;&quot;number&quot;
+              placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.products.modal.cantidadPlaceHolder&#x27; | translate}}&quot;
+            /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div formArrayName&#x3D;&quot;rubros&quot;&gt;
+          &lt;div
+            *ngFor&#x3D;&quot;let rubro of rubros.controls; let i &#x3D; index&quot;
+            [formGroupName]&#x3D;&quot;i&quot;
+          &gt;
+            &lt;div class&#x3D;&quot;contentForm&quot;&gt;
+              &lt;div class&#x3D;&quot;title&quot; style&#x3D;&quot;padding: 1rem;&quot;&gt;
+                {{&#x27;NEW_PROJECT.products.modal.budget&#x27; | translate}}
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;name&quot;&gt;
+                &lt;div class&#x3D;&quot;title&quot;&gt;
+                  {{&#x27;NEW_PROJECT.products.modal.rubro&#x27; | translate}}
+                &lt;/div&gt;
+                &lt;select name&#x3D;&quot;idRubro&quot; formControlName&#x3D;&quot;idRubro&quot;&gt;
+                  &lt;option disabled [ngValue]&#x3D;&quot;null&quot;&gt;
+                    {{&#x27;NEW_PROJECT.products.modal.rubroPlaceHolder&#x27; | translate}}
+                  &lt;/option&gt;
+                  @for (rubro of rubrosList(); track $index) {
+                    &lt;option [value]&#x3D;&quot;rubro.id&quot;&gt;
+                      {{ rubro.nombre}}
+                    &lt;/option&gt;
+                  }
+                &lt;/select&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;name&quot; id&#x3D;&quot;concepto&quot;&gt;
+                &lt;div class&#x3D;&quot;title&quot;&gt;
+                  {{ &#x27;NEW_PROJECT.products.modal.concepto&#x27; | translate}}
+                &lt;/div&gt;
+                &lt;textarea
+                  formControlName&#x3D;&quot;concepto&quot;
+                  [maxlength]&#x3D;&quot;maxDescription&quot;
+                  name&#x3D;&quot;concepto&quot;
+                  id&#x3D;&quot;concepto&quot;
+                  placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.products.modal.conceptoPlaceHolder&#x27; | translate}}&quot;
+                  rows&#x3D;&quot;4&quot;
+                  cols&#x3D;&quot;50&quot;
+                &gt;&lt;/textarea&gt;
+
+                &lt;div
+                  class&#x3D;&quot;counterText&quot;
+                  [innerHTML]&#x3D;&quot;rubro.get(&#x27;concepto&#x27;)?.value.length + &#x27;/&#x27; + maxDescription&quot;
+                &gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div&gt;
+                &lt;div class&#x3D;&quot;title&quot; style&#x3D;&quot;padding: 1rem;&quot;&gt;
+                  {{&#x27;NEW_PROJECT.products.modal.origin&#x27; | translate}}
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;contentIntern&quot;&gt;
+                  &lt;div class&#x3D;&quot;title&quot;&gt;
+                    {{&#x27;NEW_PROJECT.products.modal.valorInterno&#x27; | translate}}
+                  &lt;/div&gt;
+                  &lt;input
+                    (blur)&#x3D;&quot;setTotalValueRubro(i)&quot;
+                    appCurrencyFormat
+                    formControlName&#x3D;&quot;valorInterno&quot;
+                    class&#x3D;&quot;spaceText&quot;
+                    type&#x3D;&quot;text&quot;
+                    placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.products.modal.valorInternoPlaceHolder&#x27; | translate}}&quot;
+                  /&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;contentExternal&quot;&gt;
+                  &lt;div class&#x3D;&quot;title&quot;&gt;
+                    {{&#x27;NEW_PROJECT.products.modal.valorExterno&#x27; | translate}}
+                  &lt;/div&gt;
+                  &lt;input
+                    (blur)&#x3D;&quot;setTotalValueRubro(i)&quot;
+                    appCurrencyFormat
+                    formControlName&#x3D;&quot;valorExterno&quot;
+                    class&#x3D;&quot;spaceText&quot;
+                    type&#x3D;&quot;text&quot;
+                    placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.products.modal.valorExternoPlaceholder&#x27; | translate}}&quot;
+                  /&gt;
+                  &lt;div class&#x3D;&quot;name&quot;&gt;
+                    &lt;select
+                      style&#x3D;&quot;width: 26rem !important;&quot;
+                      name&#x3D;&quot;idAliado&quot;
+                      formControlName&#x3D;&quot;idAliado&quot;
+                    &gt;
+                      &lt;option disabled [ngValue]&#x3D;&quot;null&quot;&gt;
+                        {{&#x27;NEW_PROJECT.products.modal.aliadoPlaceHolder&#x27; | translate}}
+                      &lt;/option&gt;
+                      @for (aliado of aliadoList(); track $index) {
+                        &lt;option [value]&#x3D;&quot;aliado.id&quot;&gt;
+                          {{ aliado.nombre}}
+                        &lt;/option&gt;
+                      }
+                    &lt;/select&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;contentVigencia&quot;&gt;
+                &lt;div class&#x3D;&quot;name&quot;&gt;
+                  &lt;div class&#x3D;&quot;title&quot;&gt;
+                    {{&#x27;NEW_PROJECT.products.modal.valor&#x27; | translate}}
+                  &lt;/div&gt;
+                  &lt;input
+                    readonly
+                    formControlName&#x3D;&quot;valorTotal&quot;
+                    appCurrencyFormat
+                    class&#x3D;&quot;spaceText&quot;
+                    type&#x3D;&quot;text&quot;
+                    placeholder&#x3D;&quot;{{&#x27;NEW_PROJECT.products.modal.valorPlaceholder&#x27; | translate}}&quot;
+                  /&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              @if (rubros.controls.length &gt; 1) {
+                &lt;div style&#x3D;&quot;padding: 1rem;&quot;&gt;
+                  &lt;div [actionPermission]&#x3D;&quot;&#x27;borrar&#x27;&quot; class&#x3D;&quot;contentButton-add&quot;&gt;
+                    &lt;img
+                      class&#x3D;&quot;blackIcon contentButton-add_img&quot;
+                      src&#x3D;&quot;{{ ICONS_CONST.delete}}&quot;
+                      alt&#x3D;&quot;{{ICONS_CONST.delete}}&quot;
+                    /&gt;
+                    &lt;u
+                      (click)&#x3D;&quot;removeRubro(i)&quot;
+                      class&#x3D;&quot;blackIcon contentButton-add_link&quot;
+                    &gt;
+                      {{&#x27;BUTTONS.delete&#x27; | translate}}
+                    &lt;/u&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              }
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;contentButton&quot;&gt;
+          &lt;div class&#x3D;&quot;contentButton-add&quot;&gt;
+            &lt;img
+              class&#x3D;&quot;blackIcon contentButton-add_img&quot;
+              src&#x3D;&quot;{{ ICONS_CONST.add}}&quot;
+              alt&#x3D;&quot;{{ICONS_CONST.add}}&quot;
+            /&gt;
+            &lt;u (click)&#x3D;&quot;addRubro()&quot; class&#x3D;&quot;blackIcon contentButton-add_link&quot;&gt;
+              {{&#x27;BUTTONS.addRubro&#x27; | translate}}
+            &lt;/u&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;contentButton&quot;&gt;
+      &lt;div class&#x3D;&quot;contentButton-actions&quot;&gt;
+        &lt;u
+          class&#x3D;&quot;contentButton-actions_links&quot;
+          (click)&#x3D;&quot;setMessageConfirmModal(&#x27;cancel&#x27;)&quot;
+          &gt;{{&#x27;BUTTONS.cancel&#x27; | translate}}&lt;/u
+        &gt;
+
+        &lt;button
+          [disabled]&#x3D;&quot;ProductsForm.invalid&quot;
+          class&#x3D;&quot;largeButton&quot;
+          (click)&#x3D;&quot;processData()&quot;
+        &gt;
+          {{( !isEditFlow.idEdit ? &#x27;BUTTONS.save&#x27;: &#x27;BUTTONS.saveChanges&#x27;) | translate}}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  @if (isConfirmModalAction) {
+    &lt;div class&#x3D;&quot;contentConfirmModal&quot;&gt;
+      &lt;confirm-action-modal
+        [textModal]&#x3D;&quot;confirmModalAction&quot;
+        (actionButton)&#x3D;&quot;confirmAction($event)&quot;
+      /&gt;
+    &lt;/div&gt;
+  }
+  @if (isConfirmModal) {
+    &lt;div class&#x3D;&quot;contentConfirmModal&quot;&gt;
+      &lt;confirm-modal [textModal]&#x3D;&quot;confirmModalMessageSucces&quot; /&gt;
+    &lt;/div&gt;
+  }
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@let isConfirmModalAction = isConfirmAction();@let isConfirmModal = isConfirm();@let isEditFlow = isEdit();<div class="contentModalShow">  <div class="contentModal">    <div class="contentInfo">      <div class="contentInfo-title">        {{titleHeader | translate}}      </div>      <form [formGroup]="ProductsForm">        <div class="contentForm">          <!-- nombre proyecto -->          <div class="name">            <div class="title">              {{\'NEW_PROJECT.products.modal.nameProduct\' | translate}}            </div>            <input              formControlName="nombre"              class="spaceText"              type="text"              placeholder="{{\'NEW_PROJECT.products.modal.nameProductPlaceHolder\' | translate}}"            />          </div>          <!-- Fechas -->          <div class="contentVigencia">            <div class="name">              <div class="title">                {{\'NEW_PROJECT.products.modal.startDate\' | translate}}              </div>              <input                formControlName="fechaInicio"                class="spaceText"                type="date"                placeholder="{{\'NEW_PROJECT.products.modal.datePlaceholder\' | translate}}"              />            </div>            <div class="name">              <div class="title">                {{\'NEW_PROJECT.products.modal.endDate\' | translate}}              </div>              <input                formControlName="fechaFin"                class="spaceText"                type="date"                placeholder="{{\'NEW_PROJECT.products.modal.datePlaceholder\' | translate}}"              />            </div>          </div>          <!-- Cantidad -->          <div class="name">            <div class="title">              {{\'NEW_PROJECT.products.modal.cantidad\' | translate}}            </div>            <input              formControlName="cantidad"              class="spaceText"              type="number"              placeholder="{{\'NEW_PROJECT.products.modal.cantidadPlaceHolder\' | translate}}"            />          </div>        </div>        <div formArrayName="rubros">          <div            *ngFor="let rubro of rubros.controls; let i = index"            [formGroupName]="i"          >            <div class="contentForm">              <div class="title" style="padding: 1rem;">                {{\'NEW_PROJECT.products.modal.budget\' | translate}}              </div>              <div class="name">                <div class="title">                  {{\'NEW_PROJECT.products.modal.rubro\' | translate}}                </div>                <select name="idRubro" formControlName="idRubro">                  <option disabled [ngValue]="null">                    {{\'NEW_PROJECT.products.modal.rubroPlaceHolder\' | translate}}                  </option>                  @for (rubro of rubrosList(); track $index) {                    <option [value]="rubro.id">                      {{ rubro.nombre}}                    </option>                  }                </select>              </div>              <div class="name" id="concepto">                <div class="title">                  {{ \'NEW_PROJECT.products.modal.concepto\' | translate}}                </div>                <textarea                  formControlName="concepto"                  [maxlength]="maxDescription"                  name="concepto"                  id="concepto"                  placeholder="{{\'NEW_PROJECT.products.modal.conceptoPlaceHolder\' | translate}}"                  rows="4"                  cols="50"                ></textarea>                <div                  class="counterText"                  [innerHTML]="rubro.get(\'concepto\')?.value.length + \'/\' + maxDescription"                ></div>              </div>              <div>                <div class="title" style="padding: 1rem;">                  {{\'NEW_PROJECT.products.modal.origin\' | translate}}                </div>                <div class="contentIntern">                  <div class="title">                    {{\'NEW_PROJECT.products.modal.valorInterno\' | translate}}                  </div>                  <input                    (blur)="setTotalValueRubro(i)"                    appCurrencyFormat                    formControlName="valorInterno"                    class="spaceText"                    type="text"                    placeholder="{{\'NEW_PROJECT.products.modal.valorInternoPlaceHolder\' | translate}}"                  />                </div>                <div class="contentExternal">                  <div class="title">                    {{\'NEW_PROJECT.products.modal.valorExterno\' | translate}}                  </div>                  <input                    (blur)="setTotalValueRubro(i)"                    appCurrencyFormat                    formControlName="valorExterno"                    class="spaceText"                    type="text"                    placeholder="{{\'NEW_PROJECT.products.modal.valorExternoPlaceholder\' | translate}}"                  />                  <div class="name">                    <select                      style="width: 26rem !important;"                      name="idAliado"                      formControlName="idAliado"                    >                      <option disabled [ngValue]="null">                        {{\'NEW_PROJECT.products.modal.aliadoPlaceHolder\' | translate}}                      </option>                      @for (aliado of aliadoList(); track $index) {                        <option [value]="aliado.id">                          {{ aliado.nombre}}                        </option>                      }                    </select>                  </div>                </div>              </div>              <div class="contentVigencia">                <div class="name">                  <div class="title">                    {{\'NEW_PROJECT.products.modal.valor\' | translate}}                  </div>                  <input                    readonly                    formControlName="valorTotal"                    appCurrencyFormat                    class="spaceText"                    type="text"                    placeholder="{{\'NEW_PROJECT.products.modal.valorPlaceholder\' | translate}}"                  />                </div>              </div>              @if (rubros.controls.length > 1) {                <div style="padding: 1rem;">                  <div [actionPermission]="\'borrar\'" class="contentButton-add">                    <img                      class="blackIcon contentButton-add_img"                      src="{{ ICONS_CONST.delete}}"                      alt="{{ICONS_CONST.delete}}"                    />                    <u                      (click)="removeRubro(i)"                      class="blackIcon contentButton-add_link"                    >                      {{\'BUTTONS.delete\' | translate}}                    </u>                  </div>                </div>              }            </div>          </div>        </div>        <div class="contentButton">          <div class="contentButton-add">            <img              class="blackIcon contentButton-add_img"              src="{{ ICONS_CONST.add}}"              alt="{{ICONS_CONST.add}}"            />            <u (click)="addRubro()" class="blackIcon contentButton-add_link">              {{\'BUTTONS.addRubro\' | translate}}            </u>          </div>        </div>      </form>    </div>    <div class="contentButton">      <div class="contentButton-actions">        <u          class="contentButton-actions_links"          (click)="setMessageConfirmModal(\'cancel\')"          >{{\'BUTTONS.cancel\' | translate}}</u        >        <button          [disabled]="ProductsForm.invalid"          class="largeButton"          (click)="processData()"        >          {{( !isEditFlow.idEdit ? \'BUTTONS.save\': \'BUTTONS.saveChanges\') | translate}}        </button>      </div>    </div>  </div>  @if (isConfirmModalAction) {    <div class="contentConfirmModal">      <confirm-action-modal        [textModal]="confirmModalAction"        (actionButton)="confirmAction($event)"      />    </div>  }  @if (isConfirmModal) {    <div class="contentConfirmModal">      <confirm-modal [textModal]="confirmModalMessageSucces" />    </div>  }</div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'ChangePasswordComponent', 'selector': 'change-password'},{'name': 'CollaborationProjectsComponent', 'selector': 'app-collaboration-projects'},{'name': 'ConfirmActionModalComponent', 'selector': 'confirm-action-modal'},{'name': 'ConfirmModalComponent', 'selector': 'confirm-modal'},{'name': 'CreateProductComponent', 'selector': 'app-create-product'},{'name': 'CreateProjectModalComponent', 'selector': 'create-project-modal'},{'name': 'DashBoardComponent', 'selector': 'app-dash-board'},{'name': 'DetailContentPestanasComponent', 'selector': 'detail-content-pestanas'},{'name': 'DownloadReportsComponent', 'selector': 'app-download-reports'},{'name': 'EmptyComponentComponent', 'selector': 'empty-component'},{'name': 'EntitiesComponent', 'selector': 'entities-component'},{'name': 'ErrorModalComponent', 'selector': 'error-modal'},{'name': 'EvaluationProjectsComponent', 'selector': 'app-evaluation-projects'},{'name': 'GeneralManagementComponent', 'selector': 'app-planning'},{'name': 'GuidelinesModalComponent', 'selector': 'guidelines-modal'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InactivityModalComponent', 'selector': 'inactivity-modal'},{'name': 'IndicatorsComponent', 'selector': 'indicators'},{'name': 'IndicatorsModalComponent', 'selector': 'indicators-modal'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'login-component'},{'name': 'ManagementMenuComponent', 'selector': 'management-menu'},{'name': 'ManageProjectsComponent', 'selector': 'manage-projects'},{'name': 'MonitoringProjectComponent', 'selector': 'app-monitoring-project'},{'name': 'MultiselectCheckboxComponent', 'selector': 'multiselect-checkbox'},{'name': 'PlanningStrategiesComponent', 'selector': 'planning-strategies'},{'name': 'PlansModalComponent', 'selector': 'plans-modal'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ReportsPlaningComponent', 'selector': 'app-reports-planing'},{'name': 'ResetLinkComponent', 'selector': 'reset-component'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'StrategicGuidelinesComponent', 'selector': 'strategic-guidelines'},{'name': 'StrategicPlansComponent', 'selector': 'strategic-plans'}];
+    var DIRECTIVES = [{'name': 'CloseOutsideDirective', 'selector': '[closeOutside]'},{'name': 'CurrencyFormatDirective', 'selector': '[appCurrencyFormat]'},{'name': 'NoInitSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'NotFinishSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'PermissionDirective', 'selector': '[actionPermission]'}];
+    var ACTUAL_COMPONENT = {'name': 'CreateProductComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateProductComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

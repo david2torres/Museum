@@ -1,0 +1,415 @@
+@import '../../../../styles.scss';
+
+.contentWD {
+    display: grid;
+    height: 264px;
+    grid-template-rows: 1fr 5fr;
+    grid-auto-flow: row;
+    align-items: center;
+}
+
+.content {
+    display: grid;
+    grid-auto-flow: row;
+    background: $color-gray-without-data 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    opacity: 1;
+    padding: 2rem;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &-header {
+        display: grid;
+        grid-auto-flow: column;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        grid-template-columns: 3fr 1fr;
+
+        &-projects {
+            grid-template-columns: 3fr 1fr;
+        }
+
+        &-collaborationProjects {
+            grid-template-columns: 1fr 0fr;
+        }
+
+        &_title {
+            text-align: left;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-14;
+            letter-spacing: $character-spacing-0;
+            opacity: 1;
+            color: $color-dark-black;
+        }
+
+        &-headers {
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-columns: 1fr 4fr 2fr 1fr;
+
+            &_title {
+                text-align: left;
+                font-family: $font-family-nunito;
+                font-style: $font-style-normal;
+                font-size: $font-size-14;
+                font-weight: $font-weight-600;
+                letter-spacing: $character-spacing-0;
+                opacity: 1;
+                color: $color-dark-black;
+            }
+        }
+
+        &-actions {
+            display: grid;
+            justify-content: end;
+            grid-auto-flow: column;
+            gap: 14px;
+
+            &_create {
+                width: 9rem !important;
+                margin-top: 0px !important;
+            }
+
+            &_filter {
+                height: 15px;
+                width: 15px;
+            }
+        }
+    }
+
+    &-listDetail {
+        cursor: pointer;
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        margin-top: 1rem;
+        height: 50px;
+        border-radius: 8px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        opacity: 1;
+        padding-left: 1rem;
+        grid-template-columns: 3fr 1fr;
+        padding-right: 1rem;
+
+        &-collaborationProjects {
+            grid-template-columns: 1fr 2rem;
+        }
+
+        &-evaluationProjects {
+            grid-template-columns: 10fr 2fr;
+        }
+
+
+        &_info {
+            display: grid;
+            grid-auto-flow: column;
+
+            &-projects {
+                grid-template-columns: 1fr 4fr 2fr 1fr;
+            }
+
+            &-collaborationProjects {
+                grid-template-columns: 1fr 4fr 2fr 1fr;
+            }
+
+            &-evaluationProjects {
+                grid-template-columns: 1fr 4fr 2fr 1fr;
+            }
+
+            &-text {
+                text-align: left;
+                font-family: $font-family-nunito;
+                font-style: $font-style-normal;
+                font-size: $font-size-14;
+                letter-spacing: $character-spacing-0;
+                opacity: 1;
+                color: $color-dark-black;
+            }
+
+            &-nowWrapText {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 96%;
+                padding-right: 20px;
+                text-align: left;
+                font-family: $font-family-nunito;
+                font-style: $font-style-normal;
+                font-size: $font-size-14;
+                letter-spacing: $character-spacing-0;
+                opacity: 1;
+                color: $color-dark-black;
+            }
+
+            &-estado {
+                width: 7rem;
+                text-align: left;
+                font-family: "Nunito Sans", sans-serif;
+                font-style: normal;
+                font-size: 14px;
+                letter-spacing: 0px;
+                opacity: 1;
+                color: #3C3C3B;
+                height: 20px;
+                border-radius: 10px;
+                opacity: 1;
+                padding: 1px;
+                display: grid;
+                justify-content: center;
+
+                &-no-aprobado {
+                    background-color: #FF3333;
+                    color: white !important;
+                }
+
+                &-aprobado {
+                    background-color: #00B158;
+                    color: white !important;
+                }
+
+                &-en-curso {
+                    background-color: #00B158;
+                    color: white !important;
+                }
+
+                &-finalizado {
+                    background-color: #007B3D;
+                    color: white !important;
+                }
+
+                &-suspendido {
+                    background-color: #FF3333;
+                    color: white !important;
+                }
+
+                &-cancelado {
+                    background-color: #FF3333;
+                    color: white !important;
+                }
+
+                &-rechazado {
+                    background-color: #FF3333;
+                    color: white !important;
+                }
+
+                &-en-aprobacion {
+                    background-color: #FECE07;
+                    color: black !important;
+                }
+
+                &-en-cierre {
+                    background-color: #007B3D;
+                    color: white !important;
+                }
+
+                &-cierre-parcial {
+                    background-color: #007B3D;
+                    color: white !important;
+                }
+
+                &-en-registro {
+                    background-color: #FECE07;
+                    color: black !important;
+                }
+            }
+        }
+
+        &_actions {
+            display: grid;
+            grid-auto-flow: column;
+            justify-items: end;
+            align-items: center;
+            gap: 12px;
+
+            &-edit {
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                background: $color-light-purple 0% 0% no-repeat padding-box;
+                opacity: 1;
+                border-radius: 1rem;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    background: $color-purple 0% 0% no-repeat padding-box;
+                }
+
+                &-image {
+                    height: 12px;
+
+                    &:hover {
+                        filter: brightness(0) saturate(100%) invert(93%) sepia(0%) saturate(5354%) hue-rotate(121deg) brightness(103%) contrast(97%);
+                    }
+                }
+            }
+
+            &-image {
+                height: 11px;
+            }
+        }
+
+        &:hover {
+            background: $color-light-purple 0% 0% no-repeat padding-box;
+        }
+
+    }
+
+    &-paginator {
+        text-align: center;
+        padding: 1rem;
+        margin-top: 1rem;
+        display: grid;
+        justify-content: center;
+        width: 100%;
+
+        &-content {
+            display: grid;
+            grid-auto-flow: column;
+            width: 24rem;
+            text-align: center;
+            justify-content: center;
+            gap: 10px;
+
+            &_button {
+                cursor: pointer;
+                width: 24px;
+                height: 24px;
+                background: #F1EFEC 0% 0% no-repeat padding-box;
+                opacity: 1;
+                border-radius: 1rem;
+            }
+
+            &_text {
+                font-family: $font-family-nunito;
+                font-style: $font-style-normal;
+                font-size: $font-size-14;
+                font-weight: 300;
+                display: grid;
+                align-items: center;
+                letter-spacing: $character-spacing-0;
+                opacity: 1;
+                color: $color-dark-black;
+            }
+        }
+    }
+}
+
+.filter-modal {
+    position: absolute;
+    padding: 10px;
+    width: 380px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 2px 2px 12px #0000001F;
+    border-radius: 10px;
+    opacity: 1;
+    z-index: 1000;
+
+    &-container {
+        display: grid;
+        grid-auto-flow: row;
+        padding: 1rem;
+    }
+
+    &-date {
+        display: grid;
+        grid-auto-flow: column;
+    }
+
+    &-title {
+        text-align: left;
+        font-family: $font-family-nunito;
+        font-style: $font-style-normal;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-14;
+        letter-spacing: $character-spacing-0;
+        color: $color-dark-black;
+        letter-spacing: 0px;
+        opacity: 1;
+        padding-bottom: 12px;
+    }
+
+    &-actions {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        padding: 1rem 1rem 1rem 1rem;
+
+        &_button {
+            width: 9rem !important;
+            margin-top: 0px !important;
+        }
+
+        &_clearFilter {
+            cursor: pointer;
+            text-align: left;
+            font-family: $font-family-nunito;
+            font-style: $font-style-normal;
+            font-size: $font-size-14;
+            letter-spacing: $character-spacing-0;
+            color: $color-dark-black;
+            letter-spacing: 0px;
+            opacity: 1;
+        }
+    }
+}
+
+.contenIcon {
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+    align-content: center;
+
+    &-image {
+        height: 13px;
+    }
+}
+
+.errorAlertFilter {
+    padding: 4px 1rem 1px 1rem;
+
+    &_message {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 0fr 1fr;
+        gap: 1rem;
+        align-items: center;
+        background-color: #EBE6FF;
+        border-radius: 8px;
+        padding: 8px;
+        text-align: left;
+        color: #4B3C8C;
+        font-family: "Nunito Sans", sans-serif;
+        font-style: normal;
+        font-size: 14px;
+        letter-spacing: 0px;
+        padding-left: 1rem;
+    }
+}
+
+.otherErrorEmpty {
+    display: grid;
+    grid-auto-flow: column;
+    text-align: center;
+
+    &_message {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 1rem;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        padding: 8px;
+        text-align: center;
+        color: #4B3C8C;
+        font-family: "Nunito Sans", sans-serif;
+        font-style: normal;
+        font-size: 14px;
+        letter-spacing: 0px;
+        padding-left: 1rem;
+    }
+}

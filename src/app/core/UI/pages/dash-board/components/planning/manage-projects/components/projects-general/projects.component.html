@@ -1,0 +1,29 @@
+@if (isLoading()) {
+  <detail-content-pestanas
+    [projectsList]="projectsList()"
+    [optionsView]="optionsView"
+    (create)="openCloseModal()"
+    (edit)="onEdit($event)"
+    (seguimiento)="onSeguimiento($event)"
+    (viewProject)="onViewProject($event)"
+  />
+}
+
+@if (isModal()) {
+  <div>
+    <create-project-modal
+      [isEdit]="isEditProject"
+      [title]="modalTitle"
+      (actionButton)="closeModalEvent($event, 'isModal')"
+    />
+  </div>
+}
+
+@if (isMonitoring()) {
+  <app-monitoring-project
+    [isEdit]="seguimientoList()"
+    [projectInfo]="projectInfo()"
+    [title]="modalTitle"
+    (actionButton)="closeModalEvent($event, 'isMonitoring')"
+  />
+}

@@ -1,0 +1,40 @@
+<div class="container-home">
+  <div class="principal-content">
+    <div class="content-card">
+      @for (menu of menuItems(); track $index; let i = $index) {
+        <div class="content-card_detail">
+          <img
+            class="content-card_detail-image"
+            src="{{CARDS_IMAGES[menu.imagen]}}"
+            alt="{{CARDS_IMAGES[menu.imagen]}}"
+          />
+
+          <div class="content-card_detail-title">
+            {{menu.nombre}}
+          </div>
+          <div class="content-card_detail-information">
+            <div class="content-card_detail-information-title">
+              {{menu.nombre}}
+            </div>
+
+            @for (funcionality of menu.funcionalidades; track $index;) {
+              <a
+                class="content-card_detail-information-listMenu"
+                (click)="navigateTo(funcionality, menu.funcionalidades)"
+              >
+                <img
+                  class="violetIcon margin-menu"
+                  src="{{CARDS_ICONS[funcionality.icono]}}"
+                  alt="{{funcionality.icono}}"
+                />
+                <div class="content-card_detail-information-listMenu-text">
+                  {{ funcionality.nombre }}
+                </div>
+              </a>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

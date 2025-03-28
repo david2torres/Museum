@@ -1,0 +1,33 @@
+<!-- @let modalText = infoModal(); -->
+@if (showModal()) {
+  <div class="contentShow">
+    <div class="contentModal">
+      <div class="contentModal-imagen">
+        <img
+          class="violetIcon contentModal-imagen_sizeImg"
+          src="{{ICONS_CONST.inactivity}}"
+          alt="{{ICONS_CONST.inactivity}}"
+        />
+      </div>
+
+      <div class="contentModal-text">
+        <div class="contentModal-text_title">
+          {{'INACTIVE_MODAL.title' | translate}}
+        </div>
+        <div class="contentModal-text_info">
+          <span
+            [innerHTML]="'INACTIVE_MODAL.message' | translate: {countdown: countdown(), minutes:minutes }"
+          ></span>
+        </div>
+      </div>
+
+      <div class="contentActions">
+        <div>
+          <button (click)="continueSession()" class="mediumButton">
+            {{'BUTTONS.continue'| translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

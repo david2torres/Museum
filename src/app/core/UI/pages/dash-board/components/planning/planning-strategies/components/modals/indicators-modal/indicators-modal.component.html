@@ -1,0 +1,316 @@
+@let isConfirmModalAction = isConfirmAction();
+@let isConfirmModal = isConfirm();
+@let isEditFlow = isEdit();
+<!-- @let isProject =
+  isEdit().elementSelected?.proyectosAsociados && isEdit().elementSelected?.proyectosAsociados.length !== 0; -->
+
+<div class="contentModalShow">
+  <div class="contentModal">
+    <div class="contentInfo">
+      <div class="contentInfo-title">
+        {{titleHeader | translate}}
+      </div>
+      <div class="contentInfo-titleInfo">
+        {{'PLANNING.indicadores.modal.info' | translate}}
+      </div>
+      <form [formGroup]="indicatorsForm">
+        <div formArrayName="forms">
+          <div
+            *ngFor="let group of getIndicatorsForm.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="contentForm">
+              <div class="name initialContent">
+                <div class="title">
+                  {{'PLANNING.indicadores.modal.nameIndicator' | translate}}
+                </div>
+                <input
+                  [maxlength]="maxName"
+                  class="spaceText"
+                  type="text"
+                  formControlName="nombre"
+                  placeholder="{{'PLANNING.indicadores.modal.nameIndicatorPlaceHolder' | translate}}"
+                />
+                <div
+                  class="counterText"
+                  [innerHTML]="group?.get('nombre')?.value?.length + '/' + maxName"
+                ></div>
+              </div>
+
+              <div class="name">
+                <div class="title">
+                  {{'PLANNING.indicadores.modal.formula' | translate}}
+                </div>
+                <input
+                  [maxlength]="maxName"
+                  class="spaceText"
+                  type="text"
+                  formControlName="formula"
+                  placeholder="{{'PLANNING.indicadores.modal.formulaPlaceHolder' | translate}}"
+                />
+                <div
+                  class="counterText"
+                  [innerHTML]="group?.get('formula')?.value.length + '/' + maxName"
+                ></div>
+              </div>
+
+              <div class="contentBoth">
+                <div class="name">
+                  <div class="title">
+                    {{'PLANNING.indicadores.modal.meta' | translate}}
+                  </div>
+                  <input
+                    class="spaceText"
+                    type="number"
+                    formControlName="meta"
+                    placeholder="{{'PLANNING.indicadores.modal.metaPlaceHolder' | translate}}"
+                  />
+                </div>
+
+                <div class="name">
+                  <div class="title">
+                    {{'PLANNING.indicadores.modal.unidadMedida' | translate}}
+                  </div>
+                  <select
+                    name="policians"
+                    formControlName="idUnidadDeMedida"
+                    (ngModelChange)="onSelectedOption($event, i)"
+                  >
+                    <option disabled [ngValue]="null">
+                      {{'PLANNING.indicadores.modal.unidadMedidaPlaceHolder' | translate}}
+                    </option>
+                    @for (unidad of unidadesList(); track $index) {
+                      <option [value]="unidad.id">
+                        {{ unidad.nombre}}
+                      </option>
+                    }
+                  </select>
+                </div>
+              </div>
+
+              <div class="contentBoth">
+                <div class="name">
+                  <div class="title">
+                    {{'PLANNING.indicadores.modal.clasificacion' | translate}}
+                  </div>
+                  <select
+                    name="policians"
+                    formControlName="idTipoIndicador"
+                    (ngModelChange)="onSelectedOption($event, i)"
+                  >
+                    <option disabled [ngValue]="null">
+                      {{'PLANNING.indicadores.modal.clasificacionPlaceHolder' | translate}}
+                    </option>
+                    @for (clasificacion of clasificacionList(); track $index) {
+                      <option [value]="clasificacion.id">
+                        {{ clasificacion.nombre}}
+                      </option>
+                    }
+                  </select>
+                </div>
+                <div class="name">
+                  <div class="title">
+                    {{'PLANNING.indicadores.modal.categoria' | translate}}
+                  </div>
+                  <select
+                    name="categoria"
+                    formControlName="idCategoriaIndicador"
+                    class="truncate-select"
+                  >
+                    <option disabled [ngValue]="null">
+                      {{'PLANNING.indicadores.modal.categoriaPlaceHolder' | translate}}
+                    </option>
+                    @for (categorie of categoriesList(); track $index) {
+                      <option [value]="categorie.id">
+                        {{ categorie.nombre}}
+                      </option>
+                    }
+                  </select>
+                </div>
+              </div>
+
+              <div class="contentBoth">
+                <div class="name">
+                  <div class="title">
+                    {{'PLANNING.indicadores.modal.tendencia' | translate}}
+                  </div>
+                  <div class="contentRadioButton">
+                    <label class="contentRadioButton-label">
+                      <input
+                        formControlName="tendencia"
+                        class="radioInput"
+                        type="radio"
+                        value="Creciente"
+                      />
+                      <div class="title">
+                        {{'PLANNING.indicadores.modal.creciente' | translate}}
+                      </div>
+                    </label>
+
+                    <label class="contentRadioButton-label">
+                      <input
+                        formControlName="tendencia"
+                        class="radioInput"
+                        type="radio"
+                        value="Estático"
+                      />
+                      <!-- [checked]="selectedOption?.cobertura === 'Internacional'"
+                          (change)="onRadioChange('Internacional')" -->
+                      <div class="title">
+                        {{'PLANNING.indicadores.modal.estatico' | translate}}
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="name">
+                  <div class="title">
+                    {{'PLANNING.indicadores.modal.criterio' | translate}}
+                  </div>
+                  <div class="contentRadioButton">
+                    <label class="contentRadioButton-label">
+                      <input
+                        formControlName="criterio"
+                        class="radioInput"
+                        type="radio"
+                        value="Fijo"
+                      />
+                      <!-- [checked]="selectedOption?.cobertura === 'Nacional'"
+                            (change)="onRadioChange('Nacional')" -->
+                      <div class="title">
+                        {{'PLANNING.indicadores.modal.fijo' | translate}}
+                      </div>
+                    </label>
+
+                    <label class="contentRadioButton-label">
+                      <input
+                        formControlName="criterio"
+                        class="radioInput"
+                        type="radio"
+                        value="Variable"
+                      />
+                      <!-- [checked]="selectedOption?.cobertura === 'Internacional'"
+                            (change)="onRadioChange('Internacional')" -->
+                      <div class="title">
+                        {{'PLANNING.indicadores.modal.variable' | translate}}
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contentDelete">
+                @if (getIndicatorsForm?.controls.length > 1) {
+                  <div class="contentDelete-botton" (click)="removeForm(i)">
+                    <img
+                      class="blackIcon contentDelete-botton_img"
+                      src="{{ ICONS_CONST.delete}}"
+                      alt="{{ICONS_CONST.edit}}"
+                    />
+                    <u class="titleLinks">{{'BUTTONS.delete' | translate}}</u>
+                  </div>
+                }
+              </div>
+            </div>
+
+            @if (projectsForm) {
+              <div formArrayName="proyectosAsociados">
+                <div class="contentForm projectsContent">
+                  <div class="title projectsAssociated">
+                    {{'PLANNING.indicadores.modal.projectTitle' | translate}}
+                  </div>
+                  <div
+                    *ngFor="let project of projectsForm.controls; let j = index"
+                    [formGroupName]="j"
+                  >
+                    <div class="contentDetail">
+                      <div class="contentDetail_number">
+                        <u>{{project.get('numero').value}}</u>
+                      </div>
+                      <div class="contentDetail_name">
+                        <div class="smallSpace"></div>
+                        @if (project.get('nombre').value.length > 85) {
+                          <div
+                            class="contentDetail_name_truncate"
+                            title="{{project.get('nombre').value}}"
+                          >
+                            {{project.get('nombre').value}}
+                          </div>
+                        } @else {
+                          <div class="contentDetail_name_truncate">
+                            {{project.get('nombre').value}}
+                          </div>
+                        }
+                        <div class="smallSpace"></div>
+                      </div>
+                      <div class="contentDetail_width">
+                        <span class="contentDetail_name_truncate">Meta: </span>
+                        <input
+                          formControlName="peso"
+                          min="1"
+                          max="100"
+                          [class.error]="hasWeightError"
+                          class="contentInput_input"
+                          type="number"
+                          (blur)="onWeightBlur(project)"
+                        />
+                        <label class="percentage-label">%</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+          <div class="contentButton">
+            @if (isEditFlow.idEdit) {
+              <div [actionPermission]="'borrar'" class="contentButton-add">
+                <img
+                  class="blackIcon contentButton-add_img"
+                  src="{{ ICONS_CONST.delete}}"
+                  alt="{{ICONS_CONST.delete}}"
+                />
+                <u
+                  (click)="setMessageConfirmModal('delete')"
+                  class="blackIcon contentButton-add_link"
+                >
+                  {{'BUTTONS.delete' | translate}}
+                </u>
+              </div>
+            }
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="contentButton">
+      <div class="contentButton-actions">
+        <u
+          class="contentButton-actions_links"
+          (click)="setMessageConfirmModal('cancel')"
+          >{{'BUTTONS.cancel' | translate}}</u
+        >
+
+        <button
+          [disabled]="indicatorsForm.invalid || hasWeightError"
+          class="largeButton"
+          (click)="saveForm()"
+        >
+          {{( !isEditFlow.idEdit ? 'BUTTONS.save': 'BUTTONS.saveChanges') | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+  @if (isConfirmModalAction) {
+    <div class="contentConfirmModal">
+      <confirm-action-modal
+        [textModal]="confirmModalAction"
+        (actionButton)="confirmAction($event)"
+      />
+    </div>
+  }
+  @if (isConfirmModal) {
+    <div class="contentConfirmModal">
+      <confirm-modal [textModal]="confirmModalMessageSucces" />
+    </div>
+  }
+</div>

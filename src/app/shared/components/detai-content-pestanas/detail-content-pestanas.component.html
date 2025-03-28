@@ -1,0 +1,200 @@
+@let listProjects = filteredProjectsList();
+@let isConfirmModal = isConfirm();
+
+@if (listProjects[0].proyectos.length == 0) {
+<div class="content contentWD">
+  <div class="content-active_button"></div>
+  @if (!listProjects[0].tipoLista) {
+  <empty-component [message]="messageEmpty" (actionButton)="onCreate()" />
+  } @else {
+  <div class="otherErrorEmpty">
+    <span class="otherErrorEmpty_message">{{'GENERAL_MESSAGES.emtyDataTable' | translate}}</span>
+  </div>
+  }
+</div>
+} @else {
+@for (projects of listProjects; track $index; let sectionIndex = $index) {
+@if (projects.proyectos.length !== 0) {
+<div #content class="content">
+  <div [ngClass]="'content-header-' +  optionsView().origin" class="content-header">
+    @if (projects.tipoLista) {
+    <span class="content-header_title">
+      {{projects.tipoLista}} ({{projects.proyectos.length}})
+    </span>
+    }
+
+    @if (optionsView().isHeaders) {
+    <div class="content-header-headers">
+      @for (header of optionsView().isHeaders; track $index) {
+      <div class="content-header-headers_title">
+        {{header}}
+      </div>
+      }
+    </div>
+    }
+
+    <div class="content-header-actions">
+      @if (optionsView().isCreate) {
+      <button [actionPermission]="'crear'" class="content-header-actions_create smallButton" type="submit"
+        (click)="onCreate()">
+        <img src="{{ICONS_CONST.add}}" alt="{{ICONS_CONST.add}}" />
+        {{ 'BUTTONS.newProject' | translate }}
+      </button>
+      }
+      <div #filterButton class="smallSquareButtonIcon" (click)="openFilterModal()">
+        <img class="content-header-actions_filter violetIcon" src="{{MENU_ICONS.filter}}" alt="{{MENU_ICONS.filter}}" />
+      </div>
+
+      @if (projects.tipoLista) {
+      <div class="contenIcon" (click)="viewDetailProject(projects.tipoLista)">
+        <img class="blackIcon contenIcon-image"
+          src="{{isViewDetail[projects.tipoLista] ? ICONS_CONST.upArrowSmall: ICONS_CONST.downArrowSmall}}"
+          alt="{{ICONS_CONST.upArrowSmall}}" />
+      </div>
+      }
+    </div>
+  </div>
+
+  @if (!projects.tipoLista || isViewDetail[projects.tipoLista]) {
+  @for (
+  projectInfo of getPaginatedData(sectionIndex);
+  track $index;
+  let sectionP = $index
+  ) {
+  <div class="content-listDetail" [ngClass]="'content-listDetail-' +  optionsView().origin">
+    <div [ngClass]="'content-listDetail_info-' +  optionsView().origin" class="content-listDetail_info">
+      <div class="content-listDetail_info-text">
+        <u (click)="onViewProject(projectInfo)">{{projectInfo.numero}}</u>
+      </div>
+      <div class="content-listDetail_info-nowWrapText" title="{{projectInfo.nombre}}">
+        {{projectInfo.nombre}}
+      </div>
+      <div class="content-listDetail_info-text">
+        {{projectInfo.areaResponsable?.nombre}}
+      </div>
+      <div class="content-listDetail_info-estado"
+        [ngClass]="'content-listDetail_info-' +  getClass(projectInfo.estado.nombre)">
+        {{projectInfo.estado.nombre}}
+      </div>
+    </div>
+
+    <div class="content-listDetail_actions">
+      @if (optionsView().isSeguimiento) {
+      <button [disabled]="!projectInfo.habilitarSeguimiento" [actionPermission]="'crear'" class="mediumRoundButtonIcon" type="submit"
+        (click)="onSeguimiento(projectInfo)">
+        <span> {{ 'BUTTONS.seguimiento' | translate }} </span>
+      </button>
+      }
+
+      @if (optionsView().isEvaluate) {
+      <button class="mediumRoundButtonIcon" type="submit" (click)="onEvaluate(true)">
+        <span> {{ 'BUTTONS.evaluate' | translate }} </span>
+      </button>
+      }
+
+      @if (optionsView().isEdit) {
+      <div [title]="tooltipButton | translate" (click)="onEdit(projectInfo)" [actionPermission]="'editar'"
+        class="smallRoundButtonIcon">
+        <img class="violetIcon content-listDetail_actions-image" src="{{ICONS_CONST.edit}}"
+          alt="{{ICONS_CONST.edit}}" />
+      </div>
+      }
+    </div>
+  </div>
+  }
+  @if (optionsView().isPaginator) {
+  <div class="content-paginator">
+    <div class="content-paginator-content">
+      <div class="content-paginator-content_button" (click)="prevPage(sectionIndex)">
+        <img class="blackIconMenu" src="{{MENU_ICONS.leftAngle}}" alt="leftAngle" />
+      </div>
+      <div class="content-paginator-content_text">
+        {{ paginators()[sectionIndex] }} de
+        {{ getTotalPages(sectionIndex) }}
+      </div>
+      <div class="content-paginator-content_button" (click)="nextPage(sectionIndex)">
+        <img class="blackIconMenu" src="{{MENU_ICONS.rightAngle}}" alt="rightAngle" />
+      </div>
+    </div>
+  </div>
+  }
+  @if (openFilter) {
+  <div class="filter-modal" [ngStyle]="{'top.px': modalPosition.top, 'left.px': modalPosition.left}" closeOutside
+    (outsideClick)="openFilterModal()">
+    @if (isConfirmModal) {
+    <div class="errorAlertFilter">
+      <div class="errorAlertFilter_message">
+        <img class="alert violetIcon" src="{{ICONS_CONST.alert}}" />
+        <span>{{'FILTER.errorSearch' | translate}}</span>
+      </div>
+    </div>
+    }
+    <div class="filter-modal-container">
+      <div class="filter-modal-title">
+        {{'FILTER.search' | translate}}
+      </div>
+      <input class="spaceText" type="text" [(ngModel)]="keyword"
+        placeholder="{{'FILTER.searchPlaceHolder' | translate}}" />
+    </div>
+    <div class="filter-modal-date">
+      <div class="filter-modal-container">
+        <div class="filter-modal-title">
+          {{'FILTER.initDate' | translate}}
+        </div>
+        <input class="spaceText" type="date" [(ngModel)]="startDate"
+          placeholder="{{'FILTER.datePlaceHolder' | translate}}" />
+      </div>
+      <div class="filter-modal-container">
+        <div class="filter-modal-title">
+          {{'FILTER.endDate' | translate}}
+        </div>
+        <input class="spaceText" type="date" [(ngModel)]="endDate"
+          placeholder="{{'FILTER.datePlaceHolder'  | translate}}" />
+      </div>
+    </div>
+    <div class="filter-modal-container">
+      <div class="filter-modal-title">
+        {{'FILTER.stateProject' | translate}}
+      </div>
+      <select name="estados" [(ngModel)]="selectedState">
+        <option disabled [ngValue]="null">
+          {{'FILTER.stateProjectPlaceHolder' | translate}}
+        </option>
+        @for (state of statesList(); track $index) {
+        <option [value]="state.id">
+          {{ state.nombre}}
+        </option>
+        }
+      </select>
+    </div>
+    <div class="filter-modal-container">
+      <div class="filter-modal-title">
+        {{'FILTER.responsableArea'  | translate}}
+      </div>
+      <select name="area" [(ngModel)]="selectedArea">
+        <option disabled [ngValue]="null">
+          {{'FILTER.responsableAreaPlaceHolder'  | translate}}
+        </option>
+        @for (areas of areasList(); track $index) {
+        <option [value]="areas.id">
+          {{ areas.nombre}}
+        </option>
+        }
+      </select>
+    </div>
+    <div class="filter-modal-actions">
+      <u (click)="clearFilter()" class="filter-modal-actions_clearFilter">{{'BUTTONS.deleteFilter' | translate}}</u>
+      <button (click)="applyFilters()" [actionPermission]="'crear'" class="smallButton filter-modal-actions_button"
+        type="submit">
+        {{ 'Filtrar' | translate }}
+      </button>
+
+    </div>
+  </div>
+  }
+  }
+</div>
+
+}
+}
+}

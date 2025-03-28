@@ -1,0 +1,2008 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sim documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sim documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ProjectsRepositoryService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/infrastructure/repositories/projects-repository.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#apiUrl" >apiUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#idMuseo" >idMuseo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#userEmail" >userEmail</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createProduct" >createProduct</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createProject" >createProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#downloadReport" >downloadReport</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getAliado" >getAliado</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getAreas" >getAreas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCollaborationProjects" >getCollaborationProjects</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getComunidades" >getComunidades</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getDepartamento" >getDepartamento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getEvaluationProjects" >getEvaluationProjects</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getGeneralInformationProject" >getGeneralInformationProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getGrupoEtario" >getGrupoEtario</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getProjects" >getProjects</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getRubro" >getRubro</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getSeguimiento" >getSeguimiento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getStatesProjects" >getStatesProjects</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getTipoAporte" >getTipoAporte</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getTipologias" >getTipologias</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getUserInfo" >getUserInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleError" >handleError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#log" >log</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#saveSeguimiento" >saveSeguimiento</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(apiHttp: <a href="../injectables/ApiService.html" target="_self">ApiService</a>, secureStorage: <a href="../injectables/SecureStorageService.html" target="_self">SecureStorageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/core/infrastructure/repositories/projects-repository.service.ts:53</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apiHttp</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>secureStorage</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SecureStorageService.html" target="_self" >SecureStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createProduct"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>createProduct</b></span>
+                        <a href="#createProduct"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createProduct(body: <a href="../interfaces/IProducto.html" target="_self">IProducto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:271</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IProducto.html" target="_self" >IProducto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IProjects.html" target="_self" >Observable&lt;IProjects&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createProject"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>createProject</b></span>
+                        <a href="#createProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createProject(body: <a href="../interfaces/ICreateProject.html" target="_self">ICreateProject</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:254</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICreateProject.html" target="_self" >ICreateProject</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IProjects.html" target="_self" >Observable&lt;IProjects&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadReport"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>downloadReport</b></span>
+                        <a href="#downloadReport"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>downloadReport(idProject: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:243</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idProject</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAliado"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getAliado</b></span>
+                        <a href="#getAliado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAliado()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:175</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;IAliados[]&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAreas"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getAreas</b></span>
+                        <a href="#getAreas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAreas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:120</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IAreasPorMuseo.html" target="_self" >Observable&lt;IAreasPorMuseo[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCollaborationProjects"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getCollaborationProjects</b></span>
+                        <a href="#getCollaborationProjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCollaborationProjects()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:79</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../components/ProjectsComponent.html" target="_self" >Observable&lt;IProjectsComponent[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getComunidades"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getComunidades</b></span>
+                        <a href="#getComunidades"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getComunidades()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:142</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;IComunidades[]&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDepartamento"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getDepartamento</b></span>
+                        <a href="#getDepartamento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDepartamento()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:164</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IDepartamentos.html" target="_self" >Observable&lt;IDepartamentos[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEvaluationProjects"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getEvaluationProjects</b></span>
+                        <a href="#getEvaluationProjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getEvaluationProjects()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:95</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../components/ProjectsComponent.html" target="_self" >Observable&lt;IProjectsComponent[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGeneralInformationProject"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getGeneralInformationProject</b></span>
+                        <a href="#getGeneralInformationProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getGeneralInformationProject(idProyecto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:224</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idProyecto</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IDynamicListPorjects.html" target="_self" >Observable&lt;IDynamicListPorjects[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGrupoEtario"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getGrupoEtario</b></span>
+                        <a href="#getGrupoEtario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getGrupoEtario()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:153</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IGrupoEtario.html" target="_self" >Observable&lt;IGrupoEtario[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProjects"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getProjects</b></span>
+                        <a href="#getProjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getProjects()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:67</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../components/ProjectsComponent.html" target="_self" >Observable&lt;IProjectsComponent[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRubro"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getRubro</b></span>
+                        <a href="#getRubro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRubro()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:186</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IGenericList.html" target="_self" >Observable&lt;IGenericList[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSeguimiento"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getSeguimiento</b></span>
+                        <a href="#getSeguimiento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSeguimiento(idProyecto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, userEmail: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:208</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idProyecto</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>userEmail</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;ISeguimientoResponse&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStatesProjects"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getStatesProjects</b></span>
+                        <a href="#getStatesProjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getStatesProjects()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:109</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;IEstadosProyectos[]&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTipoAporte"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getTipoAporte</b></span>
+                        <a href="#getTipoAporte"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTipoAporte()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:197</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ITipoAporte.html" target="_self" >Observable&lt;ITipoAporte[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTipologias"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getTipologias</b></span>
+                        <a href="#getTipologias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTipologias()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:131</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ITipologias.html" target="_self" >Observable&lt;ITipologias[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserInfo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getUserInfo</b></span>
+                        <a href="#getUserInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserInfo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/core/infrastructure/repositories/projects-repository.service.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleError"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>handleError</b></span>
+                        <a href="#handleError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleError(operation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, result?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="299"
+                                    class="link-to-prism">src/app/core/infrastructure/repositories/projects-repository.service.ts:299</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>operation</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;operation&#x27;</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>result</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="log"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>log</b></span>
+                        <a href="#log"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>log(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="304"
+                                    class="link-to-prism">src/app/core/infrastructure/repositories/projects-repository.service.ts:304</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveSeguimiento"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>saveSeguimiento</b></span>
+                        <a href="#saveSeguimiento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveSeguimiento(body: <a href="../interfaces/ISaveSeguimiento.html" target="_self">ISaveSeguimiento</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/AbstractProjectsMangement.html" target="_self" >AbstractProjectsMangement</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractProjectsMangement.html#source" target="_self" >AbstractProjectsMangement:283</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ISaveSeguimiento.html" target="_self" >ISaveSeguimiento</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiUrl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>apiUrl</b></span>
+                        <a href="#apiUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment.projects</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/core/infrastructure/repositories/projects-repository.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idMuseo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>idMuseo</b></span>
+                        <a href="#idMuseo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/core/infrastructure/repositories/projects-repository.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>userEmail</b></span>
+                        <a href="#userEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/core/infrastructure/repositories/projects-repository.service.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  IAliados,
+  IAreasPorMuseo,
+  IComunidades,
+  ICreateProject,
+  IDepartamentos,
+  IDynamicListPorjects,
+  IEstadosProyectos,
+  IGenericList,
+  IGrupoEtario,
+  IProducto,
+  IProjects,
+  IProjectsComponent,
+  ISaveSeguimiento,
+  ISeguimientoResponse,
+  ITipoAporte,
+  ITipologias,
+} from &#x27;@DomainInterfaces/projectManagement.interface&#x27;;
+import { AbstractProjectsMangement } from &#x27;@DomainUsesCases/projectManagementUseCases&#x27;;
+import { SecureStorageService } from &#x27;@shared/security/storage/secure-storage.service&#x27;;
+import { environment } from &#x27;app/environment/environment&#x27;;
+import { catchError, Observable, of, tap } from &#x27;rxjs&#x27;;
+import { ApiService } from &#x27;../api/api.service&#x27;;
+import { STORAGE_CONST } from &#x27;@DomainConstants/shared/storage.constants&#x27;;
+import {
+  aliadoList,
+  areasProjects,
+  colaborationProjectSimulate,
+  comunidadProjects,
+  departamentoProjects,
+  evaluationProjectSimulate,
+  generalDynamicListForm,
+  grupoEtarioProjects,
+  projectSimulate,
+  returnCreateProject,
+  rubroList,
+  seguimientoProject,
+  stateProjects,
+  tipoAporte,
+  tipologiaProjects,
+} from &#x27;@DomainConstants/mocks/simulateServices.constants&#x27;;
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class ProjectsRepositoryService extends AbstractProjectsMangement {
+  private apiUrl &#x3D; environment.projects;
+  private userEmail: string;
+  private idMuseo: string;
+
+  constructor(
+    private apiHttp: ApiService,
+    private secureStorage: SecureStorageService,
+  ) {
+    super();
+  }
+
+  private getUserInfo(): void {
+    this.userEmail &#x3D; this.secureStorage.getItem(STORAGE_CONST.userEmail);
+    this.idMuseo &#x3D; this.secureStorage.getItem(STORAGE_CONST.idMuseum);
+  }
+
+  public getProjects(): Observable&lt;IProjectsComponent[]&gt; {
+    this.getUserInfo();
+    const url &#x3D; &#x60;${this.apiUrl.getProjects}?emailUsuario&#x3D;${this.userEmail}&amp;idMuseo&#x3D;${this.idMuseo}&#x60;;
+    return this.apiHttp.get&lt;IProjectsComponent[]&gt;(url, projectSimulate).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response Service&#x27;, row);
+        this.log(&#x27;fetched getProjects&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getProjects&#x27;, error)),
+    );
+  }
+
+  public getCollaborationProjects(): Observable&lt;IProjectsComponent[]&gt; {
+    this.getUserInfo();
+    const url &#x3D; &#x60;${this.apiUrl.getColaborationProjects}?emailUsuario&#x3D;${this.userEmail}&#x60;;
+    return this.apiHttp
+      .get&lt;IProjectsComponent[]&gt;(url, colaborationProjectSimulate)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response Service&#x27;, row);
+          this.log(&#x27;fetched getCollaborationProjects&#x27;);
+        }),
+        catchError(error &#x3D;&gt;
+          this.handleError(&#x27;getCollaborationProjects&#x27;, error),
+        ),
+      );
+  }
+
+  public getEvaluationProjects(): Observable&lt;IProjectsComponent[]&gt; {
+    this.getUserInfo();
+    const url &#x3D; &#x60;${this.apiUrl.getEvaluationProjects}?emailUsuario&#x3D;${this.userEmail}&amp;idMuseo&#x3D;${this.idMuseo}&#x60;;
+    return this.apiHttp
+      .get&lt;IProjectsComponent[]&gt;(url, evaluationProjectSimulate)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response Service&#x27;, row);
+          this.log(&#x27;fetched getEvaluationProjects&#x27;);
+        }),
+        catchError(error &#x3D;&gt; this.handleError(&#x27;getEvaluationProjects&#x27;, error)),
+      );
+  }
+
+  public getStatesProjects(): Observable&lt;IEstadosProyectos[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getStatesProjects}&#x60;;
+    return this.apiHttp.get&lt;IEstadosProyectos[]&gt;(url, stateProjects).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getStateProjects&#x27;, row);
+        this.log(&#x27;fetched getStateProjects&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getStateProjects&#x27;, error)),
+    );
+  }
+
+  public getAreas(): Observable&lt;IAreasPorMuseo[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getAreas}/${this.idMuseo}&#x60;;
+    return this.apiHttp.get&lt;IAreasPorMuseo[]&gt;(url, areasProjects).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getAreas&#x27;, row);
+        this.log(&#x27;fetched getAreas&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getAreas&#x27;, error)),
+    );
+  }
+
+  public getTipologias(): Observable&lt;ITipologias[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getTipologias}&#x60;;
+    return this.apiHttp.get&lt;ITipologias[]&gt;(url, tipologiaProjects).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getTipologias&#x27;, row);
+        this.log(&#x27;fetched getTipologias&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getTipologias&#x27;, error)),
+    );
+  }
+
+  public getComunidades(): Observable&lt;IComunidades[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getComunidades}&#x60;;
+    return this.apiHttp.get&lt;IComunidades[]&gt;(url, comunidadProjects).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getComunidades&#x27;, row);
+        this.log(&#x27;fetched getComunidades&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getComunidades&#x27;, error)),
+    );
+  }
+
+  public getGrupoEtario(): Observable&lt;IGrupoEtario[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getGrupoEtario}&#x60;;
+    return this.apiHttp.get&lt;IGrupoEtario[]&gt;(url, grupoEtarioProjects).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getGrupoEtario&#x27;, row);
+        this.log(&#x27;fetched getGrupoEtario&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getGrupoEtario&#x27;, error)),
+    );
+  }
+
+  public getDepartamento(): Observable&lt;IDepartamentos[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getDepartamento}&#x60;;
+    return this.apiHttp.get&lt;IDepartamentos[]&gt;(url, departamentoProjects).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getDepartamento&#x27;, row);
+        this.log(&#x27;fetched getDepartamento&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getDepartamento&#x27;, error)),
+    );
+  }
+
+  public getAliado(): Observable&lt;IAliados[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getAliado}&#x60;;
+    return this.apiHttp.get&lt;IAliados[]&gt;(url, aliadoList).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getAliado&#x27;, row);
+        this.log(&#x27;fetched getAliado&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getAliado&#x27;, error)),
+    );
+  }
+
+  public getRubro(): Observable&lt;IGenericList[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getRubro}&#x60;;
+    return this.apiHttp.get&lt;IGenericList[]&gt;(url, rubroList).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getRubro&#x27;, row);
+        this.log(&#x27;fetched getRubro&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getRubro&#x27;, error)),
+    );
+  }
+
+  public getTipoAporte(): Observable&lt;ITipoAporte[]&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.getTipoAporte}&#x60;;
+    return this.apiHttp.get&lt;ITipoAporte[]&gt;(url, tipoAporte).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response getTipoAporte&#x27;, row);
+        this.log(&#x27;fetched getTipoAporte&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;getTipoAporte&#x27;, error)),
+    );
+  }
+
+  public getSeguimiento(idProyecto: string, userEmail:string): Observable&lt;ISeguimientoResponse&gt; {
+    console.log(&#x27;Get Seguimiento Data&#x27;, idProyecto, userEmail)
+    const url &#x3D; &#x60;${this.apiUrl.getSeguimientos}?idProyecto&#x3D;${idProyecto}&amp;emailUsuario&#x3D;${userEmail}&#x60;
+    return this.apiHttp
+      .get&lt;ISeguimientoResponse&gt;(url, seguimientoProject)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response getSeguimiento&#x27;, row);
+          this.log(&#x27;fetched getSeguimiento&#x27;);
+        }),
+        catchError(error &#x3D;&gt;
+          this.handleError(&#x27;getSeguimiento&#x27;, error),
+        ),
+      );
+  }
+
+  public getGeneralInformationProject(idProyecto: string): Observable&lt;IDynamicListPorjects[]&gt; {
+    console.log(&#x27;id proyect&#x27;, idProyecto)
+    
+    const url &#x3D; &#x60;${this.apiUrl.getGeneralInformationProjects}?idMuseo&#x3D;${this.idMuseo}${
+      idProyecto ? &#x60;&amp;idProyecto&#x3D;${idProyecto}&#x60; : &#x27;&#x27;
+    }&#x60;
+    return this.apiHttp
+      .get&lt;IDynamicListPorjects[]&gt;(url, generalDynamicListForm)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response getGeneralInformationProject&#x27;, row);
+          this.log(&#x27;fetched getGeneralInformationProject&#x27;);
+        }),
+        catchError(error &#x3D;&gt;
+          this.handleError(&#x27;getGeneralInformationProject&#x27;, error),
+        ),
+      );
+  }
+
+  public downloadReport(idProject: string): Observable&lt;any&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.downloadReport}?idProyecto&#x3D;${idProject}&#x60;;
+    return this.apiHttp.get&lt;any&gt;(url).pipe(
+      tap(row &#x3D;&gt; {
+        console.log(&#x27;Response downloadReport&#x27;, row);
+        this.log(&#x27;fetched downloadReport&#x27;);
+      }),
+      catchError(error &#x3D;&gt; this.handleError(&#x27;downloadReport&#x27;, error)),
+    );
+  }
+
+  public createProject(body: ICreateProject): Observable&lt;IProjects&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.createProjects}/?st&#x3D;lg&#x60;;
+    return this.apiHttp
+      .post&lt;ICreateProject&gt;(
+        url,
+        body,
+        returnCreateProject,
+      )
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response createProjects&#x27;, row);
+          this.log(&#x27;fetched createProjects&#x27;);
+        }),
+        catchError((error: any) &#x3D;&gt; this.handleError(&#x27;createProjects&#x27;, error)),
+      );
+  }
+
+  public createProduct(body: IProducto): Observable&lt;IProjects&gt; {
+    return this.apiHttp
+      .post&lt;IProducto&gt;(this.apiUrl.createProduct, body, returnCreateProject)
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response createProduct&#x27;, row);
+          this.log(&#x27;fetched createProduct&#x27;);
+        }),
+        catchError((error: any) &#x3D;&gt; this.handleError(&#x27;createProduct&#x27;, error)),
+      );
+  }
+
+  public saveSeguimiento(body: ISaveSeguimiento): Observable&lt;any&gt; {
+    const url &#x3D; &#x60;${this.apiUrl.saveSeguimientos}/?st&#x3D;lg&#x60;;
+    return this.apiHttp
+      .post&lt;any&gt;(
+        url,
+        body,
+      )
+      .pipe(
+        tap(row &#x3D;&gt; {
+          console.log(&#x27;Response saveSeguimiento&#x27;, row);
+          this.log(&#x27;fetched saveSeguimiento&#x27;);
+        }),
+        catchError((error: any) &#x3D;&gt; this.handleError(&#x27;saveSeguimiento&#x27;, error)),
+      );
+  }
+
+  public handleError(operation &#x3D; &#x27;operation&#x27;, result?: any) {
+    console.error(&#x27;ERROR&#x27;, operation, result.message);
+    return of(result);
+  }
+
+  public log(message: string) {
+    return message;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProjectsRepositoryService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,528 @@
+@let isConfirmModalAction = isConfirmAction();
+@let isConfirmModal = isConfirm();
+
+@if (isAllData()) {
+<div class="contentModalShow">
+  <div class="contentModal">
+    <div class="contentMargin">
+      <div class="contentInfo">
+        <div class="contentInfo-header">
+          <div class="contentInfo-header_title">
+            {{titleHeader | translate}}
+          </div>
+
+          <div class="contentInfo-header_detailContent">
+            <span [innerHTML]="'NEW_PROJECT.modal.numberProject' | translate: {numberProject: numberProject} "></span>
+            <span [innerHTML]="'NEW_PROJECT.modal.createBy' | translate: {user: user}"></span>
+            <span [innerHTML]="'NEW_PROJECT.modal.area' | translate: {area: area}"></span>
+          </div>
+        </div>
+
+        @if (!isViewPlans()) {
+        <form [formGroup]="createProjectForm" action="">
+          <div class="contentInfo-titleInfo">
+            {{informativeMessage | translate}}
+          </div>
+          <div class="contentForm">
+            <div class="contentToggle">
+              <span class="contentToggle_text">{{'NEW_PROJECT.generalForm.evaluate' | translate}}</span>
+              <div class="toggle-switch">
+                <input (click)="changeActive()" type="checkbox" id="toggle" formControlName="evaluado" />
+                <label for="toggle" class="toggle-label"></label>
+              </div>
+            </div>
+
+            <div class="contentForm-generalForm">
+              <div class="contentForm-generalForm_title">
+                {{ 'NEW_PROJECT.generalForm.title' | translate}}
+              </div>
+
+              <div class="contentForm-generalForm_contentlabel">
+                <div class="contentForm-generalForm_contentlabel_space">
+                  <div class="title">
+                    {{'NEW_PROJECT.generalForm.eje' | translate}}
+                  </div>
+                  <!-- formControlName="ejeEstrategico" -->
+                  <select formControlName="idEjeEstrategico" name="ejes" id="ejes"
+                    class="contentForm-generalForm_contentlabel_space_select truncate-select">
+                    <option disabled [ngValue]="null">
+                      {{'NEW_PROJECT.generalForm.ejePlaceholder' | translate}}
+                    </option>
+                    @for (eje of ejeList(); track $index) {
+                    <option [value]="eje.id">
+                      {{ eje.nombre}}
+                    </option>
+                    }
+                  </select>
+                </div>
+
+                <div class="contentForm-generalForm_contentlabel_space">
+                  <div class="title">
+                    {{'NEW_PROJECT.generalForm.guideline' | translate}}
+                  </div>
+                  <multiselect-checkbox formControlName="lineamientosEstrategicos" [options]="guideLineList()"
+                    [keyFormControlName]="'lineamientosEstrategicosArray'"
+                    [placeholder]="'NEW_PROJECT.generalForm.guidelinePlaceholder' | translate" />
+                </div>
+              </div>
+              <div class="contentForm-generalForm_contentlabel">
+                <div class="contentForm-generalForm_contentlabel_space">
+                  <div class="title">
+                    {{'NEW_PROJECT.generalForm.action' | translate}}
+                  </div>
+                  <!-- formControlName="accion"-->
+                  <!-- TODO AGREGAR FORMULARIO REACTIVO PARA CAMBIO DINAMICVO DE LISTA Y TITLE COMO TOOLTIP -->
+                  <select formControlName="idAccion" name="action" id="action"
+                    class="contentForm-generalForm_contentlabel_space_select truncate-select">
+                    <option disabled [ngValue]="null">
+                      {{'NEW_PROJECT.generalForm.actionPlaceholder' | translate}}
+                    </option>
+                    @for (action of actionsList(); track $index) {
+                    <option [value]="action.id">
+                      {{ action.nombre}}
+                    </option>
+                    }
+                  </select>
+                </div>
+                <div class="contentForm-generalForm_contentlabel_space">
+                  <div class="title">
+                    {{'NEW_PROJECT.generalForm.indicators' | translate}}
+                  </div>
+                  <multiselect-checkbox formControlName="indicadores" [options]="indicatorsList()"
+                    [keyFormControlName]="'indicadoresArray'"
+                    [placeholder]="'NEW_PROJECT.generalForm.indicatorsPlaceholder' | translate" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Information -->
+          <div class="contentForm">
+            <div class="contentForm-projectForm">
+              <div class="contentForm-projectForm_content">
+                <div class="contentForm-projectForm_content_name" id="nameEje">
+                  <div class="title">
+                    {{ 'NEW_PROJECT.projectForm.nameProject' | translate}}
+                  </div>
+                  <input formControlName="nombre" [maxlength]="maxName" class="spaceText" type="text"
+                    placeholder="{{'NEW_PROJECT.projectForm.nameProjectPlaceHolder' | translate}}" />
+                  <div class="counterText" [innerHTML]="createProjectForm?.get('nombre')?.value.length + '/' + maxName">
+                  </div>
+                </div>
+                <div class="contentForm-projectForm_content_name" id="estado">
+                  <div class="title">
+                    {{ 'NEW_PROJECT.projectForm.stateProject' | translate}}
+                  </div>
+                  <!-- TODO Funcion Select pasra comprar Objetos por id y no por referencia -->
+                  <select formControlName="estado" name="estados" [compareWith]="compareState">
+                    <option disabled [ngValue]="null">
+                      {{'FILTER.stateProjectPlaceHolder' | translate}}
+                    </option>
+                    @for (state of statesList(); track $index) {
+                    <option [ngValue]="state">
+                      {{ state.nombre}}
+                    </option>
+                    }
+                  </select>
+                </div>
+                <div class="contentForm-projectForm_content_name" id="startDate">
+                  <div class="title">
+                    {{ 'NEW_PROJECT.projectForm.startDate' | translate}}
+                  </div>
+                  <input formControlName="fechaInicio" class="spaceText" type="date"
+                    placeholder="{{'NEW_PROJECT.projectForm.datePlaceHolder' | translate}}" />
+                </div>
+                <div class="contentForm-projectForm_content_name" id="endDate">
+                  <div class="title">
+                    {{ 'NEW_PROJECT.projectForm.endDate' | translate}}
+                  </div>
+                  <input formControlName="fechaFin" class="spaceText" type="date" [max]="maxDate"
+                    placeholder="{{'NEW_PROJECT.projectForm.datePlaceHolder' | translate}}" />
+                </div>
+              </div>
+
+              <div class="contentForm-projectForm_textArea" id="justification">
+                <div class="title">
+                  {{ 'NEW_PROJECT.projectForm.justification' | translate}}
+                </div>
+                <textarea formControlName="justificacion" [maxlength]="maxDescription" name="justification"
+                  id="justification" placeholder="{{'NEW_PROJECT.projectForm.justificationPlaceHolder' | translate}}"
+                  rows="4" cols="50"></textarea>
+
+                <div class="counterText"
+                  [innerHTML]="createProjectForm?.get('justificacion')?.value.length + '/' + maxDescription"></div>
+              </div>
+
+              <div class="contentForm-projectForm_textArea" id="description">
+                <div class="title">
+                  {{ 'NEW_PROJECT.projectForm.description' | translate}}
+                </div>
+                <textarea formControlName="descripcion" [maxlength]="maxDescription" name="description" id="description"
+                  placeholder="{{'NEW_PROJECT.projectForm.descriptionPlaceHolder' | translate}}" rows="4"
+                  cols="50"></textarea>
+
+                <div class="counterText"
+                  [innerHTML]="createProjectForm?.get('descripcion')?.value.length + '/' + maxDescription"></div>
+              </div>
+
+              <div class="contentForm-projectForm_goals">
+                <div class="contentForm-projectForm_textArea" id="objetivo">
+                  <div class="title">
+                    {{ 'NEW_PROJECT.projectForm.objetivo' | translate}}
+                  </div>
+                  <textarea formControlName="objetivoGeneral" [maxlength]="maxDescription" name="objetivo" id="objetivo"
+                    placeholder="{{'NEW_PROJECT.projectForm.objetivoPlaceHolder' | translate}}" rows="7"
+                    cols="50"></textarea>
+                  <!-- actionsForm?.get('descripcion')?.value.length -->
+                  <div class="counterText"
+                    [innerHTML]="createProjectForm?.get('objetivoGeneral')?.value.length  + '/' + maxDescription"></div>
+                </div>
+                <div class="contentForm-projectForm_textArea">
+                  <div class="title">
+                    {{ 'NEW_PROJECT.projectForm.objetivEspecifico' | translate}}
+                  </div>
+                  <div formArrayName="objetivosEspecificos" class="contentForm-projectForm_goals_specific">
+                    <input *ngFor="let objetivo of objetivosEspecificos.controls; let i = index" [formControlName]="i"
+                      [maxlength]="maxName" class="spaceText" type="text" formControlName="nombre"
+                      placeholder="{{'NEW_PROJECT.projectForm.objetivEspecificoPlaceHolder' | translate}}" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="contentForm-projectForm_twoColumns">
+                <div class="contentForm-generalForm_contentlabel_space">
+                  <div class="title">
+                    {{'NEW_PROJECT.projectForm.areas' | translate}}
+                  </div>
+                  <multiselect-checkbox formControlName="areasApoyo" [options]="areasApoyoList()"
+                    [keyFormControlName]="'areasApoyoArray'"
+                    [placeholder]="'NEW_PROJECT.projectForm.areasPlaceHolder' | translate" />
+                </div>
+
+                <div class="contentForm-generalForm_contentlabel_space">
+                  <div class="title">
+                    {{'NEW_PROJECT.projectForm.tipologia' | translate}}
+                  </div>
+                  <select formControlName="idTipologiaSostenibilidad" name="tipologia" id="tipologia"
+                    class="contentForm-projectForm_contentlabel_space_select truncate-select">
+                    <option disabled [ngValue]="null">
+                      {{'NEW_PROJECT.projectForm.tipologiaPlaceHolder' | translate}}
+                    </option>
+                    @for (tipologia of tipologiaList(); track $index) {
+                    <option [value]="tipologia.id">
+                      {{ tipologia.nombre}}
+                    </option>
+                    }
+                  </select>
+                </div>
+              </div>
+
+              <!-- Comunidad Form -->
+              <section>
+                <div formArrayName="comunidades">
+                  <div *ngFor="let comunidad of comunidades.controls; let i = index;" [formGroupName]="i">
+                    <hr />
+                    <div class="contentForm-projectForm_twoColumns">
+                      <!-- Comunidad -->
+                      <div class="contentForm-generalForm_contentlabel_space">
+                        <div class="title">
+                          {{'NEW_PROJECT.projectForm.comunidad' | translate}}
+                        </div>
+                        <!-- formControlName="accion" -->
+                        <select formControlName="idComunidad" name="comunidad" id="comunidad"
+                          class="contentForm-projectForm_contentlabel_space_select truncate-select">
+                          <option disabled [ngValue]="null">
+                            {{'NEW_PROJECT.projectForm.comunidadPlaceHolder' | translate}}
+                          </option>
+                          @for (
+                          comunidad of comunidadList();
+                          track $index
+                          ) {
+                          <option [value]="comunidad.id">
+                            {{ comunidad.nombre}}
+                          </option>
+                          }
+                        </select>
+                      </div>
+
+                      <!-- Grupo Etario -->
+                      <div class="contentForm-generalForm_contentlabel_space">
+                        <div class="title">
+                          {{'NEW_PROJECT.projectForm.grupo' | translate}}
+                        </div>
+                        <multiselect-checkbox formControlName="gruposEtarios" [options]="grupoList()"
+                          [keyFormControlName]="'gruposEtariosArray'"
+                          [placeholder]="'NEW_PROJECT.projectForm.grupoPlaceHolder' | translate" />
+                      </div>
+                    </div>
+
+                    <div class="contentForm-projectForm_twoColumns">
+                      <!-- Departamento -->
+                      <div class="contentForm-generalForm_contentlabel_space">
+                        <div class="title">
+                          {{'NEW_PROJECT.projectForm.dpartment' | translate}}
+                        </div>
+                        <!-- formControlName="accion" -->
+                        <select formControlName="idDepartamento" name="departamento" id="departamento"
+                          class="contentForm-projectForm_contentlabel_space_select truncate-select">
+                          <option disabled [ngValue]="null">
+                            {{'NEW_PROJECT.projectForm.dpartmentPlaceHolder' | translate}}
+                          </option>
+                          @for (
+                          departamento of departamentoList();
+                          track $index
+                          ) {
+                          <option [value]="departamento.id">
+                            {{ departamento.nombre}}
+                          </option>
+                          }
+                        </select>
+                      </div>
+                      <!-- Municipio -->
+                      <div class="contentForm-generalForm_contentlabel_space">
+                        <div class="title">
+                          {{'NEW_PROJECT.projectForm.municipio' | translate}}
+                        </div>
+                        <multiselect-checkbox formControlName="municipios" [options]="municipioList[i]"
+                          [keyFormControlName]="'municipiosArray'"
+                          [placeholder]="'NEW_PROJECT.projectForm.municipioPlaceHolder' | translate" />
+                      </div>
+                    </div>
+
+                    @if (comunidades.length >= 1) {
+                    <div class="contentForm-projectForm_oneColumns addMore">
+                      <u (click)="removeForm(i, 'comunidades')">{{'BUTTONS.deleteComunidad' | translate}}</u>
+                    </div>
+                    }
+                  </div>
+                </div>
+                <div class="contentForm-projectForm_twoColumns addMore">
+                  <u (click)="addComunidad()">{{'BUTTONS.addComunidad' | translate}}</u>
+                </div>
+              </section>
+
+              <!-- Aliados Form -->
+              <section>
+                <div formArrayName="aliados">
+                  <div *ngFor="let aliado of aliados.controls; let i = index;" [formGroupName]="i">
+                    <hr />
+                    <div class="contentForm-projectForm_twoColumns">
+                      <!-- Aliado -->
+                      <div class="contentForm-generalForm_contentlabel_space">
+                        <div class="title">
+                          {{'NEW_PROJECT.aliadosForm.aliado' | translate}}
+                        </div>
+                        <!-- formControlName="accion" -->
+                        <select formControlName="idAliado" name="aliado" id="aliado"
+                          class="contentForm-projectForm_contentlabel_space_select truncate-select">
+                          <option disabled [ngValue]="null">
+                            {{'NEW_PROJECT.aliadosForm.aliadoPlaceHolder' | translate}}
+                          </option>
+                          @for (aliado of aliadosList(); track $index) {
+                          <option [value]="aliado.id">
+                            {{ aliado.nombre}}
+                          </option>
+                          }
+                        </select>
+                      </div>
+                      <!-- caracterizacion -->
+                      <div class="contentForm-generalForm_contentlabel_space">
+                        <div class="title">
+                          {{'NEW_PROJECT.aliadosForm.caracterizacion' | translate}}
+                        </div>
+                        <input formControlName="caracterizacion" readonly class="spaceText" type="text"
+                          placeholder="{{'NEW_PROJECT.aliadosForm.caracterizacionPlaceHolder' | translate}}" />
+                      </div>
+                    </div>
+
+                    <div class="contentForm-projectForm_twoColumns">
+                      <!-- localizacion-->
+                      <div class="contentForm-generalForm_contentlabel_space">
+                        <div class="title">
+                          {{'NEW_PROJECT.aliadosForm.localizacion' | translate}}
+                        </div>
+                        <input formControlName="localizacion" readonly class="spaceText" type="text"
+                          placeholder="{{'NEW_PROJECT.aliadosForm.localizacionPlaceHolder' | translate}}" />
+                      </div>
+                      <!-- Tipo de aporte -->
+                      <div class="contentForm-generalForm_contentlabel_space">
+                        <div class="title">
+                          {{'NEW_PROJECT.aliadosForm.tipoAporte' | translate}}
+                        </div>
+                        <!-- formControlName="accion" -->
+                        <select formControlName="idTipoAporte" name="comunidad" id="comunidad"
+                          class="contentForm-projectForm_contentlabel_space_select truncate-select">
+                          <option disabled [ngValue]="null">
+                            {{'NEW_PROJECT.aliadosForm.tipoAportePlaceHolder' | translate}}
+                          </option>
+                          @for (
+                          tipoAporte of tipoAporteList();
+                          track $index
+                          ) {
+                          <option [value]="tipoAporte.id">
+                            {{ tipoAporte.nombre}}
+                          </option>
+                          }
+                        </select>
+                      </div>
+                    </div>
+
+                    @if (aliados.length >= 1) {
+                    <div class="contentForm-projectForm_oneColumns addMore">
+                      <u (click)="removeForm(i, 'aliados')">{{'BUTTONS.deleteAliado' | translate}}</u>
+                    </div>
+                    }
+                  </div>
+                </div>
+                <div class="contentForm-projectForm_twoColumns addMore">
+                  <u (click)="addAliado()">{{'BUTTONS.addAliado' | translate}}</u>
+                </div>
+              </section>
+            </div>
+          </div>
+        </form>
+        } @else {
+        <div class="contentForm">
+          <div class="contentForm-generalForm">
+            <div class="contentForm-generalForm_title">
+              {{ 'NEW_PROJECT.products.title' | translate}}
+            </div>
+          </div>
+          <div class="productsList">
+            <div class="productsList-header">
+              <span>{{ 'NEW_PROJECT.products.productosProkect' | translate}}</span>
+              <span>{{ 'NEW_PROJECT.products.cantidad' | translate}}</span>
+              <span>{{ 'NEW_PROJECT.products.startDate' | translate}}</span>
+              <span>{{ 'NEW_PROJECT.products.endDate' | translate}}</span>
+            </div>
+            @for (
+            item of createProjectForm.get('productos').value;
+            track $index
+            ) {
+            <div class="productsList-content">
+              <span>{{item.nombre}}</span>
+              <span>| {{item.cantidad}} | </span>
+              <span>{{item.fechaInicio | date : 'dd/MM/yyyy'}}</span>
+              <span>{{item.fechaFin | date : 'dd/MM/yyyy'}}</span>
+              @if (item.rubros.length > 0) {
+              <!-- (click)="onEdit(projectInfo)" -->
+              <div (click)="openCloseModal(true, item)" class="productsList-content_contentIcon">
+                <div [actionPermission]="'editar'" class="smallRoundButtonIcon productsList-content_edit">
+                  <img class="violetIcon productsList-content_edit_image" src="{{ICONS_CONST.edit}}"
+                    alt="{{ICONS_CONST.edit}}" />
+                </div>
+              </div>
+              }
+            </div>
+            }
+            <div class="productsList-actions">
+              <!-- (click)="addComunidad()" -->
+              <u (click)="openCloseModal()">{{'BUTTONS.addProduct' | translate}}</u>
+              <div class="productsList-button">
+                <button [actionPermission]="'crear'" class="mediumRoundButtonIcon" type="submit"
+                  (click)="downloadFile()">
+                  <img class="violetIcon productsList-button_icon" src="{{ICONS_CONST.download}}"
+                    alt="{{ICONS_CONST.download}}" />
+                  <span>{{'BUTTONS.download' | translate}}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contentForm">
+          <div class="contentForm-generalForm">
+            <div class="contentForm-generalForm_title">
+              {{ 'NEW_PROJECT.products.budget' | translate}}
+            </div>
+          </div>
+          <div class="budgetDetail">
+            <div class="budgetDetail-totalBudget">
+              <span
+                [innerHTML]="'NEW_PROJECT.products.totalBudget' | translate: {totalBudget: formatCurrency(presupuestoForm.presupuestoTotal  ?? 0)} ">
+              </span>
+            </div>
+            <div class="budgetDetail-resumeBudget">
+              <div class="budgetDetail-resumeBudget-detail">
+                <span
+                  [innerHTML]="'NEW_PROJECT.products.internalBudget' | translate: {internalBudget: formatCurrency(presupuestoForm.presupuestoInterno.valorPresupuesto ?? 0)}">
+                </span>
+                <div class="budgetDetail-resumeBudget-detail_content">
+                  @for (
+                  item of presupuestoForm.presupuestoInterno.items;
+                  track $index
+                  ) {
+                  <div style="height: 100%; transition: all 0.3s ease;" [ngStyle]="{'background-color': item.codColor}"
+                    [ngClass]="{'borde-inicio': item === presupuestoForm.presupuestoInterno.items[0], 'borde-final': item === presupuestoForm.presupuestoInterno.items[presupuestoForm.presupuestoInterno.items.length - 1]}"
+                    [title]="item.nombre + ': ' + formatCurrency(item.valor)"></div>
+                  }
+                </div>
+                <span>{{ 'NEW_PROJECT.products.productos' | translate}}</span>
+              </div>
+              <div class="budgetDetail-resumeBudget-detail">
+                <span
+                  [innerHTML]="'NEW_PROJECT.products.externalBudget' | translate: {externalBudget: formatCurrency(presupuestoForm.presupuestoExterno.valorPresupuesto ?? 0 )}">
+                </span>
+                <div class="budgetDetail-resumeBudget-detail_content">
+                  @for (
+                  item of presupuestoForm.presupuestoExterno.items;
+                  track $index
+                  ) {
+                  <div style="height: 100%; transition: all 0.3s ease;" [ngStyle]="{'background-color': item.codColor}"
+                    [ngClass]="{'borde-inicio': item === presupuestoForm.presupuestoExterno.items[0], 'borde-final': item === presupuestoForm.presupuestoExterno.items[presupuestoForm.presupuestoExterno.items.length - 1]}"
+                    [title]="item.nombre + ': ' + formatCurrency(item.valor)"></div>
+                  }
+                </div>
+                <span>{{ 'NEW_PROJECT.products.aliados' | translate}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+      <div class="contentButton">
+        @if (!isViewPlans()) {
+        <div class="contentButton-actions">
+          @if (_readOnly) {
+          <u style="width: 5rem !important;" (click)="actionsFinishProcces(2)"
+            class="contentButton-actions_links addMore">{{'BUTTONS.close' | translate}}</u>
+          } @else {
+          <u style="width: 5rem !important;" (click)="setMessageConfirmModal('cancel')"
+            class="contentButton-actions_links addMore">{{'BUTTONS.cancel' | translate}}</u>
+          }
+          <button class="largeButton" (click)="sendProject()">
+            {{ (_readOnly ? 'BUTTONS.nextView' : 'BUTTONS.saveEraser') | translate }}
+          </button>
+        </div>
+        } @else {
+        <div class="contentButton-actions">
+          <div></div>
+          <div class="contentButton-actions_endProcess">
+            <button class="largeButton" (click)="actionsFinishProcces(1)">
+              {{ 'BUTTONS.back' | translate}}
+            </button>
+            <button class="largeButton" (click)="actionsFinishProcces(2)">
+              {{ (_readOnly ? 'BUTTONS.close' : 'BUTTONS.saveProject') | translate }}
+            </button>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    @if (isConfirmModalAction) {
+    <div class="contentConfirmModal">
+      <confirm-action-modal (actionButton)="confirmAction($event)" [textModal]="confirmModalAction" />
+    </div>
+    }
+    @if (isConfirmModal) {
+    <div class="contentConfirmModal">
+      <confirm-modal [textModal]="confirmModalMessageSucces" />
+    </div>
+    }
+    @if (isCreateProduct()) {
+    <app-create-product [idProject]="idProject" [title]="modalTitle" [isEdit]="isEditProduct"
+      (actionButton)="closeModalEvent($event)" />
+    }
+  </div>
+</div>
+}

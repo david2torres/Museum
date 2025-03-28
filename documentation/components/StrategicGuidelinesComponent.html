@@ -1,0 +1,1755 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sim documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sim documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  StrategicGuidelinesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>strategic-guidelines</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../miscellaneous/variables.html#GUIDElINES_MODULES" target="_self" >GUIDElINES_MODULES</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./strategic-guidelines.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./strategic-guidelines.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_unSubscribe" >_unSubscribe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ActiveGuideLines" >ActiveGuideLines</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#currentID" >currentID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#currentIDInactive" >currentIDInactive</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ICONS_CONST" >ICONS_CONST</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#InactveGuidelines" >InactveGuidelines</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isData" >isData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isEditGuideline" >isEditGuideline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isModal" >isModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isViewDetail" >isViewDetail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isViewDetailInactive" >isViewDetailInactive</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#messageEmpty" >messageEmpty</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#modalTitle" >modalTitle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#viewMore" >viewMore</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#closeModalEvent" >closeModalEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadLineamientos" >loadLineamientos</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#openCloseModal" >openCloseModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#viewDetailGuideline" >viewDetailGuideline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#viewDetailGuidelineInactive" >viewDetailGuidelineInactive</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#viewList" >viewList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(planningService: <a href="../injectables/PlanningService.html" target="_self">PlanningService</a>, secureStorage: <a href="../injectables/SecureStorageService.html" target="_self">SecureStorageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>planningService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PlanningService.html" target="_self" >PlanningService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>secureStorage</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SecureStorageService.html" target="_self" >SecureStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeModalEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>closeModalEvent</b></span>
+                        <a href="#closeModalEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>closeModalEvent(isUpdate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isUpdate</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadLineamientos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadLineamientos</b></span>
+                        <a href="#loadLineamientos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadLineamientos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openCloseModal"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>openCloseModal</b></span>
+                        <a href="#openCloseModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openCloseModal(isEdit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, guidelineSelected?: <a href="../interfaces/IGetGuidelinesResponse.html" target="_self">IGetGuidelinesResponse</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isEdit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>guidelineSelected</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IGetGuidelinesResponse.html" target="_self" >IGetGuidelinesResponse</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewDetailGuideline"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>viewDetailGuideline</b></span>
+                        <a href="#viewDetailGuideline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>viewDetailGuideline(ID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ID</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewDetailGuidelineInactive"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>viewDetailGuidelineInactive</b></span>
+                        <a href="#viewDetailGuidelineInactive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>viewDetailGuidelineInactive(ID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ID</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewList"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>viewList</b></span>
+                        <a href="#viewList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>viewList(section: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>section</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_unSubscribe"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_unSubscribe</b></span>
+                        <a href="#_unSubscribe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ActiveGuideLines"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ActiveGuideLines</b></span>
+                        <a href="#ActiveGuideLines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IGetGuidelinesResponse.html" target="_self" >IGetGuidelinesResponse[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentID"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>currentID</b></span>
+                        <a href="#currentID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentIDInactive"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>currentIDInactive</b></span>
+                        <a href="#currentIDInactive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ICONS_CONST"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ICONS_CONST</b></span>
+                        <a href="#ICONS_CONST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ICON_IMAGES</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InactveGuidelines"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>InactveGuidelines</b></span>
+                        <a href="#InactveGuidelines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IGetGuidelinesResponse.html" target="_self" >IGetGuidelinesResponse[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isData"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isData</b></span>
+                        <a href="#isData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditGuideline"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isEditGuideline</b></span>
+                        <a href="#isEditGuideline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IModalEdit.html" target="_self" >IModalEdit</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ ...INIT_EDIT }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isModal"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isModal</b></span>
+                        <a href="#isModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isViewDetail"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isViewDetail</b></span>
+                        <a href="#isViewDetail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>boolean[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isViewDetailInactive"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isViewDetailInactive</b></span>
+                        <a href="#isViewDetailInactive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>boolean[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="messageEmpty"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>messageEmpty</b></span>
+                        <a href="#messageEmpty"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>APP_CONST.MESSAGES.withoutInfoLE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalTitle"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>modalTitle</b></span>
+                        <a href="#modalTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>APP_CONST.MODAL_GUIDELINES.initTitle</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewMore"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>viewMore</b></span>
+                        <a href="#viewMore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>VIEW_MORE_CONST</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/core/UI/pages/dash-board/components/planning/planning-strategies/components/strategic-guidelines/strategic-guidelines.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  signal,
+  OnDestroy,
+} from &#x27;@angular/core&#x27;;
+import { APP_CONST } from &#x27;@DomainConstants/shared/app.constants&#x27;;
+import { ICON_IMAGES } from &#x27;@DomainConstants/shared/icons-images.constants&#x27;;
+import { VIEW_MORE_CONST } from &#x27;@DomainConstants/shared/viewMore.constants&#x27;;
+import { GUIDElINES_MODULES } from &#x27;./strategicGuidelines.modules&#x27;;
+import { PlanningService } from &#x27;@services/planningService.service&#x27;;
+import {
+  IGetGuidelinesResponse,
+  IModalEdit,
+} from &#x27;@DomainInterfaces/planning.interface&#x27;;
+import { INIT_EDIT } from &#x27;@DomainConstants/components/planing.constants&#x27;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+import { STORAGE_CONST } from &#x27;@DomainConstants/shared/storage.constants&#x27;;
+import { SecureStorageService } from &#x27;@shared/security/storage/secure-storage.service&#x27;;
+
+@Component({
+  selector: &#x27;strategic-guidelines&#x27;,
+  standalone: true,
+  imports: [...GUIDElINES_MODULES],
+  templateUrl: &#x27;./strategic-guidelines.component.html&#x27;,
+  styleUrl: &#x27;./strategic-guidelines.component.scss&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class StrategicGuidelinesComponent implements OnInit, OnDestroy {
+  public viewMore &#x3D; VIEW_MORE_CONST;
+  public ICONS_CONST &#x3D; ICON_IMAGES;
+  public messageEmpty &#x3D; APP_CONST.MESSAGES.withoutInfoLE;
+  public isModal &#x3D; signal&lt;boolean&gt;(false);
+  public ActiveGuideLines: IGetGuidelinesResponse[];
+  public isEditGuideline: IModalEdit &#x3D; { ...INIT_EDIT };
+  public modalTitle: string &#x3D; APP_CONST.MODAL_GUIDELINES.initTitle;
+  public InactveGuidelines: IGetGuidelinesResponse[];
+  public isViewDetail: boolean[] &#x3D; [];
+  public isViewDetailInactive: boolean[] &#x3D; [];
+  private _unSubscribe &#x3D; new Subject&lt;void&gt;();
+  public isData &#x3D; signal&lt;boolean&gt;(false);
+  private currentID: number;
+  private currentIDInactive: number;
+
+  constructor(
+    private planningService: PlanningService,
+    private secureStorage: SecureStorageService,
+  ) {}
+
+  ngOnInit(): void {
+    this.loadLineamientos();
+  }
+
+  private loadLineamientos(): boolean {
+    const idMuseo &#x3D; this.secureStorage.getItem(STORAGE_CONST.idMuseum);
+    this.isData.update(() &#x3D;&gt; false);
+    this.planningService
+      .getGuidelines(Number(idMuseo))
+      .pipe(takeUntil(this._unSubscribe))
+      .subscribe((guidelines: IGetGuidelinesResponse[]) &#x3D;&gt; {
+        console.log(&#x27;Load Lineamientos&#x27;, guidelines);
+        this.ActiveGuideLines &#x3D; guidelines.filter(
+          lineamiento &#x3D;&gt; lineamiento.activo,
+        );
+        this.InactveGuidelines &#x3D; guidelines.filter(
+          lineamiento &#x3D;&gt; !lineamiento.activo,
+        );
+        this.isData.update(() &#x3D;&gt; true);
+      });
+    return this.isData();
+  }
+
+  public viewDetailGuideline(ID: number): void {
+    if (ID !&#x3D;&#x3D; this.currentID) {
+      this.isViewDetail[this.currentID] &#x3D; false;
+    }
+    this.isViewDetail[ID] &#x3D; !this.isViewDetail[ID];
+    this.currentID &#x3D; ID;
+  }
+
+  public viewDetailGuidelineInactive(ID: number): void {
+    this.isViewDetailInactive[this.currentIDInactive] &#x3D; false;
+    this.isViewDetailInactive[ID] &#x3D; !this.isViewDetailInactive[ID];
+    this.currentIDInactive &#x3D; ID;
+  }
+
+  public onSubmit(): void {
+    console.log(&#x27;Submit Form&#x27;);
+  }
+
+  public viewList(section: string): void {
+    this.viewMore[section] &#x3D; !this.viewMore[section];
+  }
+
+  public openCloseModal(
+    isEdit: boolean &#x3D; false,
+    guidelineSelected?: IGetGuidelinesResponse,
+  ): void {
+    console.log(&#x27;Closed MOdal&#x27;);
+    this.isEditGuideline &#x3D; { ...INIT_EDIT };
+    if (isEdit) {
+      const edit: IModalEdit &#x3D; {
+        idEdit: isEdit,
+        elementSelected: guidelineSelected,
+      };
+      this.isEditGuideline &#x3D; edit;
+      console.log(&#x27;EditModal&#x27;, isEdit, guidelineSelected);
+    }
+    setTimeout(() &#x3D;&gt; {
+      this.isModal.update(value &#x3D;&gt; !value);
+    }, 100);
+  }
+
+  public closeModalEvent(isUpdate: boolean): void {
+    if (isUpdate) {
+      this.loadLineamientos();
+    }
+    this.isModal.update(value &#x3D;&gt; !value);
+  }
+
+  ngOnDestroy(): void {
+    this._unSubscribe.next();
+    this._unSubscribe.complete();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (isData()) {
+  &lt;div class&#x3D;&quot;content&quot;&gt;
+    &lt;div
+      class&#x3D;&quot;content-active&quot;
+      [class.contentWD]&#x3D;&quot;ActiveGuideLines.length &#x3D;&#x3D; 0&quot;
+    &gt;
+      &lt;div class&#x3D;&quot;content-active_button&quot;&gt;
+        &lt;span class&#x3D;&quot;blackIcon content-active_button_text&quot;
+          &gt;{{&#x27;PLANNING.active&#x27; | translate}}
+          &lt;img
+            (click)&#x3D;&quot;viewList(&#x27;active&#x27;)&quot;
+            class&#x3D;&quot;blackIcon content-active_button_img&quot;
+            src&#x3D;&quot;{{ viewMore.active ? ICONS_CONST.anguloUp : ICONS_CONST.anguloDown}}&quot;
+            alt&#x3D;&quot;angulo&quot;
+          /&gt;
+        &lt;/span&gt;
+        @if (ActiveGuideLines.length !&#x3D;&#x3D; 0) {
+          &lt;div class&#x3D;&quot;content-active_button_button&quot;&gt;
+            &lt;button
+              [actionPermission]&#x3D;&quot;&#x27;crear&#x27;&quot;
+              class&#x3D;&quot;smallButton&quot;
+              type&#x3D;&quot;submit&quot;
+              (click)&#x3D;&quot;openCloseModal()&quot;
+            &gt;
+              &lt;img
+                class&#x3D;&quot;content-active_button_button-image&quot;
+                src&#x3D;&quot;{{ICONS_CONST.add}}&quot;
+                alt&#x3D;&quot;{{ICONS_CONST.add}}&quot;
+              /&gt;
+              {{ &#x27;BUTTONS.create&#x27; | translate }}
+            &lt;/button&gt;
+          &lt;/div&gt;
+        }
+      &lt;/div&gt;
+
+      @if (ActiveGuideLines.length &#x3D;&#x3D; 0) {
+        &lt;empty-component
+          [message]&#x3D;&quot;messageEmpty&quot;
+          (actionButton)&#x3D;&quot;openCloseModal()&quot;
+        /&gt;
+      } @else {
+        @if (viewMore[&#x27;active&#x27;]) {
+          @for (lineamiento of ActiveGuideLines; track $index) {
+            &lt;div class&#x3D;&quot;contenList&quot;&gt;
+              &lt;div class&#x3D;&quot;contenList-title&quot;&gt;{{lineamiento.nombre}}&lt;/div&gt;
+              &lt;div class&#x3D;&quot;contenIcon&quot;&gt;
+                &lt;div
+                  [actionPermission]&#x3D;&quot;&#x27;editar&#x27;&quot;
+                  class&#x3D;&quot;contenIcon-edit&quot;
+                  (click)&#x3D;&quot;openCloseModal(true, lineamiento)&quot;
+                &gt;
+                  &lt;img
+                    class&#x3D;&quot;violetIcon contenIcon-edit-image&quot;
+                    src&#x3D;&quot;{{ICONS_CONST.edit}}&quot;
+                    alt&#x3D;&quot;{{ICONS_CONST.edit}}&quot;
+                  /&gt;
+                &lt;/div&gt;
+                &lt;div
+                  style&#x3D;&quot;cursor: pointer;&quot;
+                  (click)&#x3D;&quot;viewDetailGuideline($index)&quot;
+                &gt;
+                  &lt;img
+                    class&#x3D;&quot;blackIcon contenIcon-image&quot;
+                    src&#x3D;&quot;{{ isViewDetail[$index]? ICONS_CONST.upArrowSmall: ICONS_CONST.downArrowSmall}}&quot;
+                    alt&#x3D;&quot;{{ICONS_CONST.upArrowSmall}}&quot;
+                  /&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            @if (isViewDetail[$index]) {
+              &lt;div class&#x3D;&quot;detailContent&quot;&gt;
+                &lt;div class&#x3D;&quot;detailContent_info&quot;&gt;
+                  &lt;span class&#x3D;&quot;detailContent_info-title&quot;
+                    &gt;{{&#x27;PLANNING.lineamientos.infoGuideLine.title&#x27; | translate}}
+                  &lt;/span&gt;
+                  &lt;div class&#x3D;&quot;detailContent_info-subTitle&quot;&gt;
+                    {{lineamiento.politica.nombre}}
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;detailContent_info&quot;&gt;
+                  &lt;span
+                    class&#x3D;&quot;detailContent_info-title&quot;
+                    &gt;{{&#x27;PLANNING.lineamientos.infoGuideLine.vigencia&#x27; | translate}}&lt;/span
+                  &gt;
+                  &lt;div class&#x3D;&quot;detailContent_info-subTitle&quot;&gt;
+                    {{lineamiento.politica.fechaInicio | date: &#x27;yyyy&#x27;}} -
+                    {{lineamiento.politica.fechaInicio | date: &#x27;yyyy&#x27;}}
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;detailContent_info&quot;&gt;
+                  &lt;span
+                    class&#x3D;&quot;detailContent_info-title&quot;
+                    &gt;{{&#x27;PLANNING.lineamientos.infoGuideLine.entity&#x27; | translate}}&lt;/span
+                  &gt;
+                  &lt;div class&#x3D;&quot;detailContent_info-subTitle&quot;&gt;
+                    {{lineamiento.politica.entidad.nombre}}
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            }
+          }
+        }
+      }
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br /&gt;
+  &lt;div class&#x3D;&quot;content&quot;&gt;
+    &lt;div class&#x3D;&quot;content-active_button&quot; (click)&#x3D;&quot;viewList(&#x27;inactive&#x27;)&quot;&gt;
+      &lt;span class&#x3D;&quot;blackIcon content-active_button_text&quot;
+        &gt;{{&#x27;PLANNING.inactive&#x27; | translate}}
+        &lt;img
+          class&#x3D;&quot;blackIcon content-active_button_img&quot;
+          src&#x3D;&quot;{{ viewMore.inactive ? ICONS_CONST.anguloUp : ICONS_CONST.anguloDown}}&quot;
+          alt&#x3D;&quot;{{ICONS_CONST.edit}}&quot;
+        /&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+    @if (viewMore[&#x27;inactive&#x27;]) {
+      @for (lineamiento of InactveGuidelines; track $index) {
+        &lt;div class&#x3D;&quot;contenList&quot;&gt;
+          &lt;div class&#x3D;&quot;contenList-title&quot;&gt;{{lineamiento.nombre}}&lt;/div&gt;
+          &lt;div class&#x3D;&quot;contenIcon&quot;&gt;
+            &lt;div
+              [actionPermission]&#x3D;&quot;&#x27;editar&#x27;&quot;
+              class&#x3D;&quot;contenIcon-edit&quot;
+              (click)&#x3D;&quot;openCloseModal(true, lineamiento)&quot;
+            &gt;
+              &lt;img
+                class&#x3D;&quot;violetIcon contenIcon-edit-image&quot;
+                src&#x3D;&quot;{{ICONS_CONST.edit}}&quot;
+                alt&#x3D;&quot;{{ICONS_CONST.edit}}&quot;
+              /&gt;
+            &lt;/div&gt;
+            &lt;div
+              style&#x3D;&quot;cursor: pointer;&quot;
+              (click)&#x3D;&quot;viewDetailGuidelineInactive($index)&quot;
+            &gt;
+              &lt;img
+                class&#x3D;&quot;blackIcon contenIcon-image&quot;
+                src&#x3D;&quot;{{ isViewDetailInactive[$index]? ICONS_CONST.upArrowSmall: ICONS_CONST.downArrowSmall}}&quot;
+                alt&#x3D;&quot;{{ICONS_CONST.upArrowSmall}}&quot;
+              /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        @if (isViewDetailInactive[$index]) {
+          &lt;div class&#x3D;&quot;detailContent&quot;&gt;
+            &lt;div class&#x3D;&quot;detailContent_info&quot;&gt;
+              &lt;span
+                class&#x3D;&quot;detailContent_info-title&quot;
+                &gt;{{&#x27;PLANNING.lineamientos.infoGuideLine.title&#x27; | translate}}&lt;/span
+              &gt;
+              &lt;div class&#x3D;&quot;detailContent_info-subTitle&quot;&gt;
+                {{lineamiento.politica.nombre}}
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;detailContent_info&quot;&gt;
+              &lt;span
+                class&#x3D;&quot;detailContent_info-title&quot;
+                &gt;{{&#x27;PLANNING.lineamientos.infoGuideLine.vigencia&#x27; | translate}}&lt;/span
+              &gt;
+              &lt;div class&#x3D;&quot;detailContent_info-subTitle&quot;&gt;
+                {{lineamiento.politica.fechaInicio | date: &#x27;yyyy&#x27;}} -
+                {{lineamiento.politica.fechaInicio | date: &#x27;yyyy&#x27;}}
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;detailContent_info&quot;&gt;
+              &lt;span
+                class&#x3D;&quot;detailContent_info-title&quot;
+                &gt;{{&#x27;PLANNING.lineamientos.infoGuideLine.entity&#x27; | translate}}&lt;/span
+              &gt;
+              &lt;div class&#x3D;&quot;detailContent_info-subTitle&quot;&gt;
+                {{lineamiento.politica.entidad.nombre}}
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        }
+      }
+    }
+  &lt;/div&gt;
+}
+@if (isModal()) {
+  &lt;div&gt;
+    &lt;guidelines-modal
+      [title]&#x3D;&quot;modalTitle&quot;
+      [isEdit]&#x3D;&quot;isEditGuideline&quot;
+      (actionButton)&#x3D;&quot;closeModalEvent($event)&quot;
+    /&gt;
+  &lt;/div&gt;
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (isData()) {  <div class="content">    <div      class="content-active"      [class.contentWD]="ActiveGuideLines.length == 0"    >      <div class="content-active_button">        <span class="blackIcon content-active_button_text"          >{{\'PLANNING.active\' | translate}}          <img            (click)="viewList(\'active\')"            class="blackIcon content-active_button_img"            src="{{ viewMore.active ? ICONS_CONST.anguloUp : ICONS_CONST.anguloDown}}"            alt="angulo"          />        </span>        @if (ActiveGuideLines.length !== 0) {          <div class="content-active_button_button">            <button              [actionPermission]="\'crear\'"              class="smallButton"              type="submit"              (click)="openCloseModal()"            >              <img                class="content-active_button_button-image"                src="{{ICONS_CONST.add}}"                alt="{{ICONS_CONST.add}}"              />              {{ \'BUTTONS.create\' | translate }}            </button>          </div>        }      </div>      @if (ActiveGuideLines.length == 0) {        <empty-component          [message]="messageEmpty"          (actionButton)="openCloseModal()"        />      } @else {        @if (viewMore[\'active\']) {          @for (lineamiento of ActiveGuideLines; track $index) {            <div class="contenList">              <div class="contenList-title">{{lineamiento.nombre}}</div>              <div class="contenIcon">                <div                  [actionPermission]="\'editar\'"                  class="contenIcon-edit"                  (click)="openCloseModal(true, lineamiento)"                >                  <img                    class="violetIcon contenIcon-edit-image"                    src="{{ICONS_CONST.edit}}"                    alt="{{ICONS_CONST.edit}}"                  />                </div>                <div                  style="cursor: pointer;"                  (click)="viewDetailGuideline($index)"                >                  <img                    class="blackIcon contenIcon-image"                    src="{{ isViewDetail[$index]? ICONS_CONST.upArrowSmall: ICONS_CONST.downArrowSmall}}"                    alt="{{ICONS_CONST.upArrowSmall}}"                  />                </div>              </div>            </div>            @if (isViewDetail[$index]) {              <div class="detailContent">                <div class="detailContent_info">                  <span class="detailContent_info-title"                    >{{\'PLANNING.lineamientos.infoGuideLine.title\' | translate}}                  </span>                  <div class="detailContent_info-subTitle">                    {{lineamiento.politica.nombre}}                  </div>                </div>                <div class="detailContent_info">                  <span                    class="detailContent_info-title"                    >{{\'PLANNING.lineamientos.infoGuideLine.vigencia\' | translate}}</span                  >                  <div class="detailContent_info-subTitle">                    {{lineamiento.politica.fechaInicio | date: \'yyyy\'}} -                    {{lineamiento.politica.fechaInicio | date: \'yyyy\'}}                  </div>                </div>                <div class="detailContent_info">                  <span                    class="detailContent_info-title"                    >{{\'PLANNING.lineamientos.infoGuideLine.entity\' | translate}}</span                  >                  <div class="detailContent_info-subTitle">                    {{lineamiento.politica.entidad.nombre}}                  </div>                </div>              </div>            }          }        }      }    </div>  </div>  <br />  <div class="content">    <div class="content-active_button" (click)="viewList(\'inactive\')">      <span class="blackIcon content-active_button_text"        >{{\'PLANNING.inactive\' | translate}}        <img          class="blackIcon content-active_button_img"          src="{{ viewMore.inactive ? ICONS_CONST.anguloUp : ICONS_CONST.anguloDown}}"          alt="{{ICONS_CONST.edit}}"        />      </span>    </div>    @if (viewMore[\'inactive\']) {      @for (lineamiento of InactveGuidelines; track $index) {        <div class="contenList">          <div class="contenList-title">{{lineamiento.nombre}}</div>          <div class="contenIcon">            <div              [actionPermission]="\'editar\'"              class="contenIcon-edit"              (click)="openCloseModal(true, lineamiento)"            >              <img                class="violetIcon contenIcon-edit-image"                src="{{ICONS_CONST.edit}}"                alt="{{ICONS_CONST.edit}}"              />            </div>            <div              style="cursor: pointer;"              (click)="viewDetailGuidelineInactive($index)"            >              <img                class="blackIcon contenIcon-image"                src="{{ isViewDetailInactive[$index]? ICONS_CONST.upArrowSmall: ICONS_CONST.downArrowSmall}}"                alt="{{ICONS_CONST.upArrowSmall}}"              />            </div>          </div>        </div>        @if (isViewDetailInactive[$index]) {          <div class="detailContent">            <div class="detailContent_info">              <span                class="detailContent_info-title"                >{{\'PLANNING.lineamientos.infoGuideLine.title\' | translate}}</span              >              <div class="detailContent_info-subTitle">                {{lineamiento.politica.nombre}}              </div>            </div>            <div class="detailContent_info">              <span                class="detailContent_info-title"                >{{\'PLANNING.lineamientos.infoGuideLine.vigencia\' | translate}}</span              >              <div class="detailContent_info-subTitle">                {{lineamiento.politica.fechaInicio | date: \'yyyy\'}} -                {{lineamiento.politica.fechaInicio | date: \'yyyy\'}}              </div>            </div>            <div class="detailContent_info">              <span                class="detailContent_info-title"                >{{\'PLANNING.lineamientos.infoGuideLine.entity\' | translate}}</span              >              <div class="detailContent_info-subTitle">                {{lineamiento.politica.entidad.nombre}}              </div>            </div>          </div>        }      }    }  </div>}@if (isModal()) {  <div>    <guidelines-modal      [title]="modalTitle"      [isEdit]="isEditGuideline"      (actionButton)="closeModalEvent($event)"    />  </div>}</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'ChangePasswordComponent', 'selector': 'change-password'},{'name': 'CollaborationProjectsComponent', 'selector': 'app-collaboration-projects'},{'name': 'ConfirmActionModalComponent', 'selector': 'confirm-action-modal'},{'name': 'ConfirmModalComponent', 'selector': 'confirm-modal'},{'name': 'CreateProductComponent', 'selector': 'app-create-product'},{'name': 'CreateProjectModalComponent', 'selector': 'create-project-modal'},{'name': 'DashBoardComponent', 'selector': 'app-dash-board'},{'name': 'DetailContentPestanasComponent', 'selector': 'detail-content-pestanas'},{'name': 'DownloadReportsComponent', 'selector': 'app-download-reports'},{'name': 'EmptyComponentComponent', 'selector': 'empty-component'},{'name': 'EntitiesComponent', 'selector': 'entities-component'},{'name': 'ErrorModalComponent', 'selector': 'error-modal'},{'name': 'EvaluationProjectsComponent', 'selector': 'app-evaluation-projects'},{'name': 'GeneralManagementComponent', 'selector': 'app-planning'},{'name': 'GuidelinesModalComponent', 'selector': 'guidelines-modal'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InactivityModalComponent', 'selector': 'inactivity-modal'},{'name': 'IndicatorsComponent', 'selector': 'indicators'},{'name': 'IndicatorsModalComponent', 'selector': 'indicators-modal'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'login-component'},{'name': 'ManagementMenuComponent', 'selector': 'management-menu'},{'name': 'ManageProjectsComponent', 'selector': 'manage-projects'},{'name': 'MonitoringProjectComponent', 'selector': 'app-monitoring-project'},{'name': 'MultiselectCheckboxComponent', 'selector': 'multiselect-checkbox'},{'name': 'PlanningStrategiesComponent', 'selector': 'planning-strategies'},{'name': 'PlansModalComponent', 'selector': 'plans-modal'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ReportsPlaningComponent', 'selector': 'app-reports-planing'},{'name': 'ResetLinkComponent', 'selector': 'reset-component'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'StrategicGuidelinesComponent', 'selector': 'strategic-guidelines'},{'name': 'StrategicPlansComponent', 'selector': 'strategic-plans'}];
+    var DIRECTIVES = [{'name': 'CloseOutsideDirective', 'selector': '[closeOutside]'},{'name': 'CurrencyFormatDirective', 'selector': '[appCurrencyFormat]'},{'name': 'NoInitSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'NotFinishSpacesDirective', 'selector': 'input:not([type&#x3D;checkbox]):not([type&#x3D;radio]):not([type&#x3D;submit]):not([type&#x3D;button]), textarea'},{'name': 'PermissionDirective', 'selector': '[actionPermission]'}];
+    var ACTUAL_COMPONENT = {'name': 'StrategicGuidelinesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StrategicGuidelinesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

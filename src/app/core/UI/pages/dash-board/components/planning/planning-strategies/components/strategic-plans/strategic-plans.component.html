@@ -1,0 +1,198 @@
+@let listPlan = planList();
+
+@if (isLoading()) {
+  @if (listPlan.length == 0) {
+    <div class="content contentWD">
+      <div class="content-active_button"></div>
+      <empty-component
+        [message]="messageEmpty"
+        (actionButton)="openCloseModal()"
+      />
+    </div>
+  }
+
+  @if (listPlan.length !== 0) {
+    <div class="content-active_button_button">
+      <button
+        [actionPermission]="'crear'"
+        class="smallButton"
+        type="submit"
+        style="width: 112px !important;"
+        (click)="openCloseModal()"
+      >
+        <img
+          class="content-active_button_button-image"
+          src="{{ICONS_CONST.add}}"
+          alt="{{ICONS_CONST.add}}"
+        />
+        {{ 'PLANNING.planes.createPlan' | translate }}
+      </button>
+    </div>
+  }
+
+  @for (plans of listPlan; track $index) {
+    <div class="content">
+      <div class="content-active_button">
+        <div class="content-active_button_title">
+          <span class="blackIcon content-active_button_text"
+            >{{ 'PLANNING.planes.title' | translate }}
+            {{plans.fechaInicio| date: 'MMMM yyyy' | capitalizeFirst}} -
+            {{plans.fechaFin | date: 'MMMM yyyy' | capitalizeFirst}}
+          </span>
+
+          @if (currentDate < plans.fechaFin) {
+            <div [actionPermission]="'editar'" style="width: 55px;">
+              |
+              <u
+                class="editPlan"
+                (click)="openCloseModal(true, plans)"
+                >{{ 'PLANNING.planes.editPlan' | translate }}</u
+              >
+            </div>
+          }
+          <img
+            (click)="viewEjes($index)"
+            class="blackIcon content-active_button_img"
+            src="{{ isViewEjes[$index] ? ICONS_CONST.anguloDown : ICONS_CONST.anguloUp}}"
+            alt="angulo"
+          />
+        </div>
+      </div>
+
+      @if (!isViewEjes[$index]) {
+        @for (ejes of plans.ejesEstrategicos; track $index) {
+          <div class="contenList">
+            <div class="contenList-title">{{ejes.nombre}}</div>
+            <div class="contenIcon">
+              @if (currentDate < plans.fechaFin) {
+                <button
+                  [actionPermission]="'crear'"
+                  class="mediumRoundButtonIcon"
+                  type="submit"
+                  (click)="openCloseModal(true, ejes, plans.id)"
+                >
+                  <img
+                    class="violetIcon contenIcon-image"
+                    src="{{ICONS_CONST.edit}}"
+                    alt="{{ICONS_CONST.edit}}"
+                  />
+                  <span>{{'BUTTONS.config' | translate}}</span>
+                </button>
+              }
+              <div style="cursor: pointer;" (click)="viewDetailPlan(ejes.id)">
+                <img
+                  class="blackIcon contenIcon-image"
+                  src="{{isViewDetail[ejes.id] ? ICONS_CONST.upArrowSmall: ICONS_CONST.downArrowSmall}}"
+                  alt="{{ICONS_CONST.upArrowSmall}}"
+                />
+              </div>
+            </div>
+          </div>
+          @if (isViewDetail[ejes.id]) {
+            <div class="detailContent">
+              <div class="detailContent_info">
+                <span class="detailContent_info-title">
+                  {{ 'PLANNING.planes.description' | translate }}
+                </span>
+                <div class="detailContent_info-contentInfo">
+                  {{ejes.descripcion}}
+                </div>
+              </div>
+              <div class="detailContent_info">
+                <span class="detailContent_info-titleTwo">
+                  {{ 'PLANNING.planes.guideLinesList' | translate }}
+                </span>
+                @for (
+                  guideLines of ejes.lineamientosEstrategicos;
+                  track $index
+                ) {
+                  <div class="detailContent_info-contentInfo">
+                    {{guideLines.nombre}}
+                  </div>
+                }
+              </div>
+            </div>
+
+            @if (ejes.acciones.length !==0) {
+              <div class="contentSpace">
+                <div class="contentSpace-space"></div>
+              </div>
+              <div class="contentAction">
+                <div class="contentAction-titleAction">
+                  {{ 'PLANNING.planes.numActions' | translate :{ totalAction: ejes.acciones.length} }}
+                </div>
+                <div class="contentAction-listAction">
+                  <div class="contentAction-listAction-content">
+                    @for (actions of ejes.acciones; track $index) {
+                      <div class="contentAction-listAction-content_detail">
+                        <div
+                          class="contentAction-listAction-content_detail_info"
+                        >
+                          <span
+                            class="contentAction-listAction-content_detail_info_text"
+                          >
+                            {{ actions.nombre }}
+                          </span>
+                          <span
+                            [class.expanded]="isExpandedText[actions.id]"
+                            class="contentAction-listAction-content_detail_info_title"
+                          >
+                            {{actions.descripcion}}
+                          </span>
+                          @if (actions.descripcion.length > 200) {
+                            <u
+                              (click)="expandedText(actions.id)"
+                              class="contentAction-listAction-content_detail_info_viewMore"
+                              >{{(isExpandedText[actions.id] ? 'BUTTONS.viewLess' : 'BUTTONS.viewMore')| translate}}
+                            </u>
+                          }
+                        </div>
+                        <div
+                          class="contentAction-listAction-content_detail_info_indicators"
+                        >
+                          <div
+                            class="contentAction-listAction-content_detail_info_indicators_title"
+                          >
+                            {{ 'PLANNING.planes.indicatorTitle' | translate }}
+                          </div>
+                          @for (
+                            indicator of actions.indicadores;
+                            track $index
+                          ) {
+                            <div
+                              class="contentAction-listAction-content_detail_info_indicators_content"
+                            >
+                              <div
+                                class="contentAction-listAction-content_detail_info_indicators_content_text"
+                              >
+                                {{indicator.nombre}}
+                              </div>
+                              <div
+                                class="contentAction-listAction-content_detail_info_indicators_content_textW"
+                              >
+                                {{ 'PLANNING.planes.weight' | translate :{ weigth: indicator.peso} }}
+                              </div>
+                            </div>
+                          }
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          }
+        }
+      }
+    </div>
+  }
+  @if (isModal()) {
+    <div>
+      <plans-modal
+        [title]="modalTitle"
+        [isEdit]="isEditEje"
+        (actionButton)="closeModalEvent($event)"
+      />
+    </div>
+  }
+}

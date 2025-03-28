@@ -1,0 +1,51 @@
+@import '../../../../styles.scss';
+
+
+.contentWithoutData {
+    display: grid;
+    justify-content: center;
+
+     &-info {
+        display: grid;
+        grid-auto-flow: column;
+        width: 10rem;
+        width: 326px;
+        height: 127px;
+
+        &_image {
+            height: 8rem;
+        }
+
+        &_content {
+            display: grid;
+
+            &_title {
+                display: grid;
+                grid-auto-flow: column;
+                align-content: end;
+                width: fit-content;
+                text-align: left;
+                padding-top: 26px;
+                padding-left: 8px;
+                line-height: 1.2rem;
+                border-radius: 4px;
+                color: $color-purple;
+                font-family: $font-family-nunito;
+                font-style: $font-style-normal;
+                font-size: $font-size-14;
+                letter-spacing: $character-spacing-0;
+            }
+
+            &_button {
+                margin-left: 10px;
+
+                &-image {
+                    height: 12px;
+                    width: 12px;
+                }
+
+            }
+        }
+    }
+
+}

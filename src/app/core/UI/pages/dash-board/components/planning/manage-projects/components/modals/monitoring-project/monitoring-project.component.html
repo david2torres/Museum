@@ -1,0 +1,248 @@
+@let isConfirmModalAction = isConfirmAction();
+@let isConfirmModal = isConfirm();
+
+<div class="contentModalShow">
+  <div class="contentModal">
+    <div class="contentMargin">
+      <div class="contentInfo">
+        <div class="contentInfo-header">
+          <div class="contentInfo-header_title">
+            {{titleHeader | translate}}
+            <br>
+            <div class="title">
+              {{projectInfo()[0]?.nombre}}
+            </div>
+          </div>
+
+          <div class="contentInfo-header_detailContent">
+            <span
+              [innerHTML]="'NEW_PROJECT.modal.numberProject' | translate: {numberProject: projectInfo()[0]?.numero} "></span>
+            <span [innerHTML]="'NEW_PROJECT.modal.area' | translate: {area: area}"></span>
+          </div>
+        </div>
+
+        <form [formGroup]="monitoringForm" action="">
+          <div class="contentForm-months">
+            <div class="title">
+              {{'NEW_PROJECT.monitoring.monthTitle' | translate}}
+            </div>
+            <!-- TODO Funcion Select pasra comprar Objetos por id y no por referencia -->
+            <select formControlName="mes" name="mes" id="mes" [compareWith]="compareMeses"
+              class="contentForm-generalForm_contentlabel_space_select truncate-select">
+              <option disabled [ngValue]="null">
+                {{'NEW_PROJECT.monitoring.monthTitlePlaceholder' | translate}}
+              </option>
+              @for (mes of monthsList(); track $index) {
+              <option [ngValue]="mes">
+                {{ mes.nombre}}
+              </option>
+              }
+            </select>
+          </div>
+
+          <!-- Productos -->
+          <div class="contentForm">
+            <div class="contentForm-generalForm">
+              <div class="contentForm-generalForm_title">
+                {{ 'NEW_PROJECT.monitoring.titleProduct' | translate}}
+              </div>
+
+              <div class="contentForm-generalForm_contentlabel">
+                <div formArrayName="productos">
+                  @for (producto of getProducts?.controls; track $index; let i = $index) {
+                  <div [formGroupName]="i">
+                    <div class="contentForm-generalForm_contentlabel_detail">
+                      <div class="contentForm-generalForm_contentlabel_detail_info">
+                        <span class="infoDetail truncate">{{producto.value.nombre}}</span>
+                        <span class="infoDetail"
+                          [innerHTML]="'NEW_PROJECT.monitoring.cantidad' | translate: {cantidad:producto.value.cantidad ?? 0 }"></span>
+                        <span class="infoDetail"
+                          [innerHTML]="'NEW_PROJECT.monitoring.date' | translate: {initial:producto.value.fechaInicio | date : 'dd/MM/yyyy', end:producto.value.fechaFin | date : 'dd/MM/yyyy'}"></span>
+                      </div>
+                      <div class="contentForm-generalForm_contentlabel_detail_info" style="grid-template-columns: 1fr;">
+                        <span class="infoDetail paddingAlign"
+                          [innerHTML]="'NEW_PROJECT.monitoring.avanceAcomulado' | translate: {advance:producto.value.avanceAcumulado }"></span>
+                      </div>
+                    </div>
+
+                    <div class="contentForm-generalForm_contentlabel_detail">
+                      <div class="contentForm-generalForm_contentlabel_detail_description">
+                        <div class="title">
+                          {{ 'NEW_PROJECT.monitoring.avanceCualtativo' | translate }}
+                        </div>
+                        <div>
+                          <textarea style="width: -webkit-fill-available;" formControlName="avanceCualitativo"
+                            [maxlength]="maxDescription" name="avanceCualitativo" [id]="'avanceCuanlitativo_' + i"
+                            placeholder="{{'NEW_PROJECT.monitoring.avanceCualtiativoPlaceholder' | translate}}" rows="4"
+                            cols="50"></textarea>
+                          <div class="counterText" style="margin-top: -20px;">
+                            {{ producto.get('avanceCualitativo')?.value?.length || 0 }}/{{ maxDescription }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="contentForm-generalForm_contentlabel_detail_description"
+                        style="grid-template-columns: 1fr;">
+                        <div class="title">
+                          {{ 'NEW_PROJECT.monitoring.avanceCuantitativo' | translate }}
+                        </div>
+                        <div>
+                          <input style="height: 5rem;width: 7rem; " formControlName="avanceCuantitativo" type="number"
+                            [id]="'avanceCuantitativo_' + i">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="contentLinkAction">
+                      <input type="link" formControlName="linkEvidencia" style="width: -webkit-fill-available;"
+                        [id]="'linkEvidenciaProduct' + i"
+                        placeholder="{{'NEW_PROJECT.monitoring.linkEvidencia' | translate}}" type="text">
+
+                      <button class="mediumButton" style="width: 125px;" (click)="openLink(producto.get('linkEvidencia')?.value)">
+                        {{ 'BUTTONS.openLink' | translate }} 
+                      </button>
+
+                    </div>
+                  </div>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Indicadores -->
+          <div class="contentForm">
+            <div class="contentForm-generalForm">
+              <div class="contentForm-generalForm_title">
+                {{ 'NEW_PROJECT.monitoring.titleIndicadores' | translate}}
+              </div>
+              <div class="infoDetail" style="margin-top: 1rem;"
+                [innerHTML]="'NEW_PROJECT.monitoring.infoIndicadores' | translate">
+              </div>
+              <div class="contentForm-generalForm_contentlabel">
+                <div formArrayName="indicadores">
+                  @for (indicadores of getIndicadores?.controls; track $index; let i = $index) {
+                  <div [formGroupName]="i">
+                    <div class="contentForm-generalForm_contentlabel_detail">
+                      <div class="contentForm-generalForm_contentlabel_detail_info"
+                        style="grid-template-columns: 10fr 1fr;">
+                        <span class="infoDetail truncate">{{indicadores.value.nombre}}</span>
+                        <span class="infoDetail"
+                          [innerHTML]="'NEW_PROJECT.monitoring.meta' | translate: {meta:indicadores.value.meta }"></span>
+                      </div>
+                      <div class="contentForm-generalForm_contentlabel_detail_info" style="grid-template-columns: 1fr;">
+                        <span class="infoDetail paddingAlign"
+                          [innerHTML]="'NEW_PROJECT.monitoring.avanceAcomulado' | translate: {advance:indicadores.value.avanceAcumulado }"></span>
+                      </div>
+                    </div>
+
+
+                    <div class="contentForm-generalForm_contentlabel_detail">
+                      <div class="contentForm-generalForm_contentlabel_detail_description">
+                        <div class="title">
+                          {{ 'NEW_PROJECT.monitoring.avanceCualtativo' | translate }}
+                        </div>
+                        <div>
+                          <textarea style="width: -webkit-fill-available;" formControlName="avanceCualitativo"
+                            [maxlength]="maxDescription" name="avanceCualitativo"
+                            [id]="'avanceCualitativoIndicator' + i"
+                            placeholder="{{'NEW_PROJECT.monitoring.avanceCualtiativoPlaceholder' | translate}}" rows="4"
+                            cols="50"></textarea>
+                          <div class="counterText" style="margin-top: -20px;">
+                            {{ indicadores.get('avanceCualitativo')?.value?.length || 0 }}/{{ maxDescription }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="contentForm-generalForm_contentlabel_detail_description">
+                        <div class="title">
+                          {{ 'NEW_PROJECT.monitoring.avanceCuantitativo' | translate }}
+                        </div>
+                        <input style="height: 5rem;width: 7rem;" formControlName="avanceCuantitativo" type="number"
+                          [id]="'avanceCuantitativoIndicator' + i">
+                      </div>
+                    </div>
+                  </div>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Presupuesto -->
+          <div class="contentForm">
+            <div class="contentForm-generalForm">
+              <div class="contentForm-generalForm_title">
+                {{ 'NEW_PROJECT.monitoring.presupuesto' | translate}}
+              </div>
+
+              <div class="contentForm-generalForm_contentlabel">
+                <div>
+                  <div class="contentForm-generalForm_contentlabel_detail" style="grid-template-columns: 1fr 1fr;">
+                    <div class="contentForm-generalForm_contentlabel_detail_info">
+                      <span class="infoDetail"
+                        [innerHTML]="'NEW_PROJECT.monitoring.totalEjecutado' | translate: {ejecutado:totalEjecutado() | currencyCOP }"></span>
+                    </div>
+
+                    <div class="contentForm-generalForm_contentlabel_detail_info">
+                      <span class="infoDetail truncate"
+                        [innerHTML]="'NEW_PROJECT.monitoring.totalAprobado' | translate: {aprobado:totalAprovado()  | currencyCOP }"></span>
+                    </div>
+                  </div>
+
+                  <!-- Valor Mensual Ejecutado-->
+                  <div class="contentForm-generalForm_contentlabel_detail" style="grid-template-columns: 1fr;">
+                    <div class="contentForm-generalForm_contentlabel_detail_description"
+                      style="grid-auto-flow: column; grid-template-columns: 1fr 5fr; gap: 0rem; align-items: baseline;">
+                      <div class="title">
+                        {{ 'NEW_PROJECT.monitoring.valorMensual' | translate }}
+                      </div>
+                      <div formGroupName="presupuesto">
+                        <input appCurrencyFormat style="width: 23rem;" formControlName="valorMensual" class="spaceText"
+                          type="text" id="valorMensual"
+                          placeholder="{{'NEW_PROJECT.monitoring.valorMensual'| translate}}" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Observaciones -->
+          <div class="contentForm-generalForm_contentlabel_detail" style="grid-template-columns: 1fr;">
+            <div class="contentForm-generalForm_contentlabel_detail_description">
+              <div class="title">
+                {{ 'NEW_PROJECT.monitoring.observaciones' | translate }}
+              </div>
+              <div>
+                <textarea style="width: -webkit-fill-available;" formControlName="observaciones"
+                  [maxlength]="maxDescription" name="observaciones" id="observaciones"
+                  placeholder="{{'NEW_PROJECT.monitoring.observacionesPlaceholder' | translate}}" rows="4"
+                  cols="50"></textarea>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="contentButton">
+        <div class="contentButton-actions">
+          <u style="width: 5rem !important;" (click)="setMessageConfirmModal('cancel')"
+            class="contentButton-actions_links addMore">{{'BUTTONS.cancel' | translate}}</u>
+
+          <button class="largeButton" (click)="saveSeguimiento()">
+            {{ 'BUTTONS.saveAdvance' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+    @if (isConfirmModalAction) {
+    <div class="contentConfirmModal">
+      <confirm-action-modal (actionButton)="confirmAction($event)" [textModal]="confirmModalAction" />
+    </div>
+    }
+    @if (isConfirmModal) {
+    <div class="contentConfirmModal">
+      <confirm-modal [textModal]="confirmModalMessageSucces" />
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,21 @@
+@if (isLoading() && isFullScreen()) {
+  <div class="modal-loader">
+    <div class="container">
+      <div class="liquid"></div>
+      <div class="liquid"></div>
+      <div class="liquid"></div>
+      <div class="liquid"></div>
+    </div>
+  </div>
+}
+
+@if (isLoading()&& !isFullScreen()) {
+  <div [ngClass]="styleLoader()">
+    <div class="container">
+      <div class="liquid"></div>
+      <div class="liquid"></div>
+      <div class="liquid"></div>
+      <div class="liquid"></div>
+    </div>
+  </div>
+}
